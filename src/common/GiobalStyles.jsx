@@ -1,22 +1,23 @@
 import { createGlobalStyle } from 'styled-components';
 import color from './GlobalColers';
 
-import GilroyBold from '../fonts/Gilroy-Bold.woff';
-import GilroyMedium from '../fonts/Gilroy-Medium.woff';
+import InterSemiBoldWoff from '../fonts/Inter-SemiBold.woff';
+import InterMediumWoff from '../fonts/Inter-Medium.woff';
+import InterSemiBoldWoff2 from '../fonts/Inter-SemiBold.woff2';
+import InterMediumWoff2 from '../fonts/Inter-Medium.woff2';
 
 export const GlobalStyle = createGlobalStyle`
-
 @font-face {
-  font-family: 'Gilroy';
-  font-style: normal;
-  font-weight: 700; 
-  src: url(${GilroyBold}) format('woff');
-}
-@font-face {
-  font-family: 'Gilroy';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 500; 
-  src: url(${GilroyMedium}) format('woff');
+  src: url(${InterMediumWoff2}) format('woff2'), url(${InterMediumWoff}) format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600; 
+  src: url(${InterSemiBoldWoff2}) format('woff2'), url(${InterSemiBoldWoff}) format('woff');
 }
 
 *,
@@ -28,15 +29,15 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "SF Pro Text", 
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", 
 			"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
 			"Helvetica Neue", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   font-style: normal;
-  line-height: 1.29;
-  color: ${color.whitePrimary};
-  background-color: ${color.black};
+  line-height: 1.13;
+  color: ${color.blackPrimary};
+  background-color: ${color.backgroundMain};
   width: 100%;
   height: 100vh;
   margin: 0;  
@@ -80,5 +81,4 @@ html {
 .no-scroll {
   overflow: hidden;
 }
-
 `;
