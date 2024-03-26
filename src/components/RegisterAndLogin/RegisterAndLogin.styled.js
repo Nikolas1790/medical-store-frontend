@@ -1,5 +1,6 @@
 import color from 'common/GlobalColers'
 import styled from 'styled-components'
+import { ErrorMessage, Field } from 'formik';
 
 export const Container = styled.div`
   display: flex;
@@ -53,3 +54,92 @@ export const TitleSpan = styled.span`
 export const FormContainer = styled.div`
   width: 323px;
 `
+/////////////////////////////////////////////////////////////////////////////
+
+
+export const FormConteiner = styled.div`
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media (min-width: 768px) {
+    gap: 14px;
+  }
+`;
+
+export const FormFields = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+  height: 210px;
+
+  @media (min-width: 768px) {
+    height: 308px;
+  }
+`;
+
+export const FormFieldConteiner = styled.div`
+  position:relative;
+  max-width: 295px;
+
+  @media (min-width: 768px) {
+    max-width: 472px;
+  }
+`;
+
+export const FormFieldLabel = styled.label`
+  position:absolute;
+  top: 13px;
+  left: 14px;
+  color: ${color.gryeLight};
+
+  @media (min-width: 768px) {
+    top: 16px;
+  }
+`;
+
+export const FormField = styled(Field)`
+  width: 100%;
+  max-width: 295px;
+
+  height: 44px;
+  border: 1px solid	${(props) => (props.error === "true" ? "red" : "rgba(18, 20, 23, 0.1)")};
+  border-radius: 12px;
+  padding: 14px;
+  padding-left: ${(props) => props.paddingleft || '65px'};
+  outline: none;
+  color: ${color.whitePrimary};
+  background: ${color.gryeBlack};
+
+  @media (min-width: 768px) {
+    max-width: 472px;
+    height: 50px;
+    padding: 16px 14px 16px 65px;
+    padding-left: ${(props) => props.paddingleft || '65px'};
+  }
+`;
+
+export const TopRightSvg = styled.svg`
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  cursor: pointer;
+  stroke: ${color.blackPrimary};
+  fill: none;
+
+  @media (min-width: 768px) {
+    top: 17px;
+    right: 17px;
+  }
+`;
+
+export const ErrorMessageStyled = styled(ErrorMessage)`
+  font-size: 10px;
+  color: red;
+  padding: 4px 0px 0px 14px;
+`;
+export const SecureMessage = styled.p`
+  font-size: 10px;
+  color: ${color.green};
+  padding: 4px 0px 0px 14px;
+`;
