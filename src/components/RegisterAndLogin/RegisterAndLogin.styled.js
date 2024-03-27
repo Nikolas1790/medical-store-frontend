@@ -7,21 +7,14 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center ;
   flex-direction: column;
-  /* gap: 10px; */
 `
-
 
 export const LoginContainer = styled.div`
   position: relative;
   width: 1440px;
   padding: 28px 253px 262px 100px;
-  background: yellow;
+  /* background: yellow; */
   overflow: hidden;
-  /* display: flex;
-  align-items: center;
-  justify-content: center ;
-  flex-direction: column; */
-  /* gap: 10px; */
 `
 export const ElementsSvg = styled.svg`
   position: absolute;
@@ -67,8 +60,6 @@ export const FormConteiner = styled.div`
   gap: 14px;
 `;
 
-
-
 export const FormFieldConteiner = styled.div`
   position:relative;
   width: 100%;
@@ -80,29 +71,21 @@ export const FormFieldConteiner = styled.div`
   } */
 `;
 
-// export const FormFieldLabel = styled.label`
-//   position:absolute;
-//   top: 13px;
-//   left: 14px;
-//   color: ${color.gryeLight};
-
-//   @media (min-width: 768px) {
-//     top: 16px;
-//   }
-// `;
-
 export const FormField = styled(Field)`
   width: 100%;
   max-width: 335px;
 
   height: 44px;
-  border: 1px solid	${(props) => (props.error === "true" ? "red" : "rgba(18, 20, 23, 0.1)")};
-  border-radius: 12px;
+
+  border: 1px solid	${color.blackPrimarySecondary};
+  /* border: 1px solid	${(props) => (props.error === "true" ? color.red : color.blackPrimarySecondary)}; */
+
+  border-radius: 60px;
   padding: 13px 18px;
   outline: none;
-  color: ${color.whitePrimary};
-  background: ${color.backgroundWhite};
-  /* background: red; */
+  /* color: ${color.whitePrimary}; */
+  background: ${color.white};
+  
   @media (min-width: 768px) {
     /* max-width: 472px; */
     /* height: 50px; */

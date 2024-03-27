@@ -1,5 +1,8 @@
 const color = {
   blackPrimary: 'rgb(29, 30, 33);',
+  blackPrimarySecondary: 'rgba(29, 30, 33, 0.1)',
+  textColorSecondary: 'rgba(29, 30, 33, 0.4)',
+  
   greenLight: 'rgb(89, 177, 122);',
   greenDarker: 'rgb(63, 148, 95);',
   greenSecondary: 'rgba(89, 177, 122, 0.1)',
@@ -17,7 +20,7 @@ const color = {
   blueSecondary: 'rgba(112, 166, 232, 0.1)',
 
   backgroundMain: 'rgb(247, 248, 250)', 
-  backgroundWhite: 'rgb(255, 255, 255)',   
+  white: 'rgb(255, 255, 255)',   
 };
   
 export default color;
