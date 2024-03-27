@@ -38,6 +38,7 @@ export default function Login() {
     } catch (error) {
       toast.error("Please check the Mail and Password.");
     }
+    
   }
 
   return (

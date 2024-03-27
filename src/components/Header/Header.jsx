@@ -1,6 +1,6 @@
 import Logo from "components/Logo/Logo";
 import sprite from '../../img/sprite.svg';
-import { HeaderBlock, HeaderContainer, HeaderMainInf, HeaderText, HeaderTitle } from "./Header.styled";
+import { Divider, HeaderBlock, HeaderContainer, HeaderMainInf, HeaderText, HeaderTextBlock, HeaderTitle } from "./Header.styled";
 
 export default function Header() {
   return (
@@ -10,10 +10,11 @@ export default function Header() {
 
         <HeaderMainInf>
           <HeaderTitle>Medicine store</HeaderTitle>
-          <HeaderContainer>
+          <HeaderTextBlock>
             <HeaderText>Dasboard</HeaderText>
+            <Divider />
             <HeaderText>vendor@gmail.com</HeaderText>
-          </HeaderContainer>
+          </HeaderTextBlock>
         </HeaderMainInf>
 
         <button>

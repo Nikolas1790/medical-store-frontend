@@ -5,6 +5,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid rgba(29, 30, 33, 0.1);
 `
 
 export const HeaderBlock = styled.div`
@@ -23,7 +24,7 @@ export const HeaderTitle = styled.h1`
   line-height: 1.18;
   margin-bottom: 4px;
 `
-export const HeaderConteiner = styled.div`
+export const HeaderTextBlock = styled.div`
   display: flex;
   /* flex-direction: row; */
   /* gap: 14px; */
@@ -34,3 +35,22 @@ export const HeaderText = styled.p`
   line-height: 1.5;
   color: ${color.textColorSecondary};
 `
+
+export const Divider = styled.div`
+    position: relative;
+    display: inline-block;
+    margin: 0 8px; 
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;        
+        height: 100%;
+        width: 1px;
+        background-color: ${color.blackPrimarySecondary}; 
+    }
+
+    /* @media (max-width: 560px) {
+       display: none;
+    }; */
+`;
