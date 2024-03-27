@@ -2,7 +2,7 @@ import Logo from "components/Logo/Logo";
 import * as Yup from 'yup';
 import { Container, ContextContainer, ElementsSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFieldLabel, FormFields, LoginContainer, Title, TitleContainer, TitleSpan, WhitePill } from "./RegisterAndLogin.styled";
 import whitePill from "../../img/whiteRoundPill/white-round-pill.png"
-import sprite from '../../img/symbol-defs.svg';
+import sprite from '../../img/sprite.svg';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
