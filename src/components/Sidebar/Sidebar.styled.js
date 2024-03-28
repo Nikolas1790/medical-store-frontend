@@ -7,7 +7,7 @@ export const SidebarConteiner = styled.div`
   top: 100%; /* Это разместит Sidebar прямо под Header */
   left: 0;
   z-index: 1;
-  
+  height: 721px;
   display: flex;
   flex-direction: column;
   /* align-items:center; */
