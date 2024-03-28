@@ -3,7 +3,12 @@ import Layout from "./Layout/Layout";
 import { ToastContainer } from "react-toastify";
 import { PrivateRoute } from "./PrivateRoute";
 import { RestrictedRoute } from "./RestrictedRoute";
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useAuth } from "hooks/useAyth";
+import Loader from "./Loader/Loader";
+import { refreshUser } from "../redux/auth/operationsAuth";
+import { selectToken } from "../redux/auth/selectorAuth";
 
 const Login = lazy(() => import("../pages/LoginPage"));
 const Dashboard = lazy(() => import("../pages/DashboardPage"));
@@ -14,8 +19,20 @@ const Customers = lazy(() => import("../pages/CustomersPage"));
 const NotFoundPage = lazy(() => import('./NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  return (
-    <div>
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+  const token = useSelector(selectToken);
+
+  useEffect(() => {
+      if (token) {
+        dispatch(refreshUser());
+      }
+  }, [dispatch, token ]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+      <div>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate replace to="/login" />} />

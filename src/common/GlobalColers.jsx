@@ -3,6 +3,8 @@ const color = {
   blackPrimarySecondary: 'rgba(29, 30, 33, 0.1)',
   textColorSecondary: 'rgba(29, 30, 33, 0.4)',
   
+  grey: 'rgb(220, 221, 223)',
+  
   greenLight: 'rgb(89, 177, 122);',
   greenDarker: 'rgb(63, 148, 95);',
   greenSecondary: 'rgba(89, 177, 122, 0.1)',

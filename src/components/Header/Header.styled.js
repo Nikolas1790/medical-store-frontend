@@ -1,7 +1,8 @@
 import color from 'common/GlobalColers'
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,6 +10,7 @@ export const HeaderContainer = styled.div`
 `
 
 export const HeaderBlock = styled.div`
+position: relative;
   display: flex;
   padding: 15px 40px 15px 20px;
   background: yellow;

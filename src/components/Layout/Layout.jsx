@@ -8,7 +8,7 @@ export default function Layout() {
   const hideHeaderPaths = [ '/login'];
   return (
     <div>
-     {hideHeaderPaths.includes(location.pathname) ? null : <Header />}
+      {hideHeaderPaths.includes(location.pathname) ? null : <Header />}
       <main>
         <Suspense fallback={<Loader />}>
           <Outlet />  

@@ -17,7 +17,7 @@ export const logIn = createAsyncThunk(
   '/login',
   async (credentials, thunkAPI) => {
     try {
-      console.log(credentials);
+      // console.log(credentials);
       const res = await axios.post('/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
@@ -30,13 +30,14 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/logout');
+    await axios.get('/logout');
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
 
 export const refreshUser = createAsyncThunk(
   '/user-info',
