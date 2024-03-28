@@ -6,6 +6,7 @@ export const SidebarConteiner = styled.div`
   position: absolute;
   top: 100%; /* Это разместит Sidebar прямо под Header */
   left: 0;
+  z-index: 1;
   
   display: flex;
   flex-direction: column;

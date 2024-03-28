@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, styled } from 'styled-components';
 import color from './GlobalColers';
 
 import InterSemiBoldWoff from '../fonts/Inter-SemiBold.woff';
@@ -83,3 +83,18 @@ html {
   overflow: hidden;
 }
 `;
+
+
+export const  ContentContainer = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const ContentBlock = styled.div`
+  position: relative;
+  display: flex;
+  padding: 20px 40px 40px 120px;
+  background: pink;
+  width: 1440px;
+`

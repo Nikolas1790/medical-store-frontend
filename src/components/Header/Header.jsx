@@ -25,8 +25,8 @@ export default function Header() {
     <HeaderContainer>
       <HeaderBlock>
         <Sidebar />
-        <Logo />
 
+        <Logo />
         <HeaderMainInf>
           <HeaderTitle>Medicine store</HeaderTitle>
           <HeaderTextBlock>
@@ -35,13 +35,11 @@ export default function Header() {
             <HeaderText>vendor@gmail.com</HeaderText>
           </HeaderTextBlock>
         </HeaderMainInf>
-
         <button onClick={handleButtonClick}>
           <svg width={44} height={44}>
             <use href={`${sprite}#icon-logout`} />
           </svg>
         </button>
-
      
       </HeaderBlock>
     </HeaderContainer>

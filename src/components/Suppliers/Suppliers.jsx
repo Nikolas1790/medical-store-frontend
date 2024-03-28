@@ -1,6 +1,12 @@
+import { ContentBlock, ContentContainer } from "common/GiobalStyles";
+
 export default function Suppliers() {  
 
   return (
-    <p>Suppliers</p>
+    <ContentContainer>
+      <ContentBlock>
+        Supplierss
+      </ContentBlock>
+    </ContentContainer>
   );
 }

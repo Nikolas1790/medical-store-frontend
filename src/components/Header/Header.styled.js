@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
 `
 
 export const HeaderBlock = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   padding: 15px 40px 15px 20px;
   background: yellow;

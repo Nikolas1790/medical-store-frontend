@@ -1,6 +1,12 @@
+import { ContentBlock, ContentContainer } from "common/GiobalStyles";
+
 export default function Orders() {  
 
-  return (
-    <p>Orders</p>
+  return (    
+    <ContentContainer>
+      <ContentBlock>
+        <p>Orders</p>
+      </ContentBlock>
+    </ContentContainer>
   );
 }
