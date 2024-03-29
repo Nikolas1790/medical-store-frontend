@@ -10,7 +10,6 @@ const navLinks = [
 ];
 
 export default function Sidebar() {
-
   return (
     <SidebarConteiner>
       {navLinks.map(link => (

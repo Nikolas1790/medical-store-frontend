@@ -28,7 +28,7 @@ export default function DashboardStatistic() {
             </svg>
             <StatisticSectionTitle>All {link.name}</StatisticSectionTitle>
           </StatisticTitleConteiner>
-          {data.customersCount ? <StatisticValue>{link.value}</StatisticValue> : <StatisticValue>0</StatisticValue>}
+          <StatisticValue>{data.customersCount ? link.value : 0}</StatisticValue>
         </StatisticItem>
       ))}
     </StatisticConteiner>

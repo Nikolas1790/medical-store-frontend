@@ -1,12 +1,22 @@
 import { createGlobalStyle, styled } from 'styled-components';
 import color from './GlobalColers';
+import "@blueprintjs/core/lib/css/blueprint.css";
+import "@blueprintjs/table/lib/css/table.css";
 
+import InterRegularWoff from '../fonts/Inter-Regular.woff';
 import InterSemiBoldWoff from '../fonts/Inter-SemiBold.woff';
 import InterMediumWoff from '../fonts/Inter-Medium.woff';
+import InterRegularWoff2 from '../fonts/Inter-Regular.woff2';
 import InterSemiBoldWoff2 from '../fonts/Inter-SemiBold.woff2';
 import InterMediumWoff2 from '../fonts/Inter-Medium.woff2';
 
 export const GlobalStyle = createGlobalStyle`
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400; 
+  src: url(${InterRegularWoff2}) format('woff2'), url(${InterRegularWoff}) format('woff');
+}
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -100,6 +110,6 @@ export const ContentBlock = styled.div`
   flex-direction: column;
   gap: 40px;
   padding: 20px 40px 40px 120px;
-  background: pink; //  background: pink;
+  /* background: pink;  */
   width: 1440px;
 `
