@@ -10,7 +10,7 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
-
+import pharmacySlice from "./ePharmacy/slice";
 import { authReducer } from './auth/sliceAuth';
 
 const authPersistConfig = {
@@ -22,6 +22,7 @@ const authPersistConfig = {
  const store = configureStore({  
   reducer: {    
     auth: persistReducer(authPersistConfig, authReducer),
+    pharmacy: pharmacySlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

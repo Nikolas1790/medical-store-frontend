@@ -61,6 +61,9 @@ ul {
   padding: 0;
   margin: 0;
 }
+li {
+  list-style: none;
+}
 img {
   display: block;
   max-width: 100%;
@@ -94,7 +97,9 @@ export const  ContentContainer = styled.header`
 export const ContentBlock = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
+  gap: 40px;
   padding: 20px 40px 40px 120px;
-  background: pink;
+  background: pink; //  background: pink;
   width: 1440px;
 `
