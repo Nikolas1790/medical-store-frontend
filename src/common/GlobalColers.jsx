@@ -7,6 +7,7 @@ const color = {
   
   greenLight: 'rgb(89, 177, 122);',
   greenDarker: 'rgb(63, 148, 95);',
+  greenSupperLight: 'rgb(231, 241, 237)',
   greenSecondary: 'rgba(89, 177, 122, 0.1)',
 
   red: ' rgb(232, 80, 80);',

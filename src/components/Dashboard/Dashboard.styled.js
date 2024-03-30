@@ -1,3 +1,4 @@
+import color from 'common/GlobalColers'
 import styled from 'styled-components'
 
 export const  TableConteiner = styled.div`
@@ -6,7 +7,12 @@ export const  TableConteiner = styled.div`
 `
 
 export const  TableBlockItem = styled.div`
+
   width: 630px;
   height: 512px;
-  /* background: green; */
+  /* border: 1px solid red; */
+
+  border: 1px solid ${color.blackPrimarySecondary};
+  border-radius: 8px;
+  background: rgb(255, 255, 255);
 `
