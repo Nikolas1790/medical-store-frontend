@@ -36,13 +36,13 @@ export const ColumnCell = styled(Cell)`
   } */
 `
 
-export const TableHeader = styled.div`
-  height: 64px;
-  /* border: 1px solid ${color.blackPrimarySecondary}; */
-  border-radius: 8px 8px 0px 0px;
-  background: ${color.greenSupperLight};
-  padding: 20px;
-`
+// export const TableHeader = styled.h2`
+//   height: 64px;
+//   /* border: 1px solid ${color.blackPrimarySecondary}; */
+//   border-radius: 8px 8px 0px 0px;
+//   background: ${color.greenSupperLight};
+//   padding: 20px;
+// `
 export const HeaderStyle = styled.div`
 display: flex;
 align-items: center;

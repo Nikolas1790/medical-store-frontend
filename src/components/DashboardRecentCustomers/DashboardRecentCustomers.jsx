@@ -5,7 +5,8 @@
 // import { HotkeysProvider } from "@blueprintjs/core";
 import { Column, Table2 } from "@blueprintjs/table";
 import { TableBlockItem } from "components/Dashboard/Dashboard.styled";
-import { ColumnCell, HeaderStyle, TableHeader } from "./DashboardRecentCustomers.styled";
+import { ColumnCell, HeaderStyle } from "./DashboardRecentCustomers.styled";
+import { TableHeader } from "common/GiobalStyles";
 
 
 export default function DashboardRecentCustomers() {  
@@ -38,10 +39,9 @@ export default function DashboardRecentCustomers() {
   );
 
   return (    
-    <TableBlockItem>
-      <TableHeader>
-        <h2>Recent Customers</h2>
-      </TableHeader>
+    <TableBlockItem>      
+      <TableHeader>Recent Customers</TableHeader>
+     
       <HeaderStyle >
       <Table2  
         numRows={data.length} 

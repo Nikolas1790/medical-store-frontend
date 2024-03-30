@@ -115,3 +115,10 @@ export const ContentBlock = styled.div`
   /* background: pink;  */
   width: 1440px;
 `
+export const TableHeader = styled.h2`
+  height: 64px;
+  /* border: 1px solid ${color.blackPrimarySecondary}; */
+  border-radius: 8px 8px 0px 0px;
+  background: ${color.greenSupperLight};
+  padding: 20px;
+`
