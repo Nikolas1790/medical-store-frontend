@@ -3,10 +3,11 @@
 // import { dashboardInf } from '../../redux/ePharmacy/operations';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { HotkeysProvider } from "@blueprintjs/core";
-import { Column, Table2 } from "@blueprintjs/table";
+import { Cell, Column, Table2 } from "@blueprintjs/table";
 import { TableBlockItem } from "components/Dashboard/Dashboard.styled";
-import { ColumnCell, HeaderStyle } from "./DashboardRecentCustomers.styled";
+import { HeaderStyle } from "./DashboardRecentCustomers.styled";
 import { TableHeader } from "common/GiobalStyles";
+import color from "common/GlobalColers";
 
 
 export default function DashboardRecentCustomers() {  
@@ -28,16 +29,16 @@ export default function DashboardRecentCustomers() {
   ];
 
 
-  const nameColumn = (rowIndex) => (
-    <ColumnCell >{data[rowIndex][0]}</ColumnCell>
-  );
-  const emailColumn = (rowIndex) => (
-    <ColumnCell>{data[rowIndex][1]}</ColumnCell>
-  );
-  const spendColumn = (rowIndex) => (
-    <ColumnCell>{data[rowIndex][2]}</ColumnCell>
-  );
-
+  const customCellRenderer = (rowIndex, columnId, data) => {
+    // Проверяем, принадлежит ли текущая ячейка к столбцу "Name" или "Email"
+    const isSpecialColumn = columnId === 'name' || columnId === 'email';
+  
+    return (
+      <Cell style={isSpecialColumn ? {borderRight: `1px solid ${color.blackPrimarySecondary}`} : undefined}>
+        {data[rowIndex]}
+      </Cell>
+    );
+  };
   return (    
     <TableBlockItem>      
       <TableHeader>Recent Customers</TableHeader>
@@ -45,15 +46,15 @@ export default function DashboardRecentCustomers() {
       <HeaderStyle >
       <Table2  
         numRows={data.length} 
-        defaultRowHeight={76} 
+        defaultRowHeight={78} 
         columnWidths={[203, 269, 118 ]} 
         enableColumnResizing={false} 
         enableRowResizing={false} 
         enableRowHeader={false}
       >
-        <Column name="Name"  cellRenderer={nameColumn} />
-        <Column name="Email"  cellRenderer={emailColumn} />
-        <Column name="Spent"  cellRenderer={spendColumn}/>
+  <Column name="Name" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'name', data.map(item => item[0]))} />
+  <Column name="Email" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'email', data.map(item => item[1]))} />
+  <Column name="Spent" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'spent', data.map(item => item[2]))} />
       </Table2>
       </HeaderStyle>
     </TableBlockItem>

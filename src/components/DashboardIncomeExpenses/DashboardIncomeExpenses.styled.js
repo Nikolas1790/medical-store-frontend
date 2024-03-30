@@ -44,6 +44,7 @@ export const IncomeExpensesTableConteiner = styled.div`
     background: ${color.white};
     padding-left: 20px;
     box-shadow: none; 
+    padding: 0;
   }
   .bp5-table-cell::after {
     content: ''; /* Необходимо для отображения псевдоэлемента */

@@ -19,7 +19,7 @@ export default function DashboardIncomeExpenses() {
 
   const data = [
     // Предполагаем, что каждый массив - это строка данных
-    ["Данные ячейки 1", "Данные ячейки 2", "222222"],
+    ["Error", "Qonto billing", "-49.88"],
     ["Данные ячейки 11", "Данные ячейки 22", "333"],
     ["Данные ячейки 111", "Данные ячейки 222", "44444444"],
     ["Данные ячейки 1", "Данные ячейки 2", "77777777777777"],
@@ -34,7 +34,7 @@ export default function DashboardIncomeExpenses() {
         <Table2 
           numRows={data.length} 
           defaultRowHeight={65} 
-          columnWidths={[100, 405, 97 ]} 
+          columnWidths={[120, 393, 77 ]} 
           enableColumnResizing={false} 
           enableRowResizing={false} 
           enableRowHeader={false}
