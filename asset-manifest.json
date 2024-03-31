@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/medical-store-frontend/static/css/main.534ba949.css",
-    "main.js": "/medical-store-frontend/static/js/main.a445075a.js",
+    "main.js": "/medical-store-frontend/static/js/main.c8175ead.js",
     "static/js/141.66662121.chunk.js": "/medical-store-frontend/static/js/141.66662121.chunk.js",
-    "static/js/80.332c3505.chunk.js": "/medical-store-frontend/static/js/80.332c3505.chunk.js",
+    "static/js/80.4d8db015.chunk.js": "/medical-store-frontend/static/js/80.4d8db015.chunk.js",
     "static/js/761.c422d3be.chunk.js": "/medical-store-frontend/static/js/761.c422d3be.chunk.js",
     "static/js/273.62800d4e.chunk.js": "/medical-store-frontend/static/js/273.62800d4e.chunk.js",
     "static/js/649.92531048.chunk.js": "/medical-store-frontend/static/js/649.92531048.chunk.js",
@@ -26,9 +26,9 @@
     "static/media/sprite.svg": "/medical-store-frontend/static/media/sprite.e30ba3417dfa0e3b6fb6f764f7118d9c.svg",
     "index.html": "/medical-store-frontend/index.html",
     "main.534ba949.css.map": "/medical-store-frontend/static/css/main.534ba949.css.map",
-    "main.a445075a.js.map": "/medical-store-frontend/static/js/main.a445075a.js.map",
+    "main.c8175ead.js.map": "/medical-store-frontend/static/js/main.c8175ead.js.map",
     "141.66662121.chunk.js.map": "/medical-store-frontend/static/js/141.66662121.chunk.js.map",
-    "80.332c3505.chunk.js.map": "/medical-store-frontend/static/js/80.332c3505.chunk.js.map",
+    "80.4d8db015.chunk.js.map": "/medical-store-frontend/static/js/80.4d8db015.chunk.js.map",
     "761.c422d3be.chunk.js.map": "/medical-store-frontend/static/js/761.c422d3be.chunk.js.map",
     "273.62800d4e.chunk.js.map": "/medical-store-frontend/static/js/273.62800d4e.chunk.js.map",
     "649.92531048.chunk.js.map": "/medical-store-frontend/static/js/649.92531048.chunk.js.map",
@@ -44,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.534ba949.css",
-    "static/js/main.a445075a.js"
+    "static/js/main.c8175ead.js"
   ]
 }
