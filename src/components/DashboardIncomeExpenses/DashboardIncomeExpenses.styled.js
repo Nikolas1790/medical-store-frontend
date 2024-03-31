@@ -1,18 +1,32 @@
-import { Cell } from '@blueprintjs/table';
 import color from 'common/GlobalColers'
 import styled from 'styled-components'
-const getBackgroundColor = (type) => {
-  // console.log(type)
+
+const getColor = (type) => {
   switch (type) {
     case 'Income':
-      return 'green';
+      return color.red;
     case 'Expense':
-      return 'red';
-
+      return color.greenLight;
+    case 'Error':
+      return color.blackPrimary;
     default:
       return 'black';
   }
 };
+
+const getBackgroundColor = (type) => {
+  switch (type) {
+    case 'Income':
+      return color.redSecondary;
+    case 'Expense':
+      return color.greenSecondary;
+    case 'Error':
+      return color.blackPrimarySecondary;
+    default:
+      return 'black';
+  }
+};
+
 
 export const IncomeExpensesTableConteiner = styled.div`
   display: flex;
@@ -39,7 +53,7 @@ export const IncomeExpensesTableConteiner = styled.div`
   }
 
   .bp5-table-header::after {
-    content: ''; /* Необходимо для отображения псевдоэлемента */
+    content: ''; 
     position: absolute;
     left: 0;
     right: 0;
@@ -59,7 +73,7 @@ export const IncomeExpensesTableConteiner = styled.div`
 
   }
   .bp5-table-cell::after {
-    content: ''; /* Необходимо для отображения псевдоэлемента */
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -68,12 +82,31 @@ export const IncomeExpensesTableConteiner = styled.div`
   }
 `
 
-
-export const CellConteiner = styled(Cell)`
-/* width: 80px;
-height: 25px;
-background: red; */
-
-    color: ${({ type }) => getBackgroundColor(type)};
+export const CellType = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  color: ${({ type }) => getColor(type)};
+  background: ${({ type }) => getBackgroundColor(type)};;
+  width: 80px;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 40px;
 
 `
+
+export const CellSum = styled.p`
+  position: relative;
+  color: ${({ type }) => getColor(type)};
+
+  &::after {
+    content: ${({ type }) => (type === 'Error' ? '" "' : 'none')};
+    position: absolute;
+    top: 58%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: ${color.blackPrimary};
+    transform: translateY(-50%);
+  }
+`;

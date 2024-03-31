@@ -2,36 +2,35 @@ import { selectDataInf } from '../../redux/ePharmacy/selector';
 import { useEffect } from 'react';
 import { dashboardInf } from '../../redux/ePharmacy/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { Column, Table2 } from "@blueprintjs/table";
+import { Cell, Column, Table2 } from "@blueprintjs/table";
 import { TableHeader } from "common/GiobalStyles";
 import { TableBlockItem } from "components/Dashboard/Dashboard.styled";
-import { CellConteiner, IncomeExpensesTableConteiner } from "./DashboardIncomeExpenses.styled";
+import { CellSum, CellType, IncomeExpensesTableConteiner } from "./DashboardIncomeExpenses.styled";
 
 export default function DashboardIncomeExpenses() {  
   const dispatch = useDispatch();
   const { incomeExpenses } = useSelector(selectDataInf);  
-
+  const data = incomeExpenses ? incomeExpenses.map(({ name, amount, type }) => [type, name, amount]) : [];
   useEffect(() => {
     dispatch(dashboardInf());
-  }, [dispatch]);
-
-  // console.log(incomeExpenses)
-  const data = incomeExpenses ? incomeExpenses.map(({ name, amount, type }) => [type, name, amount]) : [];
+  }, [dispatch]); 
 
   const customCellRenderer = (rowIndex, columnId, data) => {
-    // const type = data[rowIndex][0];
-// console.log(data)
-
+    const cellType = data[rowIndex][0]; // Предположим, что тип операции находится в первом элементе массива для каждой строки.
+    const cellValue = data[rowIndex]
     let style = {};
     if (columnId === 'sum') {
       style.justifyContent = 'flex-end';
     }  
+
     return (
-      <CellConteiner style={style} type={data[rowIndex]}>
-        {data[rowIndex]}
-      </CellConteiner>
+      <Cell style={style}>
+        {columnId === 'sum' ? ( <CellSum type={cellType}>{cellValue[2]}</CellSum> ) : (
+          columnId === 'type'? <CellType type={cellType}>{cellValue[0]}</CellType> : cellValue[1]
+        )}
+      </Cell>
     );
-  };
+  };  
   
   return (
     <TableBlockItem>
@@ -45,9 +44,9 @@ export default function DashboardIncomeExpenses() {
           enableRowResizing={false} 
           enableRowHeader={false}
         >
-          <Column name="Today" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'type', data.map(item => item[0]))} />
-          <Column name="" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'details', data.map(item => item[1]))}/>
-          <Column name="" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'sum', data.map(item => item[2]))} />
+          <Column name="Today" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'type', data)} />
+          <Column name="" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'details', data)}/>
+          <Column name="" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'sum', data)} />
         </Table2>
       </IncomeExpensesTableConteiner>
     </TableBlockItem>

@@ -53,3 +53,7 @@ export const HeaderStyle = styled.div`
   
 }
 `
+
+export const NameCustomer = styled.span`
+  /* max-width: 100px; */
+`
