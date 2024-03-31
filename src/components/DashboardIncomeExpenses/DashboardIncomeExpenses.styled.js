@@ -1,5 +1,18 @@
+import { Cell } from '@blueprintjs/table';
 import color from 'common/GlobalColers'
 import styled from 'styled-components'
+const getBackgroundColor = (type) => {
+  // console.log(type)
+  switch (type) {
+    case 'Income':
+      return 'green';
+    case 'Expense':
+      return 'red';
+
+    default:
+      return 'black';
+  }
+};
 
 export const IncomeExpensesTableConteiner = styled.div`
   display: flex;
@@ -15,9 +28,6 @@ export const IncomeExpensesTableConteiner = styled.div`
     align-items: center;
     height: 58px;
     background-color: ${color.white}; 
-    /* padding-left: 0px; */
-/* margin-left: -10px; */
-/* line-height:1; */
 
     font-size: 14px;  
     font-weight: 500;
@@ -41,10 +51,12 @@ export const IncomeExpensesTableConteiner = styled.div`
     position: relative; 
     display: flex;
     align-items: center;
+    font-size: 16px;
     background: ${color.white};
     padding-left: 20px;
     box-shadow: none; 
     padding: 0;
+
   }
   .bp5-table-cell::after {
     content: ''; /* Необходимо для отображения псевдоэлемента */
@@ -54,5 +66,14 @@ export const IncomeExpensesTableConteiner = styled.div`
     bottom: 0; /* Размещает линию в нижней части ячейки */
     border-bottom: 1px solid ${color.blackPrimarySecondary}; 
   }
+`
+
+
+export const CellConteiner = styled(Cell)`
+/* width: 80px;
+height: 25px;
+background: red; */
+
+    color: ${({ type }) => getBackgroundColor(type)};
 
 `
