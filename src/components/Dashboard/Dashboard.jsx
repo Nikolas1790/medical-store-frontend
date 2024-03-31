@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   return (
     <ContentContainer>
-      <ContentBlock>
+      <ContentBlock top="20px" bottom="40px" >
         <DashboardStatistic />
 
         <TableConteiner>

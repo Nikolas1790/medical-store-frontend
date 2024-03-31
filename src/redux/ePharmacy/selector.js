@@ -1,6 +1,6 @@
 export const selectDataInf = (state) => state.pharmacy.dashboarData;
 
-// export const selectTakeWaterHistory = (state) => state.water.history;
+export const selectOrdersInf = (state) => state.pharmacy.ordersData;
 
 // export const selectStageWater = (state) => state.water;
 

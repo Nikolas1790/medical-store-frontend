@@ -110,14 +110,16 @@ export const ContentBlock = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding: 20px 40px 40px 120px;
-  /* background: pink;  */
+  gap:${({ bottom }) => bottom || '20px'};
+  padding: 75px 40px 20px 120px;
+  padding-top:  ${({ top }) => top || '75px'};
+  padding-bottom:  ${({ bottom }) => bottom || '20px'};
+
+  background: pink; //
   width: 1440px;
 `
 export const TableHeader = styled.h2`
   height: 64px;
-  /* border: 1px solid ${color.blackPrimarySecondary}; */
   border-radius: 8px 8px 0px 0px;
   background: ${color.greenSupperLight};
   padding: 20px;

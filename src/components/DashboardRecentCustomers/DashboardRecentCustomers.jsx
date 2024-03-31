@@ -2,7 +2,6 @@ import { selectDataInf } from '../../redux/ePharmacy/selector';
 import { useEffect } from 'react';
 import { dashboardInf } from '../../redux/ePharmacy/operations';
 import { useDispatch, useSelector } from 'react-redux';
-// import { HotkeysProvider } from "@blueprintjs/core";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import { TableBlockItem } from "components/Dashboard/Dashboard.styled";
 import { HeaderStyle, NameCustomer } from "./DashboardRecentCustomers.styled";
