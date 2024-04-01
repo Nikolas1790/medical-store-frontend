@@ -2,13 +2,16 @@ import color from 'common/GlobalColers'
 import styled from 'styled-components'
 
 export const CustomBtn = styled.button`
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
-  /* letter-spacing: 2%; */
-  /* padding: ${(props) => props.prop === 'true' ? '12px 24px' : '10px 20px'}; */
-  /* border: 1px solid ${color.whiteLightTranslucent}; */
+
   height: 44px;
+  width: 100%;
   border-radius: 60px;
   color: ${color.white};
   background: ${color.greenLight};

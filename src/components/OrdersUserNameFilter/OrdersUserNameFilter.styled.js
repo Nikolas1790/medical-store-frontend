@@ -1,23 +1,40 @@
+import color from 'common/GlobalColers';
 import styled from 'styled-components'
 
-export const OrdersFilterConteiner = styled.div`
+export const FilterConteiner = styled.div`
   display: flex;
-  align-items: center;
+  gap: 8px;
+  /* align-items: center;
 
   width: 354px;
   height: 44px;
-  background: red;
+  background: red; */
 `
 export const FilterForm = styled.form`
   display: flex;
   align-items: center;
-  gap: 8px; // Или другое значение, чтобы поддерживать пространство между инпутом и кнопкой
+  gap: 14px;
+  width: 354px;
 `;
 
 export const InputFilter = styled.input`
-  // Стили для инпута
+  display: flex;
+  align-items: center;
+
+  min-width: 224px;
+  height: 44px;
+  border: 1px solid ${color.blackPrimarySecondary};
+  border-radius: 60px;
+  box-shadow: 0px -1px 5px 0px rgba(71, 71, 71, 0.05);
+  background: ${color.white};
+  padding: 13px 18px;
+
+  &::placeholder {
+    font-size: 12px; // Пример изменения размера текста плейсхолдера
+    color: ${color.textColorSecondary};
+  }
 `;
 
-export const Button = styled.button`
-  // Стили для кнопки
+export const Button = styled.div`
+  width: 116px;
 `;

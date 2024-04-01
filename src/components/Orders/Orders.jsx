@@ -9,7 +9,7 @@ import OrdersAll from "components/OrdersAll/OrdersAll";
 export default function Orders() {  
   const dispatch = useDispatch();
   const orders = useSelector(selectOrdersInf);  
-  console.log(orders)
+  // console.log(orders)
 
   useEffect(() => {
     dispatch(ordersInf({}));
@@ -20,7 +20,7 @@ export default function Orders() {
       <ContentBlock>
 
         <OrdersUserNameFilter />
-        <OrdersAll />
+        {orders.length > 0 && <OrdersAll orders={orders} />}
         
       </ContentBlock>
     </ContentContainer>

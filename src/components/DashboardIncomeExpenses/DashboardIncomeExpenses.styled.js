@@ -1,32 +1,6 @@
 import color from 'common/GlobalColers'
+import { getBackgroundColor, getColor } from 'components/Utils/utils';
 import styled from 'styled-components'
-
-const getColor = (type) => {
-  switch (type) {
-    case 'Income':
-      return color.red;
-    case 'Expense':
-      return color.greenLight;
-    case 'Error':
-      return color.blackPrimary;
-    default:
-      return 'black';
-  }
-};
-
-const getBackgroundColor = (type) => {
-  switch (type) {
-    case 'Income':
-      return color.redSecondary;
-    case 'Expense':
-      return color.greenSecondary;
-    case 'Error':
-      return color.blackPrimarySecondary;
-    default:
-      return 'black';
-  }
-};
-
 
 export const IncomeExpensesTableConteiner = styled.div`
   display: flex;
@@ -87,7 +61,7 @@ export const CellType = styled.p`
   align-items: center;
   justify-content:center;
   color: ${({ type }) => getColor(type)};
-  background: ${({ type }) => getBackgroundColor(type)};;
+  background: ${({ type }) => getBackgroundColor(type)};
   width: 80px;
   height: 25px;
   font-size: 14px;
