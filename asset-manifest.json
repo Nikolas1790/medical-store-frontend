@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/medical-store-frontend/static/css/main.534ba949.css",
-    "main.js": "/medical-store-frontend/static/js/main.65324ff9.js",
-    "static/js/141.66662121.chunk.js": "/medical-store-frontend/static/js/141.66662121.chunk.js",
-    "static/js/429.35fd2d1d.chunk.js": "/medical-store-frontend/static/js/429.35fd2d1d.chunk.js",
-    "static/js/576.06a9e6aa.chunk.js": "/medical-store-frontend/static/js/576.06a9e6aa.chunk.js",
+    "main.js": "/medical-store-frontend/static/js/main.b4fdc771.js",
+    "static/js/801.1984fd0b.chunk.js": "/medical-store-frontend/static/js/801.1984fd0b.chunk.js",
+    "static/js/224.47de5a25.chunk.js": "/medical-store-frontend/static/js/224.47de5a25.chunk.js",
+    "static/js/550.bc272b28.chunk.js": "/medical-store-frontend/static/js/550.bc272b28.chunk.js",
     "static/js/273.62800d4e.chunk.js": "/medical-store-frontend/static/js/273.62800d4e.chunk.js",
     "static/js/649.92531048.chunk.js": "/medical-store-frontend/static/js/649.92531048.chunk.js",
     "static/js/582.edd82ff8.chunk.js": "/medical-store-frontend/static/js/582.edd82ff8.chunk.js",
@@ -14,8 +14,8 @@
     "blueprint-icons-all-paths.js": "/medical-store-frontend/static/js/blueprint-icons-all-paths.cc2151d2.chunk.js",
     "blueprint-icons-16px-paths.js": "/medical-store-frontend/static/js/blueprint-icons-16px-paths.a9ec1ce2.chunk.js",
     "blueprint-icons-20px-paths.js": "/medical-store-frontend/static/js/blueprint-icons-20px-paths.04d4270a.chunk.js",
-    "static/js/306.8f52706c.chunk.js": "/medical-store-frontend/static/js/306.8f52706c.chunk.js",
     "static/js/667.5f466a0b.chunk.js": "/medical-store-frontend/static/js/667.5f466a0b.chunk.js",
+    "static/js/306.8f52706c.chunk.js": "/medical-store-frontend/static/js/306.8f52706c.chunk.js",
     "static/media/Inter-SemiBold.woff": "/medical-store-frontend/static/media/Inter-SemiBold.7f6c3678e245486167d9.woff",
     "static/media/Inter-Medium.woff": "/medical-store-frontend/static/media/Inter-Medium.44e343ff76a98508d309.woff",
     "static/media/Inter-Regular.woff": "/medical-store-frontend/static/media/Inter-Regular.0d6f7c99e635f1fec4c9.woff",
@@ -26,10 +26,10 @@
     "static/media/sprite.svg": "/medical-store-frontend/static/media/sprite.e30ba3417dfa0e3b6fb6f764f7118d9c.svg",
     "index.html": "/medical-store-frontend/index.html",
     "main.534ba949.css.map": "/medical-store-frontend/static/css/main.534ba949.css.map",
-    "main.65324ff9.js.map": "/medical-store-frontend/static/js/main.65324ff9.js.map",
-    "141.66662121.chunk.js.map": "/medical-store-frontend/static/js/141.66662121.chunk.js.map",
-    "429.35fd2d1d.chunk.js.map": "/medical-store-frontend/static/js/429.35fd2d1d.chunk.js.map",
-    "576.06a9e6aa.chunk.js.map": "/medical-store-frontend/static/js/576.06a9e6aa.chunk.js.map",
+    "main.b4fdc771.js.map": "/medical-store-frontend/static/js/main.b4fdc771.js.map",
+    "801.1984fd0b.chunk.js.map": "/medical-store-frontend/static/js/801.1984fd0b.chunk.js.map",
+    "224.47de5a25.chunk.js.map": "/medical-store-frontend/static/js/224.47de5a25.chunk.js.map",
+    "550.bc272b28.chunk.js.map": "/medical-store-frontend/static/js/550.bc272b28.chunk.js.map",
     "273.62800d4e.chunk.js.map": "/medical-store-frontend/static/js/273.62800d4e.chunk.js.map",
     "649.92531048.chunk.js.map": "/medical-store-frontend/static/js/649.92531048.chunk.js.map",
     "582.edd82ff8.chunk.js.map": "/medical-store-frontend/static/js/582.edd82ff8.chunk.js.map",
@@ -39,11 +39,11 @@
     "blueprint-icons-all-paths.cc2151d2.chunk.js.map": "/medical-store-frontend/static/js/blueprint-icons-all-paths.cc2151d2.chunk.js.map",
     "blueprint-icons-16px-paths.a9ec1ce2.chunk.js.map": "/medical-store-frontend/static/js/blueprint-icons-16px-paths.a9ec1ce2.chunk.js.map",
     "blueprint-icons-20px-paths.04d4270a.chunk.js.map": "/medical-store-frontend/static/js/blueprint-icons-20px-paths.04d4270a.chunk.js.map",
-    "306.8f52706c.chunk.js.map": "/medical-store-frontend/static/js/306.8f52706c.chunk.js.map",
-    "667.5f466a0b.chunk.js.map": "/medical-store-frontend/static/js/667.5f466a0b.chunk.js.map"
+    "667.5f466a0b.chunk.js.map": "/medical-store-frontend/static/js/667.5f466a0b.chunk.js.map",
+    "306.8f52706c.chunk.js.map": "/medical-store-frontend/static/js/306.8f52706c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.534ba949.css",
-    "static/js/main.65324ff9.js"
+    "static/js/main.b4fdc771.js"
   ]
 }
