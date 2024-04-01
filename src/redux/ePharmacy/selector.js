@@ -2,8 +2,8 @@ export const selectDataInf = (state) => state.pharmacy.dashboarData;
 
 export const selectOrdersInf = (state) => state.pharmacy.ordersData;
 
-// export const selectStageWater = (state) => state.water;
+export const selectSuppliersInf = (state) => state.pharmacy.suppliersData;
 
-// export const selectMounthWater = (state) => state.water.mounthHistory;
+export const selectProductsInf = (state) => state.pharmacy.productsData;
 
-// export const selectStatusOperation = (state) => state.water.statusOperation;
+export const selectCustomersInf = (state) => state.pharmacy.customersData;

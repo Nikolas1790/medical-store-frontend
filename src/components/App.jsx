@@ -24,15 +24,15 @@ export const App = () => {
   const token = useSelector(selectToken);
 
   useEffect(() => {
-      if (token) {
-        dispatch(refreshUser());
-      }
+    if (token) {
+      dispatch(refreshUser());
+    }
   }, [dispatch, token ]);
 
   return isRefreshing ? (
     <Loader />
   ) : (
-      <div>
+    <div>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate replace to="/login" />} />

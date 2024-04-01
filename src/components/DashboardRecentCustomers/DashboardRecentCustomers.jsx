@@ -4,8 +4,7 @@ import { dashboardInf } from '../../redux/ePharmacy/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import { TableBlockItem } from "components/Dashboard/Dashboard.styled";
-import { HeaderStyle, NameCustomer } from "./DashboardRecentCustomers.styled";
-import { TableHeader } from "common/GiobalStyles";
+import { AllConteinersTable, TableHeader } from "common/GiobalStyles";
 import color from "common/GlobalColers";
 
 
@@ -48,7 +47,7 @@ export default function DashboardRecentCustomers() {
       <Cell style={style}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <img src={rowData[3]} alt={rowData[0]} style={{ width: '36px', height: '36px', marginRight: '10px' }} />
-          <NameCustomer>{rowData[0]}</NameCustomer>
+          <p>{rowData[0]}</p>
         </div>
       </Cell>
     );
@@ -57,20 +56,20 @@ export default function DashboardRecentCustomers() {
     <TableBlockItem>      
       <TableHeader>Recent Customers</TableHeader>
      
-      <HeaderStyle >
-      <Table2  
-        numRows={data.length} 
-        defaultRowHeight={78} 
-        columnWidths={[203, 269, 118 ]} 
-        enableColumnResizing={false} 
-        enableRowResizing={false} 
-        enableRowHeader={false}
-      >
-        <Column name="Name" cellRenderer={(rowIndex) => customCellName(rowIndex, 'name', data)} />
-        <Column name="Email" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'email', data.map(item => item[1]))} />
-        <Column name="Spent" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'spent', data.map(item => item[2]))} />
-      </Table2>
-      </HeaderStyle>
+      <AllConteinersTable >
+        <Table2  
+          numRows={data.length} 
+          defaultRowHeight={78} 
+          columnWidths={[203, 269, 118 ]} 
+          enableColumnResizing={false} 
+          enableRowResizing={false} 
+          enableRowHeader={false}
+        >
+          <Column name="Name" cellRenderer={(rowIndex) => customCellName(rowIndex, 'name', data)} />
+          <Column name="Email" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'email', data.map(item => item[1]))} />
+          <Column name="Spent" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'spent', data.map(item => item[2]))} />
+        </Table2>
+      </AllConteinersTable>
     </TableBlockItem>
   )
 }

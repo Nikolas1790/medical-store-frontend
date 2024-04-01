@@ -22,3 +22,35 @@ export const ordersInf = createAsyncThunk("/orders",
       return thunkAPI.rejectWithValue(e.message);
     }
 });
+
+export const productsInf = createAsyncThunk("/products",
+  async ({ page = 1, limit = 10, name ="" }, thunkAPI) => {
+    try {
+      const response = await axios.get(`/products?page=${page}&limit=${limit}&name=${name}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+});
+
+export const suppliersInf = createAsyncThunk("/suppliers",
+  async ({ page = 1, limit = 10, name ="" }, thunkAPI) => {
+    try {
+      const response = await axios.get(`/suppliers?page=${page}&limit=${limit}&name=${name}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+});
+
+export const customersInf = createAsyncThunk("/customers",
+  async ({ page = 1, limit = 10, name ="" }, thunkAPI) => {
+    try {
+      const response = await axios.get(`/customers?page=${page}&limit=${limit}&name=${name}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+});
+
+

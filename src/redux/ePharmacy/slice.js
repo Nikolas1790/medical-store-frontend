@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { dashboardInf, ordersInf } from "./operations";
+import { customersInf, dashboardInf, ordersInf, productsInf, suppliersInf } from "./operations";
 
 const pharmacySlice = createSlice({
   name: "pharmacy",
   initialState: {
     dashboarData:[],
-    ordersData:[]
-
+    ordersData:[],
+    suppliersData: [],
+    productsData: [],
+    customersData: []
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -33,6 +35,45 @@ const pharmacySlice = createSlice({
         state.ordersData = action.payload;
       })
       .addCase(ordersInf.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      .addCase(suppliersInf.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(suppliersInf.fulfilled, (state, action) => {
+        state.loading = false;
+        state.suppliersData = action.payload;
+      })
+      .addCase(suppliersInf.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      .addCase(productsInf.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(productsInf.fulfilled, (state, action) => {
+        state.loading = false;
+        state.productsData = action.payload;
+      })
+      .addCase(productsInf.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      .addCase(customersInf.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(customersInf.fulfilled, (state, action) => {
+        state.loading = false;
+        state.customersData = action.payload;
+      })
+      .addCase(customersInf.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })

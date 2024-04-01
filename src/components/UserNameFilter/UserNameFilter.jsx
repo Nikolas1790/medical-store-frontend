@@ -1,10 +1,11 @@
 import { useFormik } from "formik";
-import { Button, FilterConteiner, FilterForm, InputFilter } from "./OrdersUserNameFilter.styled";
-import { ordersInf } from "../../redux/ePharmacy/operations";
+import { Button, FilterConteiner, FilterForm, InputFilter } from "./UserNameFilter.styled";
+// import { customersInf, ordersInf } from "../../redux/ePharmacy/operations";
 import { useDispatch } from "react-redux";
 import * as Yup from 'yup';
 import CustomButton from "components/CustomButton/CustomButton";
 import { useState } from "react";
+// import { selectCustomersInf } from "../../redux/ePharmacy/selector";
 
 const validationSchema = Yup.object({
   userName: Yup.string()
@@ -12,10 +13,11 @@ const validationSchema = Yup.object({
     // Дополнительные правила валидации можно добавить здесь
 });
 
-export default function OrdersUserNameFilter() {  
+export default function UserNameFilter({dataFactory, plholder }) {  
   const [isRestButtonVisible, setIsRestButtonVisible] = useState(false);
   const dispatch = useDispatch();
-
+//   const customers = useSelector(selectCustomersInf);  
+// console.log(customers)
   const formik = useFormik({
     initialValues: {
       userName: '',
@@ -23,15 +25,14 @@ export default function OrdersUserNameFilter() {
     validationSchema: validationSchema,
     onSubmit: values => {
       setIsRestButtonVisible("true")
-      dispatch(ordersInf({ name: values.userName }));
+      dispatch(dataFactory({ name: values.userName }));
     },
   });
 
   const handleReset = () => {
     setIsRestButtonVisible(false);
-    dispatch(ordersInf({}))
+    dispatch(dataFactory({}))
     formik.resetForm();
-    // dispatch(fetchBooks({ page: 1, limit: 10  }))
   };
 
   return (
@@ -43,7 +44,7 @@ export default function OrdersUserNameFilter() {
           type="text"
           onChange={formik.handleChange}
           value={formik.values.userName}
-          placeholder="User Name"
+          placeholder={plholder || "User Name"}
         />
         <CustomButton label="Filter" type="submit" icon={true} />
       </FilterForm>
