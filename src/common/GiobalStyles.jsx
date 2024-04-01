@@ -171,3 +171,11 @@ export const AllConteinersTable = styled.div`
   border-bottom: 1px solid ${color.blackPrimarySecondary};  
 }
 `
+
+export const AllConteinerBigTable = styled.div`
+  width: 1280px;
+  height: 502px;
+  background: ${color.white};
+  border: 1px solid ${color.blackPrimarySecondary};
+  border-radius: 8px;
+`

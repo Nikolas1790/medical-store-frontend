@@ -1,5 +1,5 @@
-import { AllConteinersTable, TableHeader } from "common/GiobalStyles";
-import { OrdersAllConteiner, StatucColor } from "./OrdersAll.styled";
+import { AllConteinerBigTable, AllConteinersTable, TableHeader } from "common/GiobalStyles";
+import { StatucColor } from "./OrdersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
@@ -52,7 +52,7 @@ export default function OrdersAll( {orders} ) {
     );
   };
   return (   
-    <OrdersAllConteiner>
+    <AllConteinerBigTable>
       <TableHeader>All orders</TableHeader>
       
       <AllConteinersTable >
@@ -72,6 +72,6 @@ export default function OrdersAll( {orders} ) {
           <Column name="Status" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'status', data.map(item => item[6]))} />
         </Table2>
       </AllConteinersTable>
-    </OrdersAllConteiner>
+    </AllConteinerBigTable>
   )
 }

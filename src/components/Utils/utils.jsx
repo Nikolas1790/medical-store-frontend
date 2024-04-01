@@ -16,7 +16,7 @@ export const getColor = (type) => {
     case 'Error':
       return color.blackPrimary;
     default:
-      return 'black';
+      return color.blackPrimary;
   }
 };
 
@@ -29,7 +29,7 @@ export const getBackgroundColor = (type) => {
     case 'Error':
       return color.blackPrimarySecondary;
     default:
-      return 'black';
+      return color.blackPrimarySecondary;
   }
 };
 
@@ -50,7 +50,7 @@ export const getStatusColor = (type) => {
     case 'Delivered':
       return color.greenDarker;
     default:
-      return 'black';
+      return color.blackPrimary;
   }
 };
 
@@ -71,6 +71,29 @@ export const getBackgroundStatusColor = (type) => {
     case 'Delivered':
       return color.greenSecondary;
     default:
-      return 'black';
+      return color.blackPrimarySecondary;
+  }
+};
+
+
+export const getActiveColor = (type) => {
+  switch (type) {
+    case 'Active':
+      return color.greenLight;
+    case 'Deactive':
+      return color.red;
+    default:
+      return color.blackPrimary;
+  }
+};
+
+export const getBackgroundActiveColor = (type) => {
+  switch (type) {
+    case 'Active':
+      return color.greenSecondary;
+    case 'Deactive':
+      return color.redSecondary;
+    default:
+      return color.blackPrimarySecondary;
   }
 };
