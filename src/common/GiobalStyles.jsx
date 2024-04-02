@@ -113,7 +113,7 @@ export const ContentBlock = styled.div`
   padding-top:  ${({ top }) => top || '75px'};
   padding-bottom:  ${({ bottom }) => bottom || '20px'};
 
-  background: pink; //
+  /* background: pink;  */
   width: 1440px;
 `
 export const TableHeader = styled.h2`
@@ -179,4 +179,6 @@ export const AllConteinerBigTable = styled.div`
   border: 1px solid ${color.blackPrimarySecondary};
   border-radius: 8px;
   overflow: hidden;
+  margin-bottom: 20px;
+  /* margin-block-end:20px; */
 `

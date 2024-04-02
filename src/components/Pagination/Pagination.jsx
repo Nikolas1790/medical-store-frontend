@@ -1,21 +1,18 @@
-export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  // Массив кнопок пагинации
-  // (предполагается, что totalPages - это общее количество страниц)
-  console.log(totalPages)
-  const pages = [...Array(totalPages).keys()].map(num => num + 1);
+import { PaginationButton, PaginationConteiner } from "./Pagination.styled";
 
+export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+  const pages = [...Array(totalPages).keys()].map(num => num + 1);
   return (
-    <div className="pagination">
+    <PaginationConteiner>
       {pages.map(page => (
-        <button
+        <PaginationButton
           key={page}
           disabled={page === currentPage}
           onClick={() => onPageChange(page)}
         >
-          {page}
-        </button>
-      ))}
-      
-    </div>
+          {/* {page} */}
+        </PaginationButton>
+      ))}      
+    </PaginationConteiner>
   );
 };

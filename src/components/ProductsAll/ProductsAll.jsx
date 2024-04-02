@@ -3,8 +3,7 @@ import { StatucColor } from "./ProductsAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
-export default function ProductsAll( {products} ) { 
-  // console.log(products)
+export default function ProductsAll( {products, currentPage} ) { 
   const data = products ? products.map(({ name, category, stock, suppliers, price }) => [ name, category, stock, suppliers, price ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
@@ -31,6 +30,7 @@ export default function ProductsAll( {products} ) {
       
       <AllConteinersTable >
         <Table2  
+         key={`table-${currentPage}-${data[0]}`}
           numRows={data.length} 
           defaultRowHeight={76} 
           columnWidths={[276, 230, 199, 226, 163, 146 ]} 

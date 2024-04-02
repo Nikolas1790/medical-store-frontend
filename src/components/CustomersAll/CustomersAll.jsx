@@ -3,8 +3,7 @@ import { StatucColor } from "./CustomersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
-export default function CustomersAll( {customers} ) { 
-  // console.log(customers)
+export default function CustomersAll({customers, currentPage }) { 
   const data = customers ? customers.map(({ image, name, email, address, phone, register_date, photo }) => [ image, name, email, address, phone, register_date, photo ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
@@ -58,6 +57,7 @@ export default function CustomersAll( {customers} ) {
       
       <AllConteinersTable >
         <Table2  
+          key={`table-${currentPage}-${data[0]}`}
           numRows={data.length} 
           defaultRowHeight={76} 
           columnWidths={[260, 299, 213, 263, 205 ]} 

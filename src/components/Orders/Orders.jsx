@@ -11,33 +11,25 @@ export default function Orders() {
   const dispatch = useDispatch();
   const orders = useSelector(selectOrdersInf);  
   const [currentPage, setCurrentPage] = useState(1);
-  const [ce, setCe] = useState('');
-
+  const [filterName, setFilterName] = useState('');
   const limitPerPage = 5;
-  console.log(orders)
 
-  // useEffect(() => {
-  //   dispatch(ordersInf({}));
-  // }, [dispatch]);
   useEffect(() => {
-    console.log(`Making request for page: ${currentPage}`);
-    dispatch(ordersInf({ page: currentPage, limit: limitPerPage, name: '' || ce }));
-  }, [dispatch, currentPage, limitPerPage, ce]);
+    dispatch(ordersInf({ page: currentPage, limit: limitPerPage, name: '' || filterName }));
+  }, [dispatch, currentPage, limitPerPage, filterName]);
 
   const handlePageChange = (page) => {
-    console.log(`Page change clicked: ${page}`);
     setCurrentPage(page);
   };
     // Предполагается, что ваш API возвращает общее количество доступных элементов
-    const totalOrders = orders.total || 0;
-    const totalPages = Math.ceil(totalOrders / limitPerPage);
-
+  const totalOrders = orders.total || 0;
+  const totalPages = Math.ceil(totalOrders / limitPerPage);
 
   return (    
     <ContentContainer>
       <ContentBlock>
+        <UserNameFilter  dataFactory={ordersInf} setFilterName={setFilterName} setCurrentPage={setCurrentPage} />
 
-        <UserNameFilter  dataFactory={ordersInf} setCe={setCe} />
         <div>
           <OrdersAll orders={orders.orders} currentPage={currentPage} />
           <Pagination
@@ -46,7 +38,6 @@ export default function Orders() {
             onPageChange={handlePageChange}
           />
         </div>
-
       </ContentBlock>
     </ContentContainer>
   );

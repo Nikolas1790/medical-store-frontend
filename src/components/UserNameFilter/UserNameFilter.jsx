@@ -13,7 +13,7 @@ const validationSchema = Yup.object({
     // Дополнительные правила валидации можно добавить здесь
 });
 
-export default function UserNameFilter({dataFactory, plholder, setCe }) {  
+export default function UserNameFilter({dataFactory, plholder, setFilterName, setCurrentPage }) {  
   const [isRestButtonVisible, setIsRestButtonVisible] = useState(false);
   const dispatch = useDispatch();
 //   const customers = useSelector(selectCustomersInf);  
@@ -24,14 +24,16 @@ export default function UserNameFilter({dataFactory, plholder, setCe }) {
     },    
     validationSchema: validationSchema,
     onSubmit: values => {
-      setCe( values.userName )
+      setCurrentPage(1)
+      setFilterName( values.userName )
       setIsRestButtonVisible("true")
       dispatch(dataFactory({ name: values.userName }));
     },
   });
 
   const handleReset = () => {
-    setCe( '' )
+    setCurrentPage(1)
+    setFilterName( '' )
     setIsRestButtonVisible(false);
     dispatch(dataFactory({}))
     formik.resetForm();

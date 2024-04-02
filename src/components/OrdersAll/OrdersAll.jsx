@@ -2,21 +2,9 @@ import { AllConteinerBigTable, AllConteinersTable, TableHeader } from "common/Gi
 import { StatucColor } from "./OrdersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
-// import { useEffect, useState } from "react";
 
 export default function OrdersAll({ orders, currentPage }) { 
-  console.log(orders)
   const data = orders ? orders.map(({ photo, name, address, products, order_date, price, status }) => [ photo, name, address, products, order_date, price, status ]) : [];
-
-  // useEffect(() => {
-  //   if (orders) {
-  //     console.log('Orders updated:', orders);
-  //     // Дополнительная логика, если нужно что-то сделать при обновлении заказов
-  //     setData(orders.map(({ photo, name, address, products, order_date, price, status }) => [ photo, name, address, products, order_date, price, status ]));
-  //     // data = orders ? orders.map(({ photo, name, address, products, order_date, price, status }) => [ photo, name, address, products, order_date, price, status ]) : [];
-  //   }
-  // }, [orders]);
-  
 
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex];
@@ -42,7 +30,6 @@ export default function OrdersAll({ orders, currentPage }) {
     );
   };
 
-
   const customCellName = (rowIndex, columnId, data) => {
     let style = {};
     const rowData = data[rowIndex];
@@ -63,7 +50,6 @@ export default function OrdersAll({ orders, currentPage }) {
       </Cell>
     );
   };
-  console.log(currentPage)
 
   return (   
     <AllConteinerBigTable>

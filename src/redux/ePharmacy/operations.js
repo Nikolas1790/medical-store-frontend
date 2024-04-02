@@ -24,7 +24,7 @@ export const ordersInf = createAsyncThunk("/orders",
 });
 
 export const productsInf = createAsyncThunk("/products",
-  async ({ page = 1, limit = 10, name ="" }, thunkAPI) => {
+  async ({ page = 1, limit = 5, name ="" }, thunkAPI) => {
     try {
       const response = await axios.get(`/products?page=${page}&limit=${limit}&name=${name}`);
       return response.data;
@@ -34,7 +34,7 @@ export const productsInf = createAsyncThunk("/products",
 });
 
 export const suppliersInf = createAsyncThunk("/suppliers",
-  async ({ page = 1, limit = 10, name ="" }, thunkAPI) => {
+  async ({ page = 1, limit = 5, name ="" }, thunkAPI) => {
     try {
       const response = await axios.get(`/suppliers?page=${page}&limit=${limit}&name=${name}`);
       return response.data;
@@ -44,7 +44,7 @@ export const suppliersInf = createAsyncThunk("/suppliers",
 });
 
 export const customersInf = createAsyncThunk("/customers",
-  async ({ page = 1, limit = 10, name ="" }, thunkAPI) => {
+  async ({ page = 1, limit = 5, name ="" }, thunkAPI) => {
     try {
       const response = await axios.get(`/customers?page=${page}&limit=${limit}&name=${name}`);
       return response.data;

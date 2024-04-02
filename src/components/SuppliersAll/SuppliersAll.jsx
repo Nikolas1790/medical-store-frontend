@@ -3,12 +3,10 @@ import { StatucColor } from "./SuppliersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
-export default function SuppliersAll({ suppliers }) { 
-  // console.log(suppliers)
+export default function SuppliersAll({ suppliers, currentPage }) { 
   const data = suppliers ? suppliers.map(({ name, address, suppliers, date, amount, status }) => [ name, address, suppliers, date, amount, status ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
-    // console.log(data)
     let content = data[rowIndex];
     let style = {};
 
@@ -26,7 +24,6 @@ export default function SuppliersAll({ suppliers }) {
     }
 
     if (columnId === 'ammount') {
-      // content = content.replace('৳', '').trim();
       content = content.replace(/^\D*/, '').trim();
   }
 
@@ -46,6 +43,7 @@ export default function SuppliersAll({ suppliers }) {
       
       <AllConteinersTable >
         <Table2  
+          key={`table-${currentPage}-${data[0]}`}
           numRows={data.length} 
           defaultRowHeight={76} 
           columnWidths={[191, 188, 166, 215, 162, 189, 129 ]} 
