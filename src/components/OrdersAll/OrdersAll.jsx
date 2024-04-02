@@ -3,7 +3,8 @@ import { StatucColor } from "./OrdersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
-export default function OrdersAll({ orders }) { 
+export default function OrdersAll({ orders, currentPage }) { 
+  console.log(currentPage)
   const data = orders ? orders.map(({ photo, name, address, products, order_date, price, status }) => [ photo, name, address, products, order_date, price, status ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
@@ -51,12 +52,14 @@ export default function OrdersAll({ orders }) {
       </Cell>
     );
   };
+  console.log(orders)
   return (   
     <AllConteinerBigTable>
       <TableHeader>All orders</TableHeader>
       
       <AllConteinersTable >
         <Table2  
+          key={`table-${currentPage}`}
           numRows={data.length} 
           defaultRowHeight={76} 
           columnWidths={[265, 218, 191, 232, 184, 150 ]} 
