@@ -178,4 +178,5 @@ export const AllConteinerBigTable = styled.div`
   background: ${color.white};
   border: 1px solid ${color.blackPrimarySecondary};
   border-radius: 8px;
+  overflow: hidden;
 `

@@ -2,10 +2,21 @@ import { AllConteinerBigTable, AllConteinersTable, TableHeader } from "common/Gi
 import { StatucColor } from "./OrdersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
+// import { useEffect, useState } from "react";
 
 export default function OrdersAll({ orders, currentPage }) { 
-  console.log(currentPage)
+  console.log(orders)
   const data = orders ? orders.map(({ photo, name, address, products, order_date, price, status }) => [ photo, name, address, products, order_date, price, status ]) : [];
+
+  // useEffect(() => {
+  //   if (orders) {
+  //     console.log('Orders updated:', orders);
+  //     // Дополнительная логика, если нужно что-то сделать при обновлении заказов
+  //     setData(orders.map(({ photo, name, address, products, order_date, price, status }) => [ photo, name, address, products, order_date, price, status ]));
+  //     // data = orders ? orders.map(({ photo, name, address, products, order_date, price, status }) => [ photo, name, address, products, order_date, price, status ]) : [];
+  //   }
+  // }, [orders]);
+  
 
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex];
@@ -52,14 +63,15 @@ export default function OrdersAll({ orders, currentPage }) {
       </Cell>
     );
   };
-  console.log(orders)
+  console.log(currentPage)
+
   return (   
     <AllConteinerBigTable>
       <TableHeader>All orders</TableHeader>
       
       <AllConteinersTable >
         <Table2  
-          key={`table-${currentPage}`}
+          key={`table-${currentPage}-${data[0]}`}
           numRows={data.length} 
           defaultRowHeight={76} 
           columnWidths={[265, 218, 191, 232, 184, 150 ]} 

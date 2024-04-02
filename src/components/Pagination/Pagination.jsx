@@ -1,4 +1,3 @@
-// Pagination.jsx
 export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   // Массив кнопок пагинации
   // (предполагается, что totalPages - это общее количество страниц)
@@ -17,8 +16,6 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         </button>
       ))}
       
-      {/* Индикаторы для дополнительной навигации (если нужны) */}
-      <button>...</button>
     </div>
   );
 };
