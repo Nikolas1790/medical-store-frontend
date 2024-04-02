@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/medical-store-frontend/static/css/main.534ba949.css",
-    "main.js": "/medical-store-frontend/static/js/main.9d637539.js",
+    "main.js": "/medical-store-frontend/static/js/main.aafc4b3d.js",
     "static/js/801.1984fd0b.chunk.js": "/medical-store-frontend/static/js/801.1984fd0b.chunk.js",
     "static/js/224.6fe6c10a.chunk.js": "/medical-store-frontend/static/js/224.6fe6c10a.chunk.js",
-    "static/js/791.fabb55bf.chunk.js": "/medical-store-frontend/static/js/791.fabb55bf.chunk.js",
+    "static/js/791.a253c2f7.chunk.js": "/medical-store-frontend/static/js/791.a253c2f7.chunk.js",
     "static/js/976.e6cda886.chunk.js": "/medical-store-frontend/static/js/976.e6cda886.chunk.js",
     "static/js/310.855b97ca.chunk.js": "/medical-store-frontend/static/js/310.855b97ca.chunk.js",
     "static/js/695.91dda2b6.chunk.js": "/medical-store-frontend/static/js/695.91dda2b6.chunk.js",
@@ -26,10 +26,10 @@
     "static/media/sprite.svg": "/medical-store-frontend/static/media/sprite.e30ba3417dfa0e3b6fb6f764f7118d9c.svg",
     "index.html": "/medical-store-frontend/index.html",
     "main.534ba949.css.map": "/medical-store-frontend/static/css/main.534ba949.css.map",
-    "main.9d637539.js.map": "/medical-store-frontend/static/js/main.9d637539.js.map",
+    "main.aafc4b3d.js.map": "/medical-store-frontend/static/js/main.aafc4b3d.js.map",
     "801.1984fd0b.chunk.js.map": "/medical-store-frontend/static/js/801.1984fd0b.chunk.js.map",
     "224.6fe6c10a.chunk.js.map": "/medical-store-frontend/static/js/224.6fe6c10a.chunk.js.map",
-    "791.fabb55bf.chunk.js.map": "/medical-store-frontend/static/js/791.fabb55bf.chunk.js.map",
+    "791.a253c2f7.chunk.js.map": "/medical-store-frontend/static/js/791.a253c2f7.chunk.js.map",
     "976.e6cda886.chunk.js.map": "/medical-store-frontend/static/js/976.e6cda886.chunk.js.map",
     "310.855b97ca.chunk.js.map": "/medical-store-frontend/static/js/310.855b97ca.chunk.js.map",
     "695.91dda2b6.chunk.js.map": "/medical-store-frontend/static/js/695.91dda2b6.chunk.js.map",
@@ -44,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.534ba949.css",
-    "static/js/main.9d637539.js"
+    "static/js/main.aafc4b3d.js"
   ]
 }
