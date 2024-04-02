@@ -4,11 +4,11 @@ import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
 export default function SuppliersAll({ suppliers }) { 
-  console.log(suppliers)
+  // console.log(suppliers)
   const data = suppliers ? suppliers.map(({ name, address, suppliers, date, amount, status }) => [ name, address, suppliers, date, amount, status ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
-    console.log(data)
+    // console.log(data)
     let content = data[rowIndex];
     let style = {};
 
@@ -24,6 +24,11 @@ export default function SuppliersAll({ suppliers }) {
         day: 'numeric',
       });
     }
+
+    if (columnId === 'ammount') {
+      // content = content.replace('৳', '').trim();
+      content = content.replace(/^\D*/, '').trim();
+  }
 
     if (columnId === 'name') {
       style.paddingLeft = '0px';

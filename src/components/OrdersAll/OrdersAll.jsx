@@ -3,7 +3,7 @@ import { StatucColor } from "./OrdersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
-export default function OrdersAll( {orders} ) { 
+export default function OrdersAll({ orders }) { 
   const data = orders ? orders.map(({ photo, name, address, products, order_date, price, status }) => [ photo, name, address, products, order_date, price, status ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {

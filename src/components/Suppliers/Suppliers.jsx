@@ -9,7 +9,7 @@ import { useEffect } from "react";
 export default function Suppliers() {  
   const dispatch = useDispatch();
   const suppliers = useSelector(selectSuppliersInf);  
-  console.log(suppliers)
+  // console.log(suppliers)
 
   useEffect(() => {
     dispatch(suppliersInf({}));

@@ -4,7 +4,7 @@ import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
 export default function ProductsAll( {products} ) { 
-  console.log(products)
+  // console.log(products)
   const data = products ? products.map(({ name, category, stock, suppliers, price }) => [ name, category, stock, suppliers, price ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {

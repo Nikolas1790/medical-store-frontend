@@ -4,8 +4,8 @@ import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 
 export default function CustomersAll( {customers} ) { 
-  console.log(customers)
-  const data = customers ? customers.map(({ image, name, email, address, phone, register_date }) => [ image, name, email, address, phone, register_date ]) : [];
+  // console.log(customers)
+  const data = customers ? customers.map(({ image, name, email, address, phone, register_date, photo }) => [ image, name, email, address, phone, register_date, photo ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex];
@@ -46,7 +46,7 @@ export default function CustomersAll( {customers} ) {
     return (
       <Cell style={style}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img src={rowData[0]} alt={rowData[1]} style={{ width: '36px', height: '36px', marginRight: '10px', borderRadius: '50%' }} />
+          <img src={rowData[0]|| rowData[6]} alt={rowData[1]} style={{ width: '36px', height: '36px', marginRight: '10px', borderRadius: '50%' }} />
           <p>{rowData[1]}</p>
         </div>
       </Cell>
