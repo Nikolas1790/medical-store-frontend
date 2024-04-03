@@ -116,6 +116,15 @@ export const ContentBlock = styled.div`
   /* background: pink;  */
   width: 1440px;
 `
+//////////////////////////////////////////////////////////////
+
+export const FilterAddConteiner = styled.div`
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+`
+
+
 export const TableHeader = styled.h2`
   height: 64px;
   border-radius: 8px 8px 0px 0px;

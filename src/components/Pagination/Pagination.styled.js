@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const PaginationConteiner = styled.div`
   display: flex;
-  justify-content: center; /* Центрирует содержимое по горизонтали */
+  justify-content: center; 
   align-items: center; 
 `
 

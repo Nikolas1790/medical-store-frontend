@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { customersInf, dashboardInf, ordersInf, productsInf, suppliersInf } from "./operations";
+import { addProduct, customersInf, dashboardInf, deleteProduct, ordersInf, productInf, suppliersInf, updateProduct } from "./operations";
 
 const pharmacySlice = createSlice({
   name: "pharmacy",
@@ -52,18 +52,63 @@ const pharmacySlice = createSlice({
         state.error = action.error.message;
       })
 
-      .addCase(productsInf.pending, (state) => {
+      .addCase(productInf.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(productsInf.fulfilled, (state, action) => {
+      .addCase(productInf.fulfilled, (state, action) => {
         state.loading = false;
         state.productsData = action.payload;
       })
-      .addCase(productsInf.rejected, (state, action) => {
+      .addCase(productInf.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
+
+      .addCase(addProduct.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(addProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        state.productsData = [ ...state.productsData, action.payload];
+      })
+      .addCase(addProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      .addCase(updateProduct.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        const index = state.productsData.findIndex(product => product.id === action.payload.id);
+        if (index !== -1) {
+          state.productsData[index] = action.payload;
+        }
+      })
+      .addCase(updateProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      .addCase(deleteProduct.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        state.productsData = state.productsData.filter(product => product.id !== action.payload);
+      })
+      .addCase(deleteProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+
+
 
       .addCase(customersInf.pending, (state) => {
         state.loading = true;

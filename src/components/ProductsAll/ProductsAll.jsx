@@ -1,10 +1,12 @@
 import { AllConteinerBigTable, AllConteinersTable, TableHeader } from "common/GiobalStyles";
-import { StatucColor } from "./ProductsAll.styled";
+import {  StatucColor } from "./ProductsAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
+import ActionBlock from "components/ActionBlock/ActionBlock";
 
-export default function ProductsAll( {products, currentPage} ) { 
-  const data = products ? products.map(({ name, category, stock, suppliers, price }) => [ name, category, stock, suppliers, price ]) : [];
+export default function ProductsAll({ products, currentPage }) { 
+  // console.log(products)
+  const data = products ? products.map(({ name, category, stock, suppliers, price, _id }) => [ name, category, stock, suppliers, price, _id ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex];
@@ -19,7 +21,8 @@ export default function ProductsAll( {products, currentPage} ) {
 
     return (
       <Cell style={style}>
-        {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : content}        
+        {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : (
+          columnId === 'actions' ? <ActionBlock id={content[5]}/> : content)}  
       </Cell>
     );
   };
@@ -43,7 +46,7 @@ export default function ProductsAll( {products, currentPage} ) {
           <Column name="Stock" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'stocks', data.map(item => item[2]))} />
           <Column name="Suppliers" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'suppliers', data.map(item => item[3]))} />
           <Column name="Price" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'price', data.map(item => item[4]))} />
-          <Column name="Action" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'actions', data.map(item => item[5]))} />
+          <Column name="Action" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'actions', data)} />
         </Table2>
       </AllConteinersTable>
     </AllConteinerBigTable>

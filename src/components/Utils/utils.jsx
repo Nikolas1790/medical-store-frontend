@@ -97,3 +97,4 @@ export const getBackgroundActiveColor = (type) => {
       return color.blackPrimarySecondary;
   }
 };
+

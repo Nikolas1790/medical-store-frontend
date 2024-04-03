@@ -1,4 +1,4 @@
-import { ContentBlock, ContentContainer } from "common/GiobalStyles";
+import { ContentBlock, ContentContainer, FilterAddConteiner } from "common/GiobalStyles";
 import UserNameFilter from "components/UserNameFilter/UserNameFilter";
 import { suppliersInf } from "../../redux/ePharmacy/operations";
 import SuppliersAll from "components/SuppliersAll/SuppliersAll";
@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectSuppliersInf } from "../../redux/ePharmacy/selector";
 import { useEffect, useState } from "react";
 import { Pagination } from "components/Pagination/Pagination";
+import BtnAddEditSuppliers from "components/BtnAddEditSuppliers/BtnAddEditSuppliers";
 
 export default function Suppliers() {  
   const dispatch = useDispatch();
@@ -21,15 +22,19 @@ export default function Suppliers() {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-    // Предполагается, что ваш API возвращает общее количество доступных элементов
+
   const totalSuppliers = suppliers.total || 0;
   const totalPages = Math.ceil(totalSuppliers / limitPerPage);
 
   return (
     <ContentContainer>
       <ContentBlock>
+        <FilterAddConteiner>
+          <UserNameFilter dataFactory={suppliersInf} setFilterName={setFilterName} setCurrentPage={setCurrentPage} />
 
-        <UserNameFilter dataFactory={suppliersInf} setFilterName={setFilterName} setCurrentPage={setCurrentPage} />
+          <BtnAddEditSuppliers />
+        </FilterAddConteiner>
+
         <div>
         <SuppliersAll suppliers={suppliers.suppliers} currentPage={currentPage} />
         <Pagination

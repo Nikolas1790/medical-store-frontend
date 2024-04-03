@@ -9,6 +9,7 @@ const color = {
   greenDarker: 'rgb(63, 148, 95);',
   greenSupperLight: 'rgb(231, 241, 237)',
   greenSecondary: 'rgba(89, 177, 122, 0.1)',
+  greenAmazing: 'rgba(89, 177, 122, 0.5)',
 
   red: ' rgb(232, 80, 80);',
   redSecondary: 'rgba(232, 80, 80, 0.1)',

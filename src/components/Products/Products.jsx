@@ -1,11 +1,12 @@
-import { ContentBlock, ContentContainer } from "common/GiobalStyles";
+import { ContentBlock, ContentContainer, FilterAddConteiner } from "common/GiobalStyles";
 import UserNameFilter from "components/UserNameFilter/UserNameFilter";
-import { productsInf } from "../../redux/ePharmacy/operations";
+import { productInf } from "../../redux/ePharmacy/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProductsInf } from "../../redux/ePharmacy/selector";
 import { useEffect, useState } from "react";
 import ProductsAll from "components/ProductsAll/ProductsAll";
 import { Pagination } from "components/Pagination/Pagination";
+import { AddProduct, AddProductConteiner } from "./Products.styled";
 
 export default function Products() {  
   const dispatch = useDispatch();
@@ -15,29 +16,39 @@ export default function Products() {
   const limitPerPage = 5;
 
   useEffect(() => {
-    dispatch(productsInf({ page: currentPage, limit: limitPerPage, name: '' || filterName }));
+    dispatch(productInf({ page: currentPage, limit: limitPerPage, name: '' || filterName }));
   }, [dispatch, currentPage, limitPerPage, filterName]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-    // Предполагается, что ваш API возвращает общее количество доступных элементов
+  
   const totalProducts = products.total || 0;
   const totalPages = Math.ceil(totalProducts / limitPerPage);
   return (
     <ContentContainer>
       <ContentBlock>
+        <FilterAddConteiner>
+          <UserNameFilter dataFactory={productInf} plholder="Product Name" setFilterName={setFilterName} setCurrentPage={setCurrentPage}/>
+          <AddProductConteiner>
 
-        <UserNameFilter dataFactory={productsInf} plholder="Product  Name" setFilterName={setFilterName} setCurrentPage={setCurrentPage} />
+            <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="42" height="42" rx="21" fill="#59B17A"/>
+              <path d="M27 21H15M21 15V27V15Z" stroke="white" />
+            </svg>
+
+            <AddProduct>Add a new product</AddProduct>
+          </AddProductConteiner>
+        </FilterAddConteiner>
+
         <div>
-        <ProductsAll products={products.products} currentPage={currentPage} />
-        <Pagination
+          <ProductsAll products={products.products} currentPage={currentPage} />
+          <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
           />
         </div>
-
       </ContentBlock>
     </ContentContainer>
   );

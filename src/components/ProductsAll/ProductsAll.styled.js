@@ -15,3 +15,11 @@ export const StatucColor = styled.p`
   border-radius: 40px;
 
 `
+
+// export const ActionConteiner = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 8px;
+
+// `

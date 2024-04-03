@@ -2,6 +2,7 @@ import { AllConteinerBigTable, AllConteinersTable, TableHeader } from "common/Gi
 import { StatucColor } from "./SuppliersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
+import BtnAddEditSuppliers from "components/BtnAddEditSuppliers/BtnAddEditSuppliers";
 
 export default function SuppliersAll({ suppliers, currentPage }) { 
   const data = suppliers ? suppliers.map(({ name, address, suppliers, date, amount, status }) => [ name, address, suppliers, date, amount, status ]) : [];
@@ -32,7 +33,8 @@ export default function SuppliersAll({ suppliers, currentPage }) {
     }
     return (
       <Cell style={style}>
-        {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : content}        
+        {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : content}      
+        {columnId === 'action' && <BtnAddEditSuppliers width="82px" height="34px" name="edit"/>}  
       </Cell>
     );
   };
