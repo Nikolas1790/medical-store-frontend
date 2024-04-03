@@ -4,8 +4,7 @@ import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 import ActionBlock from "components/ActionBlock/ActionBlock";
 
-export default function ProductsAll({ products, currentPage }) { 
-  // console.log(products)
+export default function ProductsAll({ products }) { 
   const data = products ? products.map(({ name, category, stock, suppliers, price, _id }) => [ name, category, stock, suppliers, price, _id ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
@@ -33,7 +32,7 @@ export default function ProductsAll({ products, currentPage }) {
       
       <AllConteinersTable >
         <Table2  
-         key={`table-${currentPage}-${data[0]}`}
+         key={`table-${data}`}
           numRows={data.length} 
           defaultRowHeight={76} 
           columnWidths={[276, 230, 199, 226, 163, 146 ]} 

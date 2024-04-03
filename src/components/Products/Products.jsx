@@ -14,10 +14,10 @@ export default function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [filterName, setFilterName] = useState('');
   const limitPerPage = 5;
-
+// console.log(products)
   useEffect(() => {
     dispatch(productInf({ page: currentPage, limit: limitPerPage, name: '' || filterName }));
-  }, [dispatch, currentPage, limitPerPage, filterName]);
+  }, [dispatch, currentPage, limitPerPage, filterName, products.total]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -42,7 +42,7 @@ export default function Products() {
         </FilterAddConteiner>
 
         <div>
-          <ProductsAll products={products.products} currentPage={currentPage} />
+          <ProductsAll products={products.products} />
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
@@ -53,3 +53,5 @@ export default function Products() {
     </ContentContainer>
   );
 }
+
+

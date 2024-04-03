@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addProduct, customersInf, dashboardInf, deleteProduct, ordersInf, productInf, suppliersInf, updateProduct } from "./operations";
+import { addProduct, addSupplier, customersInf, dashboardInf, deleteProduct, ordersInf, productInf, suppliersInf, updateProduct, updateSupplier } from "./operations";
 
 const pharmacySlice = createSlice({
   name: "pharmacy",
@@ -7,7 +7,10 @@ const pharmacySlice = createSlice({
     dashboarData:[],
     ordersData:[],
     suppliersData: [],
-    productsData: [],
+    productsData: {
+      products: [],
+      total: 0,
+    },
     customersData: []
   },
   reducers: {},
@@ -39,18 +42,6 @@ const pharmacySlice = createSlice({
         state.error = action.error.message;
       })
 
-      .addCase(suppliersInf.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(suppliersInf.fulfilled, (state, action) => {
-        state.loading = false;
-        state.suppliersData = action.payload;
-      })
-      .addCase(suppliersInf.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      })
 
       .addCase(productInf.pending, (state) => {
         state.loading = true;
@@ -58,7 +49,9 @@ const pharmacySlice = createSlice({
       })
       .addCase(productInf.fulfilled, (state, action) => {
         state.loading = false;
+        console.log(action.payload)
         state.productsData = action.payload;
+        // state.productsData.total = action.payload.total;
       })
       .addCase(productInf.rejected, (state, action) => {
         state.loading = false;
@@ -98,14 +91,84 @@ const pharmacySlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(deleteProduct.fulfilled, (state, action) => {
-        state.loading = false;
-        state.productsData = state.productsData.filter(product => product.id !== action.payload);
-      })
+    .addCase(deleteProduct.fulfilled, (state, action) => {
+      state.loading = false;
+      state.productsData.products = state.productsData.products.filter(product => product.id !== action.payload);
+      state.productsData.total = state.productsData.total - 1;
+      console.log(JSON.parse(JSON.stringify(state.productsData)))
+    })
       .addCase(deleteProduct.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
+
+
+      .addCase(suppliersInf.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(suppliersInf.fulfilled, (state, action) => {
+        state.loading = false;
+        state.suppliersData = action.payload;
+      })
+      .addCase(suppliersInf.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      .addCase(addSupplier.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(addSupplier.fulfilled, (state, action) => {
+        state.loading = false;
+        state.suppliersData = [ ...state.suppliersData, action.payload];
+      })
+      .addCase(addSupplier.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+
+      .addCase(updateSupplier.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateSupplier.fulfilled, (state, action) => {
+        state.loading = false;
+        const index = state.suppliersData.findIndex(supplier => supplier.id === action.payload.id);
+        if (index !== -1) {
+          state.suppliersData[index] = action.payload;
+        }
+      })
+      .addCase(updateSupplier.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
