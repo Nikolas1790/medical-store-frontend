@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/medical-store-frontend/static/css/main.534ba949.css",
-    "main.js": "/medical-store-frontend/static/js/main.216ee329.js",
+    "main.js": "/medical-store-frontend/static/js/main.b9f9cd41.js",
     "static/js/801.1984fd0b.chunk.js": "/medical-store-frontend/static/js/801.1984fd0b.chunk.js",
     "static/js/224.6fe6c10a.chunk.js": "/medical-store-frontend/static/js/224.6fe6c10a.chunk.js",
     "static/js/746.3209db12.chunk.js": "/medical-store-frontend/static/js/746.3209db12.chunk.js",
-    "static/js/989.327bab5c.chunk.js": "/medical-store-frontend/static/js/989.327bab5c.chunk.js",
+    "static/js/989.05366c05.chunk.js": "/medical-store-frontend/static/js/989.05366c05.chunk.js",
     "static/js/36.709c7bb1.chunk.js": "/medical-store-frontend/static/js/36.709c7bb1.chunk.js",
     "static/js/695.f6d65456.chunk.js": "/medical-store-frontend/static/js/695.f6d65456.chunk.js",
     "static/js/196.171b7e1b.chunk.js": "/medical-store-frontend/static/js/196.171b7e1b.chunk.js",
@@ -26,11 +26,11 @@
     "static/media/sprite.svg": "/medical-store-frontend/static/media/sprite.01cf39cdfbe7fbc3f20c5d2364229c7f.svg",
     "index.html": "/medical-store-frontend/index.html",
     "main.534ba949.css.map": "/medical-store-frontend/static/css/main.534ba949.css.map",
-    "main.216ee329.js.map": "/medical-store-frontend/static/js/main.216ee329.js.map",
+    "main.b9f9cd41.js.map": "/medical-store-frontend/static/js/main.b9f9cd41.js.map",
     "801.1984fd0b.chunk.js.map": "/medical-store-frontend/static/js/801.1984fd0b.chunk.js.map",
     "224.6fe6c10a.chunk.js.map": "/medical-store-frontend/static/js/224.6fe6c10a.chunk.js.map",
     "746.3209db12.chunk.js.map": "/medical-store-frontend/static/js/746.3209db12.chunk.js.map",
-    "989.327bab5c.chunk.js.map": "/medical-store-frontend/static/js/989.327bab5c.chunk.js.map",
+    "989.05366c05.chunk.js.map": "/medical-store-frontend/static/js/989.05366c05.chunk.js.map",
     "36.709c7bb1.chunk.js.map": "/medical-store-frontend/static/js/36.709c7bb1.chunk.js.map",
     "695.f6d65456.chunk.js.map": "/medical-store-frontend/static/js/695.f6d65456.chunk.js.map",
     "196.171b7e1b.chunk.js.map": "/medical-store-frontend/static/js/196.171b7e1b.chunk.js.map",
@@ -44,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.534ba949.css",
-    "static/js/main.216ee329.js"
+    "static/js/main.b9f9cd41.js"
   ]
 }
