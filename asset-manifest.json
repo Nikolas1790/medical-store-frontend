@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/medical-store-frontend/static/css/main.534ba949.css",
-    "main.js": "/medical-store-frontend/static/js/main.7d4858e6.js",
+    "main.js": "/medical-store-frontend/static/js/main.216ee329.js",
     "static/js/801.1984fd0b.chunk.js": "/medical-store-frontend/static/js/801.1984fd0b.chunk.js",
     "static/js/224.6fe6c10a.chunk.js": "/medical-store-frontend/static/js/224.6fe6c10a.chunk.js",
-    "static/js/746.0ed6a35f.chunk.js": "/medical-store-frontend/static/js/746.0ed6a35f.chunk.js",
-    "static/js/976.86e55270.chunk.js": "/medical-store-frontend/static/js/976.86e55270.chunk.js",
-    "static/js/310.23a6f199.chunk.js": "/medical-store-frontend/static/js/310.23a6f199.chunk.js",
-    "static/js/695.c2948b57.chunk.js": "/medical-store-frontend/static/js/695.c2948b57.chunk.js",
+    "static/js/746.3209db12.chunk.js": "/medical-store-frontend/static/js/746.3209db12.chunk.js",
+    "static/js/989.327bab5c.chunk.js": "/medical-store-frontend/static/js/989.327bab5c.chunk.js",
+    "static/js/36.709c7bb1.chunk.js": "/medical-store-frontend/static/js/36.709c7bb1.chunk.js",
+    "static/js/695.f6d65456.chunk.js": "/medical-store-frontend/static/js/695.f6d65456.chunk.js",
     "static/js/196.171b7e1b.chunk.js": "/medical-store-frontend/static/js/196.171b7e1b.chunk.js",
     "blueprint-icons-all-paths-loader.js": "/medical-store-frontend/static/js/blueprint-icons-all-paths-loader.15fab5b3.chunk.js",
     "blueprint-icons-split-paths-by-size-loader.js": "/medical-store-frontend/static/js/blueprint-icons-split-paths-by-size-loader.dbfec748.chunk.js",
@@ -23,16 +23,16 @@
     "static/media/Inter-Medium.woff2": "/medical-store-frontend/static/media/Inter-Medium.01f03178adde434fc9fa.woff2",
     "static/media/Inter-Regular.woff2": "/medical-store-frontend/static/media/Inter-Regular.bd097ceff83f90802a12.woff2",
     "static/media/white-round-pill.png": "/medical-store-frontend/static/media/white-round-pill.269f984b8b3db1a033a7.png",
-    "static/media/sprite.svg": "/medical-store-frontend/static/media/sprite.e30ba3417dfa0e3b6fb6f764f7118d9c.svg",
+    "static/media/sprite.svg": "/medical-store-frontend/static/media/sprite.01cf39cdfbe7fbc3f20c5d2364229c7f.svg",
     "index.html": "/medical-store-frontend/index.html",
     "main.534ba949.css.map": "/medical-store-frontend/static/css/main.534ba949.css.map",
-    "main.7d4858e6.js.map": "/medical-store-frontend/static/js/main.7d4858e6.js.map",
+    "main.216ee329.js.map": "/medical-store-frontend/static/js/main.216ee329.js.map",
     "801.1984fd0b.chunk.js.map": "/medical-store-frontend/static/js/801.1984fd0b.chunk.js.map",
     "224.6fe6c10a.chunk.js.map": "/medical-store-frontend/static/js/224.6fe6c10a.chunk.js.map",
-    "746.0ed6a35f.chunk.js.map": "/medical-store-frontend/static/js/746.0ed6a35f.chunk.js.map",
-    "976.86e55270.chunk.js.map": "/medical-store-frontend/static/js/976.86e55270.chunk.js.map",
-    "310.23a6f199.chunk.js.map": "/medical-store-frontend/static/js/310.23a6f199.chunk.js.map",
-    "695.c2948b57.chunk.js.map": "/medical-store-frontend/static/js/695.c2948b57.chunk.js.map",
+    "746.3209db12.chunk.js.map": "/medical-store-frontend/static/js/746.3209db12.chunk.js.map",
+    "989.327bab5c.chunk.js.map": "/medical-store-frontend/static/js/989.327bab5c.chunk.js.map",
+    "36.709c7bb1.chunk.js.map": "/medical-store-frontend/static/js/36.709c7bb1.chunk.js.map",
+    "695.f6d65456.chunk.js.map": "/medical-store-frontend/static/js/695.f6d65456.chunk.js.map",
     "196.171b7e1b.chunk.js.map": "/medical-store-frontend/static/js/196.171b7e1b.chunk.js.map",
     "blueprint-icons-all-paths-loader.15fab5b3.chunk.js.map": "/medical-store-frontend/static/js/blueprint-icons-all-paths-loader.15fab5b3.chunk.js.map",
     "blueprint-icons-split-paths-by-size-loader.dbfec748.chunk.js.map": "/medical-store-frontend/static/js/blueprint-icons-split-paths-by-size-loader.dbfec748.chunk.js.map",
@@ -44,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.534ba949.css",
-    "static/js/main.7d4858e6.js"
+    "static/js/main.216ee329.js"
   ]
 }
