@@ -18,12 +18,15 @@ const validationSchema = Yup.object({
   price: Yup.number().required('Price is required').positive('Price must be positive'),
 });
 
-export default function ProductModals({ closeModals }) {  
+export default function ProductModals({ closeModals, isUpdate, existingProduct }) {  
   const [selectedLevels, setSelectedLevels] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   // const [attemptedSubmit, setAttemptedSubmit] = useState(false);
   const dropdownRef = useRef(null);
 const dispatch = useDispatch();
+const q = existingProduct?.[2];
+
+console.log(q)
 
 useEffect(() => {
   const handleOutsideClick = (event) => {
@@ -35,15 +38,23 @@ useEffect(() => {
   return () => document.removeEventListener('mousedown', handleOutsideClick);
 }, []);
   
+const initialValues = isUpdate ? {
+  name: existingProduct?.[0],
+  category: existingProduct?.[1],
+  stock: q, // Assuming stock is a number and needs to be converted to string
+  suppliers: existingProduct?.[3],
+  price: existingProduct?.[4].toString(), // Assuming price is a number and needs to be converted to string
+} : {
+  name: '',
+  category: '',
+  stock: '',
+  suppliers: '',
+  price: '',
+};
+
     // Инициализация Formik
     const formik = useFormik({
-      initialValues: {
-        name: '',
-        category: '',
-        stock: '',
-        suppliers: '',
-        price: '',
-      },
+      initialValues: initialValues,
       validationSchema,
       onSubmit: (values, { resetForm }) => {
            dispatch(addProduct(values))  
@@ -66,7 +77,7 @@ useEffect(() => {
         </svg>   
       </ClosingSymbol>
 
-      <Title>Add a new product</Title>
+      <Title>{ isUpdate  ? 'Edit product' :'Add a new product'}</Title>
       <div>
       <form onSubmit={formik.handleSubmit}>
         <InputConteiner>
@@ -107,7 +118,7 @@ useEffect(() => {
                   <DropdownSvg width={20} height={20} onClick={toggleDropdown} >
                       <use href={`${sprite}#icon-chevron-${isDropdownOpen ? 'up' : 'down'}`}  />
                   </DropdownSvg>
-                  <DropdownButton  onClick={toggleDropdown} haserror={formik.touched.category && formik.errors.category}>{selectedLevels || "Select Level" }</DropdownButton>  
+                  <DropdownButton  onClick={toggleDropdown} haserror={formik.touched.category && formik.errors.category}>{selectedLevels || "Category" }</DropdownButton>  
                   <DropdownList open={isDropdownOpen}>
                     <StyledSimpleBar style={{ maxHeight: 126 }}>
                       {AVAILABLE_CATEGORIES.map((category, index) => (
