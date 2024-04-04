@@ -11,7 +11,7 @@ export default function BtnAddEditSuppliers({width, height, name}){
           </svg>
           <EditSuppliers>Edit</EditSuppliers>
         </>
-        ) : <p>Add a new suppliers</p>}
+        ) : (<p>Add a new suppliers</p>)}
     </AddEditSuppliers>
   );
 };

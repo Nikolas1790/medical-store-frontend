@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Button, FilterConteiner, FilterForm, InputFilter } from "./UserNameFilter.styled";
+import {  FilterConteiner, FilterForm, InputFilter } from "./UserNameFilter.styled";
 // import { customersInf, ordersInf } from "../../redux/ePharmacy/operations";
 import { useDispatch } from "react-redux";
 import * as Yup from 'yup';
@@ -53,7 +53,7 @@ export default function UserNameFilter({dataFactory, plholder, setFilterName, se
         <CustomButton label="Filter" type="submit" icon={true} />
       </FilterForm>
       {isRestButtonVisible && (
-        <Button><CustomButton label="Rest" onClick={() => handleReset()}/></Button>
+        <CustomButton label="Rest" onClick={() => handleReset()} width="116px"/>
       )}
     </FilterConteiner>
   );

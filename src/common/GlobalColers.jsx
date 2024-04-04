@@ -1,7 +1,7 @@
 const color = {
   blackPrimary: 'rgb(29, 30, 33);',
   blackPrimarySecondary: 'rgba(29, 30, 33, 0.1)',
-  textColorSecondary: 'rgba(29, 30, 33, 0.4)',
+  blackColorSecondary: 'rgba(29, 30, 33, 0.4)',
   
   grey: 'rgb(220, 221, 223)',
   

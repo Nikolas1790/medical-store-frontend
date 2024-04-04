@@ -10,7 +10,7 @@ export const Modal = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${color.dimmedBackground};    
+    background-color: ${color.blackColorSecondary};    //
     overflow: auto;
     z-index:5;
 

@@ -10,7 +10,7 @@ import { logIn } from "../../redux/auth/operationsAuth";
 
 import { useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
-import { CustomBtn } from "components/CustomButton/CustomButton.styled";
+import CustomButton from "components/CustomButton/CustomButton";
 
 const initialValues = {
   email: '',
@@ -107,7 +107,8 @@ export default function Login() {
                       )}
                     </FormFieldConteiner>
                   </FormConteiner>     
-                  <CustomBtn>Log in</CustomBtn>
+                  <CustomButton label="Log in" />
+                  {/* <CustomBtn label="Log in" /> */}
                 </FormFields>                    
               </Form>
             )}

@@ -151,7 +151,7 @@ export const AllConteinersTable = styled.div`
 
     font-size: 14px;  
     font-weight: 500;
-    color: ${color.textColorSecondary};
+    color: ${color.blackColorSecondary};
     box-shadow: none; //
     border-bottom: 1px solid ${color.blackPrimarySecondary};
   }

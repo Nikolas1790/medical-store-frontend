@@ -7,12 +7,15 @@ import { useEffect, useState } from "react";
 import ProductsAll from "components/ProductsAll/ProductsAll";
 import { Pagination } from "components/Pagination/Pagination";
 import { AddProduct, AddProductConteiner } from "./Products.styled";
+import PortalModal from "components/PortalModal/PortalModal";
+import ProductModals from "components/ProductModal/ProductModal";
 
 export default function Products() {  
   const dispatch = useDispatch();
   const products = useSelector(selectProductsInf);  
   const [currentPage, setCurrentPage] = useState(1);
   const [filterName, setFilterName] = useState('');
+  const [openModal, setOpenModal] = useState(false);
   const limitPerPage = 5;
 // console.log(products)
   useEffect(() => {
@@ -30,7 +33,7 @@ export default function Products() {
       <ContentBlock>
         <FilterAddConteiner>
           <UserNameFilter dataFactory={productInf} plholder="Product Name" setFilterName={setFilterName} setCurrentPage={setCurrentPage}/>
-          <AddProductConteiner>
+          <AddProductConteiner onClick={() => setOpenModal(true)} >
 
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="42" height="42" rx="21" fill="#59B17A"/>
@@ -49,6 +52,11 @@ export default function Products() {
             onPageChange={handlePageChange}
           />
         </div>
+        
+        <PortalModal active={openModal} setActive={setOpenModal}>
+          <ProductModals closeModals={() => setOpenModal()} />
+        </PortalModal>
+
       </ContentBlock>
     </ContentContainer>
   );

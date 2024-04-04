@@ -31,10 +31,10 @@ export const InputFilter = styled.input`
 
   &::placeholder {
     font-size: 12px; // Пример изменения размера текста плейсхолдера
-    color: ${color.textColorSecondary};
+    color: ${color.blackColorSecondary};
   }
 `;
 
-export const Button = styled.div`
-  width: 116px;
-`;
+// export const Button = styled.div`
+//   width: 116px;
+// `;

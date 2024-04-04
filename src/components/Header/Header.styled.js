@@ -34,7 +34,7 @@ export const HeaderText = styled.p`
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
-  color: ${color.textColorSecondary};
+  color: ${color.blackColorSecondary};
 `
 
 export const Divider = styled.div`

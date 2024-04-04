@@ -49,7 +49,7 @@ const pharmacySlice = createSlice({
       })
       .addCase(productInf.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload)
+        // console.log(action.payload)
         state.productsData = action.payload;
         // state.productsData.total = action.payload.total;
       })
@@ -95,7 +95,7 @@ const pharmacySlice = createSlice({
       state.loading = false;
       state.productsData.products = state.productsData.products.filter(product => product.id !== action.payload);
       state.productsData.total = state.productsData.total - 1;
-      console.log(JSON.parse(JSON.stringify(state.productsData)))
+      // console.log(JSON.parse(JSON.stringify(state.productsData)))
     })
       .addCase(deleteProduct.rejected, (state, action) => {
         state.loading = false;

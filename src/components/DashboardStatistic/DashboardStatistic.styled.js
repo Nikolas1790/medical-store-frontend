@@ -32,7 +32,7 @@ export const StatisticTitleConteiner = styled.div`
 export const StatisticSectionTitle = styled.h4`
   font-size: 12px;
   font-weight: 400;
-  color: ${color.textColorSecondary};
+  color: ${color.blackColorSecondary};
   
 `
 export const StatisticValue = styled.p`

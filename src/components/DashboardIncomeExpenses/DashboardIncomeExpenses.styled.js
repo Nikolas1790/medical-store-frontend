@@ -19,7 +19,7 @@ export const IncomeExpensesTableConteiner = styled.div`
 
     font-size: 14px;  
     font-weight: 500;
-    color: ${color.textColorSecondary};
+    color: ${color.blackColorSecondary};
     box-shadow: none; 
   }
   .bp5-table-column-name{
