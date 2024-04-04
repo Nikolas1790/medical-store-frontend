@@ -10,6 +10,7 @@ const color = {
   greenSupperLight: 'rgb(231, 241, 237)',
   greenSecondary: 'rgba(89, 177, 122, 0.1)',
   greenAmazing: 'rgba(89, 177, 122, 0.5)',
+  
 
   red: ' rgb(232, 80, 80);',
   redSecondary: 'rgba(232, 80, 80, 0.1)',
@@ -24,7 +25,8 @@ const color = {
   blueSecondary: 'rgba(112, 166, 232, 0.1)',
 
   backgroundMain: 'rgb(247, 248, 250)', 
-  white: 'rgb(255, 255, 255)',   
+  white: 'rgb(255, 255, 255)',  
+  whiterTranslucent: 'rgba(255, 255, 255, 0.5)',  
 };
   
 export default color;

@@ -1,5 +1,33 @@
 import color from "common/GlobalColers";
 import styled from "styled-components";
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
+
+export const StyledSimpleBar = styled(SimpleBar)`
+  /* Задайте общие стили для контейнера */
+  .simplebar-scrollbar {
+    background: rgba(255, 255, 255, 0.4) !important;
+    width: 6px !important;
+    height: 65px !important;
+    border-radius: 12px !important;
+  }
+
+  .simplebar-track.simplebar-vertical {
+    width: 6px !important;
+    right: -10px !important; /* Смещение вправо */
+  }
+
+  .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+    background-color: #dcdcdc;
+  }
+
+  .simplebar-track.simplebar-vertical .simplebar-scrollbar:hover:before {
+    background-color: #bcbcbc;
+  }
+`;
+
+
+
 
 export const Conteiner = styled.div`
   position: relative;
@@ -64,12 +92,75 @@ border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
 
 
 
+///////////////////////////////////////////////// 222
+export const Dropdown = styled.div`
+  position: relative;
+`;
+
+export const DropdownSvg = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  stroke: ${color.blackPrimary};
+  fill: none;
+`;
+
+export const DropdownButton = styled.button`
+  display: flex;
+
+  font-weight: 400;
+  font-size: 12px;
+  height: 44px;
+  border-radius: 60px; 
+  border: 1px solid ${color.blackPrimarySecondary};
+  outline: none;
+  cursor: pointer;
+
+  background-color: ${color.white};
+  padding: 13px 18px;
+
+  width: 224px;
+  border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
+`;
+
+export const DropdownList = styled.ul`
+  position: absolute;
+  z-index: 1;
+  top: 112%;
+  left: 0;
+  background-color: ${color.greenLight};
+
+  display: ${({ open }) => (open ? 'block' : 'none')};
+  /* overflow-y: auto; */
+  /* overflow-x: hidden; */
+  max-height: 140px; 
+  /* list-style: none; */
+  padding: 13px 18px;
+  margin: 0;
+
+  width: 100%;
+  height: 140px;
+  border-radius: 15px;
 
 
 
+`;
+
+export const DropdownItem = styled.li`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${color.whiterTranslucent};
+  padding: 3px;
+  cursor: pointer;  
+
+  &:hover {
+    color: ${color.white};
+  }
+`;
 
 
-
+/////////////////////////////////////////////////// 222
 
 
 

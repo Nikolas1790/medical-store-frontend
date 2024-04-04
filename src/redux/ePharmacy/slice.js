@@ -64,7 +64,11 @@ const pharmacySlice = createSlice({
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.loading = false;
-        state.productsData = [ ...state.productsData, action.payload];
+        // state.productsData.products = state.productsData.products.filter(product => product.id !== action.payload);
+        state.productsData.total = state.productsData.total + 1;
+
+
+        state.productsData.products = [ ...state.productsData.products, action.payload];
       })
       .addCase(addProduct.rejected, (state, action) => {
         state.loading = false;
