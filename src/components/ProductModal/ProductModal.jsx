@@ -28,7 +28,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        console.log(dropdownRef.current.contains(event.target))
+        // console.log(dropdownRef.current.contains(event.target))
         setIsDropdownOpen(false); 
       }
     };

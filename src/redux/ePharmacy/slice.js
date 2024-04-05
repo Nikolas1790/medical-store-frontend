@@ -76,10 +76,14 @@ const pharmacySlice = createSlice({
       })
       .addCase(updateProduct.fulfilled, (state, action) => {
         state.loading = false;
-        const index = state.productsData.products.findIndex(product => product.id === action.payload.id);
+        const index = state.productsData.products.findIndex(product => product._id === action.payload._id);
+        // console.log(index)
+        // console.log(state.productsData.products)
         if (index !== -1) {
           state.productsData.products[index] = action.payload;
+        // console.log(state.productsData.products[index])
         }
+        // console.log(state.productsData.products.findIndex(product => product.id === action.payload.id))
       })
       .addCase(updateProduct.rejected, (state, action) => {
         state.loading = false;
