@@ -17,11 +17,11 @@ export default function ProductsAll({ products }) {
     if (columnId === 'name') {
       style.paddingLeft = '0px';
     }
-console.log(content)
+// console.log(content)
     return (
       <Cell style={style}>
         {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : (
-          columnId === 'actions' ? <ActionBlock id={content} item={content}/> : content)}  
+          columnId === 'actions' ? <ActionBlock item={content}/> : content)}  
       </Cell>
     );
   };

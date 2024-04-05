@@ -6,16 +6,15 @@ import PortalModal from 'components/PortalModal/PortalModal';
 import { useState } from 'react';
 import ProductModals from 'components/ProductModal/ProductModal';
 
-export default function ActionBlock({ id, item }) { 
+export default function ActionBlock({ item }) { 
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
-
- console.log(item)
+  const id = item?.[5];
+//  console.log(id)
   
   const dellItem = () => {
     dispatch(deleteProduct(id))
-  };
-  
+  };  
 
   return (        
     <ActionConteiner>

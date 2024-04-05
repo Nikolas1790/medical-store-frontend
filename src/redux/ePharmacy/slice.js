@@ -49,9 +49,7 @@ const pharmacySlice = createSlice({
       })
       .addCase(productInf.fulfilled, (state, action) => {
         state.loading = false;
-        // console.log(action.payload)
         state.productsData = action.payload;
-        // state.productsData.total = action.payload.total;
       })
       .addCase(productInf.rejected, (state, action) => {
         state.loading = false;
@@ -64,10 +62,7 @@ const pharmacySlice = createSlice({
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.loading = false;
-        // state.productsData.products = state.productsData.products.filter(product => product.id !== action.payload);
         state.productsData.total = state.productsData.total + 1;
-
-
         state.productsData.products = [ ...state.productsData.products, action.payload];
       })
       .addCase(addProduct.rejected, (state, action) => {
@@ -81,9 +76,9 @@ const pharmacySlice = createSlice({
       })
       .addCase(updateProduct.fulfilled, (state, action) => {
         state.loading = false;
-        const index = state.productsData.findIndex(product => product.id === action.payload.id);
+        const index = state.productsData.products.findIndex(product => product.id === action.payload.id);
         if (index !== -1) {
-          state.productsData[index] = action.payload;
+          state.productsData.products[index] = action.payload;
         }
       })
       .addCase(updateProduct.rejected, (state, action) => {
@@ -99,7 +94,6 @@ const pharmacySlice = createSlice({
       state.loading = false;
       state.productsData.products = state.productsData.products.filter(product => product.id !== action.payload);
       state.productsData.total = state.productsData.total - 1;
-      // console.log(JSON.parse(JSON.stringify(state.productsData)))
     })
       .addCase(deleteProduct.rejected, (state, action) => {
         state.loading = false;
