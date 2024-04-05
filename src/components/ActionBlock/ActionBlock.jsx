@@ -4,7 +4,7 @@ import { ActionConteiner } from './ActionBlock.styled';
 import { deleteProduct } from '../../redux/ePharmacy/operations';
 import PortalModal from 'components/PortalModal/PortalModal';
 import { useState } from 'react';
-import ProductModals from 'components/ProductModal/ProductModal';
+import ProductModals from 'components/Modals/ProductModal';
 
 export default function ActionBlock({ item }) { 
   const [openModal, setOpenModal] = useState(false);
@@ -29,9 +29,9 @@ export default function ActionBlock({ item }) {
           <use href={`${sprite}#icon-btn-dell`} />
         </svg>
       </button>
-        <PortalModal active={openModal} setActive={setOpenModal}>
-          <ProductModals closeModals={() => setOpenModal()} isUpdate={true} existingProduct={item} />
-        </PortalModal>
+      <PortalModal active={openModal} setActive={setOpenModal}>
+        <ProductModals closeModals={() => setOpenModal()} isUpdate={true} existingProduct={item} />
+      </PortalModal>
     </ActionConteiner> 
   )
 }

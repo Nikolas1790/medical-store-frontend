@@ -1,24 +1,26 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, Dropdown, DropdownButton, DropdownItem, DropdownList, DropdownSvg, Input, InputConteiner, StyledSimpleBar, Title } from "./ProductModal.styled";
+import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, Input, InputConteiner, Title } from "./Modals.styled";
 import sprite from '../../img/sprite.svg';
 import CustomButton from "components/CustomButton/CustomButton";
 import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
 import { useEffect, useRef, useState } from 'react';
-import { AVAILABLE_CATEGORIES } from 'components/Utils/utils';
+import { AVAILABLE_STATUS } from 'components/Utils/utils';
 import { useDispatch } from 'react-redux';
 import { addProduct, updateProduct } from '../../redux/ePharmacy/operations';
+import ModalSelector from './ModalSelector/ModalSelector';
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Product info is required'),
-  category: Yup.string().oneOf(AVAILABLE_CATEGORIES, 'Invalid category').required('Category is required'),
-  stock: Yup.number().required('Stock is required').positive('Stock must be positive'),
+  company: Yup.string().required('Product info is required'),
+  ammount: Yup.number().required('Stock is required').positive('Stock must be positive'),
+  address: Yup.string().required('Product info is required'),
   suppliers: Yup.string().required('Suppliers are required'),
   price: Yup.number().required('Price is required').positive('Price must be positive'),
 });
 
-export default function ProductModals({ closeModals, isUpdate, existingProduct }) {  
+export default function SuppliesModals({ closeModals, isUpdate, existingProduct }) {  
   const [selectedLevels, setSelectedLevels] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -28,26 +30,26 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        // console.log(dropdownRef.current.contains(event.target))
         setIsDropdownOpen(false); 
       }
     };
     document.addEventListener('mousedown', handleOutsideClick);
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, []); 
-
   const initialValues = isUpdate ? {
     name: existingProduct?.[0],
-    category: existingProduct?.[1],
-    stock: existingProduct?.[2], 
+    company: existingProduct?.[1],
+    ammount: existingProduct?.[2], 
+    address: existingProduct?.[3],
     suppliers: existingProduct?.[3],
-    price: existingProduct?.[4],
+    status: existingProduct?.[4],
   } : {
     name: '',
-    category: '',
-    stock: '',
+    company: '',
+    ammount: '',
+    address: '',
     suppliers: '',
-    price: '',
+    status: '',
   };
 
     // Инициализация Formik
@@ -62,15 +64,6 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
   });  
   
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-  const handleItemClick = (level) => {
-    setSelectedLevels(level); // Обновление локального состояния
-    formik.setFieldValue('category', level); // Обновление состояния Formik
-    setIsDropdownOpen(false); // Закрытие выпадающего списка
-  };
-  const handleDropdownButtonClick = (event) => {
-    event.stopPropagation(); // Останавливаем всплытие события
-    toggleDropdown(); // Ваша функция для открытия/закрытия выпадающего списка
-  };
 
   return (
     <Conteiner >
@@ -80,7 +73,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
         </svg>   
       </ClosingSymbol>
 
-      <Title>{ isUpdate  ? 'Edit product' :'Add a new product'}</Title>
+      <Title>{ isUpdate  ? 'Edit product' :'Add a new suppliers'}</Title>
       <div>
         <form onSubmit={formik.handleSubmit}>
           <InputConteiner>
@@ -91,47 +84,41 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.name}
-                placeholder="Product Info"
+                placeholder="Suppliers Info"
                 haserror={formik.touched.name && formik.errors.name}
               />
 
               <Input
-                name="stock"
+                name="company"
                 type="text"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur} 
-                value={formik.values.stock}
-                placeholder="Stock"
-                haserror={formik.touched.stock && formik.errors.stock}
+                value={formik.values.company}
+                placeholder="Company"
+                haserror={formik.touched.company && formik.errors.company}
               />
 
               <Input
-                name="price"
+                name="ammount"
                 type="text"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur} 
-                value={formik.values.price}
-                placeholder="Price"
-                haserror={formik.touched.price && formik.errors.price}
+                value={formik.values.ammount}
+                placeholder="Ammount"
+                haserror={formik.touched.ammount && formik.errors.ammount}
               />
             </ColumnConteiner>
 
-            <ColumnConteiner>    
-              <Dropdown ref={dropdownRef} >
-                <DropdownSvg width={20} height={20} onClick={toggleDropdown} >
-                    <use href={`${sprite}#icon-chevron-${isDropdownOpen ? 'up' : 'down'}`}  />
-                </DropdownSvg>
-                <DropdownButton type="button" onClick={handleDropdownButtonClick} haserror={formik.touched.category && formik.errors.category}>{ selectedLevels || existingProduct?.[1] || "Category" }</DropdownButton>  
-                <DropdownList open={isDropdownOpen}>
-                  <StyledSimpleBar style={{ maxHeight: 126 }}>
-                    {AVAILABLE_CATEGORIES.map((category, index) => (
-                      <DropdownItem key={index} onClick={() => handleItemClick(category)}>
-                        {category}
-                      </DropdownItem>
-                    ))}
-                  </StyledSimpleBar>
-                </DropdownList>                      
-              </Dropdown>
+            <ColumnConteiner>   
+            <Input
+                name="address"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.address}
+                placeholder="Address"
+                haserror={formik.touched.address && formik.errors.address}
+              />
 
               <Input
                 name="suppliers"
@@ -141,6 +128,16 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 value={formik.values.suppliers}
                 placeholder="Suppliers"
                 haserror={formik.touched.suppliers && formik.errors.suppliers}
+              />
+              <ModalSelector
+                isDropdownOpen={isDropdownOpen}
+                toggleDropdown={toggleDropdown}
+                selectedCategory={selectedLevels}
+                setSelectedCategory={setSelectedLevels}
+                formik={formik}
+                categories={AVAILABLE_STATUS}
+                hasError={formik.touched.category && formik.errors.category}
+                reservName={ existingProduct?.[1] }
               />
             </ColumnConteiner>
           </InputConteiner>
@@ -154,3 +151,6 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
     </Conteiner>
   );
 }
+
+
+

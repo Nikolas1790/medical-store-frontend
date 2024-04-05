@@ -5,6 +5,10 @@ export const AVAILABLE_CATEGORIES = [
   'Medicine', 'Head', 'Hand', 'Dental Care', 'Skin Care', 'Eye Care', 'Vitamins & Supplements', 'Orthopedic Products', 'Baby Care'
 ];
 
+export const AVAILABLE_STATUS = [
+  'Active', 'Deactive'
+];
+
 export const FilterIcon = () => (
   <svg width="14" height="14">
       <use href={`${sprite}#icon-filter`} />

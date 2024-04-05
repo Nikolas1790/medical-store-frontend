@@ -8,7 +8,7 @@ import ProductsAll from "components/ProductsAll/ProductsAll";
 import { Pagination } from "components/Pagination/Pagination";
 import { AddProduct, AddProductConteiner } from "./Products.styled";
 import PortalModal from "components/PortalModal/PortalModal";
-import ProductModals from "components/ProductModal/ProductModal";
+import ProductModals from "components/Modals/ProductModal";
 
 export default function Products() {  
   const dispatch = useDispatch();

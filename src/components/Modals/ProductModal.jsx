@@ -1,0 +1,332 @@
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
+import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, Input, InputConteiner, Title } from "./Modals.styled";
+import sprite from '../../img/sprite.svg';
+import CustomButton from "components/CustomButton/CustomButton";
+import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
+import { useEffect, useRef, useState } from 'react';
+import { AVAILABLE_CATEGORIES } from 'components/Utils/utils';
+import { useDispatch } from 'react-redux';
+import { addProduct, updateProduct } from '../../redux/ePharmacy/operations';
+import ModalSelector from './ModalSelector/ModalSelector';
+
+const validationSchema = Yup.object({
+  name: Yup.string().required('Product info is required'),
+  category: Yup.string().oneOf(AVAILABLE_CATEGORIES, 'Invalid category').required('Category is required'),
+  stock: Yup.number().required('Stock is required').positive('Stock must be positive'),
+  suppliers: Yup.string().required('Suppliers are required'),
+  price: Yup.number().required('Price is required').positive('Price must be positive'),
+});
+
+export default function ProductModals({ closeModals, isUpdate, existingProduct }) {  
+  const [selectedLevels, setSelectedLevels] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const dispatch = useDispatch();
+  const id = existingProduct?.[5];
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        // console.log(dropdownRef.current.contains(event.target))
+        setIsDropdownOpen(false); 
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []); 
+
+  const initialValues = isUpdate ? {
+    name: existingProduct?.[0],
+    category: existingProduct?.[1],
+    stock: existingProduct?.[2], 
+    suppliers: existingProduct?.[3],
+    price: existingProduct?.[4],
+  } : {
+    name: '',
+    category: '',
+    stock: '',
+    suppliers: '',
+    price: '',
+  };
+
+    // Инициализация Formik
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema,
+    onSubmit: (values, { resetForm }) => {
+      isUpdate ? dispatch(updateProduct({ id: id, productData: values })) : dispatch(addProduct(values));
+      resetForm(); 
+      closeModals()
+    },
+  });  
+  
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+  return (
+    <Conteiner >
+      <ClosingSymbol onClick={closeModals}>
+        <svg width={26} height={26}>
+          <use href={`${sprite}#icon-x`} />
+        </svg>   
+      </ClosingSymbol>
+
+      <Title>{ isUpdate  ? 'Edit product' :'Add a new product'}</Title>
+      <div>
+        <form onSubmit={formik.handleSubmit}>
+          <InputConteiner>
+            <ColumnConteiner>
+              <Input
+                name="name"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.name}
+                placeholder="Product Info"
+                haserror={formik.touched.name && formik.errors.name}
+              />
+
+              <Input
+                name="stock"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.stock}
+                placeholder="Stock"
+                haserror={formik.touched.stock && formik.errors.stock}
+              />
+
+              <Input
+                name="price"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.price}
+                placeholder="Price"
+                haserror={formik.touched.price && formik.errors.price}
+              />
+            </ColumnConteiner>
+
+            <ColumnConteiner>   
+              <ModalSelector
+                isDropdownOpen={isDropdownOpen}
+                toggleDropdown={toggleDropdown}
+                selectedCategory={selectedLevels}
+                setSelectedCategory={setSelectedLevels}
+                formik={formik}
+                categories={AVAILABLE_CATEGORIES}
+                hasError={formik.touched.category && formik.errors.category}
+                reservName={ existingProduct?.[1] }
+              />
+              <Input
+                name="suppliers"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.suppliers}
+                placeholder="Suppliers"
+                haserror={formik.touched.suppliers && formik.errors.suppliers}
+              />
+            </ColumnConteiner>
+          </InputConteiner>
+
+          <BtnConteiner>
+            <CustomButton width="133px" label="Add"  type='submit'/>
+            <CustomButtonCansel width="133px" label="Cansel" onClick={closeModals} />        
+          </BtnConteiner>
+        </form>
+      </div>
+    </Conteiner>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useFormik } from 'formik';
+// import * as Yup from 'yup';
+
+// import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, Dropdown, DropdownButton, DropdownItem, DropdownList, DropdownSvg, Input, InputConteiner, StyledSimpleBar, Title } from "./Modals.styled";
+// import sprite from '../../img/sprite.svg';
+// import CustomButton from "components/CustomButton/CustomButton";
+// import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
+// import { useEffect, useRef, useState } from 'react';
+// import { AVAILABLE_CATEGORIES } from 'components/Utils/utils';
+// import { useDispatch } from 'react-redux';
+// import { addProduct, updateProduct } from '../../redux/ePharmacy/operations';
+// import ModalSelector from './ModalSelector/ModalSelector';
+
+// const validationSchema = Yup.object({
+//   name: Yup.string().required('Product info is required'),
+//   category: Yup.string().oneOf(AVAILABLE_CATEGORIES, 'Invalid category').required('Category is required'),
+//   stock: Yup.number().required('Stock is required').positive('Stock must be positive'),
+//   suppliers: Yup.string().required('Suppliers are required'),
+//   price: Yup.number().required('Price is required').positive('Price must be positive'),
+// });
+
+// export default function ProductModals({ closeModals, isUpdate, existingProduct }) {  
+//   const [selectedLevels, setSelectedLevels] = useState("");
+//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+//   const dropdownRef = useRef(null);
+//   const dispatch = useDispatch();
+//   const id = existingProduct?.[5];
+
+//   useEffect(() => {
+//     const handleOutsideClick = (event) => {
+//       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+//         // console.log(dropdownRef.current.contains(event.target))
+//         setIsDropdownOpen(false); 
+//       }
+//     };
+//     document.addEventListener('mousedown', handleOutsideClick);
+//     return () => document.removeEventListener('mousedown', handleOutsideClick);
+//   }, []); 
+
+//   const initialValues = isUpdate ? {
+//     name: existingProduct?.[0],
+//     category: existingProduct?.[1],
+//     stock: existingProduct?.[2], 
+//     suppliers: existingProduct?.[3],
+//     price: existingProduct?.[4],
+//   } : {
+//     name: '',
+//     category: '',
+//     stock: '',
+//     suppliers: '',
+//     price: '',
+//   };
+
+//     // Инициализация Formik
+//   const formik = useFormik({
+//     initialValues: initialValues,
+//     validationSchema,
+//     onSubmit: (values, { resetForm }) => {
+//       isUpdate ? dispatch(updateProduct({ id: id, productData: values })) : dispatch(addProduct(values));
+//       resetForm(); 
+//       closeModals()
+//     },
+//   });  
+  
+//   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+//   const handleItemClick = (level) => {
+//     setSelectedLevels(level); // Обновление локального состояния
+//     formik.setFieldValue('category', level); // Обновление состояния Formik
+//     setIsDropdownOpen(false); // Закрытие выпадающего списка
+//   };
+//   const handleDropdownButtonClick = (event) => {
+//     event.stopPropagation(); // Останавливаем всплытие события
+//     toggleDropdown(); // Ваша функция для открытия/закрытия выпадающего списка
+//   };
+
+//   return (
+//     <Conteiner >
+//       <ClosingSymbol onClick={closeModals}>
+//         <svg width={26} height={26}>
+//           <use href={`${sprite}#icon-x`} />
+//         </svg>   
+//       </ClosingSymbol>
+
+//       <Title>{ isUpdate  ? 'Edit product' :'Add a new product'}</Title>
+//       <div>
+//         <form onSubmit={formik.handleSubmit}>
+//           <InputConteiner>
+//             <ColumnConteiner>
+//               <Input
+//                 name="name"
+//                 type="text"
+//                 onChange={formik.handleChange}
+//                 onBlur={formik.handleBlur} 
+//                 value={formik.values.name}
+//                 placeholder="Product Info"
+//                 haserror={formik.touched.name && formik.errors.name}
+//               />
+
+//               <Input
+//                 name="stock"
+//                 type="text"
+//                 onChange={formik.handleChange}
+//                 onBlur={formik.handleBlur} 
+//                 value={formik.values.stock}
+//                 placeholder="Stock"
+//                 haserror={formik.touched.stock && formik.errors.stock}
+//               />
+
+//               <Input
+//                 name="price"
+//                 type="text"
+//                 onChange={formik.handleChange}
+//                 onBlur={formik.handleBlur} 
+//                 value={formik.values.price}
+//                 placeholder="Price"
+//                 haserror={formik.touched.price && formik.errors.price}
+//               />
+//             </ColumnConteiner>
+
+//             <ColumnConteiner>    
+//               {/* <Dropdown ref={dropdownRef} >
+//                 <DropdownSvg width={20} height={20} onClick={toggleDropdown} >
+//                     <use href={`${sprite}#icon-chevron-${isDropdownOpen ? 'up' : 'down'}`}  />
+//                 </DropdownSvg>
+//                 <DropdownButton type="button" onClick={handleDropdownButtonClick} haserror={formik.touched.category && formik.errors.category}>{ selectedLevels || existingProduct?.[1] || "Category" }</DropdownButton>  
+//                 <DropdownList open={isDropdownOpen}>
+//                   <StyledSimpleBar style={{ maxHeight: 126 }}>
+//                     {AVAILABLE_CATEGORIES.map((category, index) => (
+//                       <DropdownItem key={index} onClick={() => handleItemClick(category)}>
+//                         {category}
+//                       </DropdownItem>
+//                     ))}
+//                   </StyledSimpleBar>
+//                 </DropdownList>                      
+//               </Dropdown> */}
+// <ModalSelector
+//   isDropdownOpen={isDropdownOpen}
+//   toggleDropdown={toggleDropdown}
+//   selectedCategory={selectedLevels}
+//   setSelectedCategory={setSelectedLevels}
+//   formik={formik}
+//   categories={AVAILABLE_CATEGORIES}
+//   hasError={formik.touched.category && formik.errors.category}
+// />
+//               <Input
+//                 name="suppliers"
+//                 type="text"
+//                 onChange={formik.handleChange}
+//                 onBlur={formik.handleBlur} 
+//                 value={formik.values.suppliers}
+//                 placeholder="Suppliers"
+//                 haserror={formik.touched.suppliers && formik.errors.suppliers}
+//               />
+//             </ColumnConteiner>
+//           </InputConteiner>
+
+//           <BtnConteiner>
+//             <CustomButton width="133px" label="Add"  type='submit'/>
+//             <CustomButtonCansel width="133px" label="Cansel" onClick={closeModals} />        
+//           </BtnConteiner>
+//         </form>
+//       </div>
+//     </Conteiner>
+//   );
+// }
