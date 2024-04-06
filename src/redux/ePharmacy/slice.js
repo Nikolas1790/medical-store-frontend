@@ -125,6 +125,7 @@ const pharmacySlice = createSlice({
         state.error = null;
       })
       .addCase(addSupplier.fulfilled, (state, action) => {
+        console.log('index')
         state.loading = false;
         state.suppliersData.total = state.suppliersData.total + 1;
         state.suppliersData.suppliers = [ ...state.suppliersData.suppliers, action.payload];
@@ -143,7 +144,7 @@ const pharmacySlice = createSlice({
         state.error = null;
       })
       .addCase(updateSupplier.fulfilled, (state, action) => {
-        console.log('index')
+        
         state.loading = false;
         const index = state.suppliersData.suppliers.findIndex(supplier => supplier._id === action.payload._id);
         console.log(index)

@@ -76,8 +76,9 @@ export const suppliersInf = createAsyncThunk("/suppliers",
     }
 });
 export const addSupplier = createAsyncThunk("/suppliers/add",
-  async ({data, thunkAPI}) => {
+  async (data, thunkAPI) => {
     try {
+      // console.log(data)
       const response = await axios.post(`/suppliers`, data );
       return response.data;
     } catch (e) {
@@ -87,7 +88,7 @@ export const addSupplier = createAsyncThunk("/suppliers/add",
 export const updateSupplier = createAsyncThunk("/suppliers/update",
   async ({ id, supplierData }, thunkAPI) => {
     try {
-      console.log({id, supplierData})
+      // console.log({id, supplierData})
       const response = await axios.put(`/suppliers/${id}`, supplierData );
       return response.data;
     } catch (e) {      

@@ -1,15 +1,20 @@
 import Logo from "components/Logo/Logo";
 import sprite from '../../img/sprite.svg';
 import { Divider, HeaderBlock, HeaderContainer, HeaderMainInf, HeaderText, HeaderTextBlock, HeaderTitle } from "./Header.styled";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { logOut } from "../../redux/auth/operationsAuth";
 import { toast } from "react-toastify";
 import Sidebar from "components/Sidebar/Sidebar";
+import { getPageName } from "components/Utils/utils";
 
 export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+    const email = useSelector((state) => state.auth.user.email); 
+    const location = useLocation(); // Получаем текущий путь
+
+    const pageName = getPageName(location.pathname);
 
   const handleButtonClick = async () => {
     try {
@@ -30,9 +35,9 @@ export default function Header() {
         <HeaderMainInf>
           <HeaderTitle>Medicine store</HeaderTitle>
           <HeaderTextBlock>
-            <HeaderText>Dasboard</HeaderText>
+            <HeaderText>{pageName}</HeaderText>
             <Divider />
-            <HeaderText>vendor@gmail.com</HeaderText>
+            <HeaderText>{email}</HeaderText>
           </HeaderTextBlock>
         </HeaderMainInf>
         <button onClick={handleButtonClick}>

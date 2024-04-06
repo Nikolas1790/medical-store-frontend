@@ -16,7 +16,8 @@ export const HeaderBlock = styled.div`
 `
 ///////////////////////////////////////////////////
 export const HeaderMainInf = styled.div`
-  margin: 0 1057px 0 60px;
+width: 280px;
+  margin: 0 957px 0 60px;
 `
 
 export const HeaderTitle = styled.h1`

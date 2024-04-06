@@ -9,6 +9,24 @@ export const AVAILABLE_STATUS = [
   'Active', 'Deactive'
 ];
 
+export const getPageName = (pathname) => {
+  switch(pathname) {
+    case '/dashboard':
+      return 'Dashboard';
+    case '/orders':
+      return 'All orders';
+    case '/products':
+      return 'All products';
+    case '/suppliers':
+      return 'All suppliers';
+    case '/customers':
+      return 'All customers';
+
+    default:
+      return 'Page'; 
+  }
+};
+
 export const FilterIcon = () => (
   <svg width="14" height="14">
       <use href={`${sprite}#icon-filter`} />
@@ -17,9 +35,9 @@ export const FilterIcon = () => (
 
 export const getColor = (type) => {
   switch (type) {
-    case 'Income':
-      return color.red;
     case 'Expense':
+      return color.red;
+    case 'Income':
       return color.greenLight;
     case 'Error':
       return color.blackPrimary;
@@ -30,9 +48,9 @@ export const getColor = (type) => {
 
 export const getBackgroundColor = (type) => {
   switch (type) {
-    case 'Income':
-      return color.redSecondary;
     case 'Expense':
+      return color.redSecondary;
+    case 'Income':
       return color.greenSecondary;
     case 'Error':
       return color.blackPrimarySecondary;

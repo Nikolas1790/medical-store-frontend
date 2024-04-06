@@ -1,7 +1,8 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import 'react-datepicker/dist/react-datepicker.css';
 
-import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, Input, InputConteiner, Title } from "./Modals.styled";
+import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, DatePickerContainer, DatePickerSvg, Input, InputConteiner, StyledDatePicker, Title } from "./Modals.styled";
 import sprite from '../../img/sprite.svg';
 import CustomButton from "components/CustomButton/CustomButton";
 import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
@@ -15,8 +16,8 @@ const validationSchema = Yup.object({
   name: Yup.string().required(),
   suppliers: Yup.string().required(),
 
-  amount: Yup.string().required(),
-  // amount: Yup.number().required('Stock is required').positive('Stock must be positive'),
+  // amount: Yup.string().required(),
+  amount: Yup.number().required('Stock is required').positive('Stock must be positive'),
 
   address: Yup.string().required(),
   date: Yup.string().required(),
@@ -29,6 +30,8 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
   const dropdownRef = useRef(null);
   const dispatch = useDispatch();
   const id = existingSuppliers?.[6];
+
+  const datePickerRef = useRef();
 // console.log(existingSuppliers)
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -61,6 +64,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     validationSchema,
     onSubmit: (values, { resetForm }) => {
       console.log(values)
+
       isUpdate ? dispatch(updateSupplier({ id: id, supplierData: values })) : dispatch(addSupplier(values));
       resetForm(); 
       closeModals()
@@ -68,7 +72,21 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
   });  
   
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+  const handleCalendarClick = () => {
+    datePickerRef.current.setOpen(true);
+  };
 
+
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    // Обрезать пробелы если значение является строкой
+    const trimmedValue = typeof value === 'string' ? value.trim() : value;
+    // Установить значение поля в Formik
+    formik.setFieldValue(name, trimmedValue);
+    // Также устанавливаем touched для поля, чтобы валидация срабатывала сразу
+    formik.setFieldTouched(name, true);
+  };
   return (
     <Conteiner >
       <ClosingSymbol onClick={closeModals}>
@@ -85,7 +103,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
               <Input
                 name="name"
                 type="text"
-                onChange={formik.handleChange}
+                onChange={handleInputChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.name}
                 placeholder="Suppliers Info"
@@ -95,7 +113,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
               <Input
                 name="suppliers"
                 type="text"
-                onChange={formik.handleChange}
+                onChange={handleInputChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.suppliers}
                 placeholder="Company"
@@ -105,7 +123,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
               <Input
                 name="amount"
                 type="text"
-                onChange={formik.handleChange}
+                onChange={handleInputChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.amount}
                 placeholder="Ammount"
@@ -117,14 +135,13 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
             <Input
                 name="address"
                 type="text"
-                onChange={formik.handleChange}
+                onChange={handleInputChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.address}
                 placeholder="Address"
                 haserror={formik.touched.address && formik.errors.address}
               />
-
-              <Input
+              {/* <Input
                 name="date"
                 type="date"
                 onChange={formik.handleChange}
@@ -132,7 +149,26 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 value={formik.values.date}
                 placeholder="Delivery date"
                 haserror={formik.touched.date && formik.errors.date}
+              /> */}
+              <DatePickerContainer>
+              <StyledDatePicker
+              ref={datePickerRef}
+                selected={formik.values.date}
+                onChange={(date) => formik.setFieldValue('date', date)}
+                dateFormat="MMMM d, yyyy"
+                placeholderText="Delivery date"
+                haserror={formik.touched.date && formik.errors.date}
+                name="date"
+                type="date"
+                onBlur={formik.handleBlur} 
+                // value={formik.values.date}
               />
+              <DatePickerSvg onClick={handleCalendarClick} width={16} height={16} >
+                <use href={`${sprite}#icon-calendar`} />
+              </DatePickerSvg>
+              </DatePickerContainer>
+
+
               <ModalSelector
                 isDropdownOpen={isDropdownOpen}
                 toggleDropdown={toggleDropdown}

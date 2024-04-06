@@ -2,13 +2,15 @@ import color from "common/GlobalColers";
 import styled from "styled-components";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const StyledSimpleBar = styled(SimpleBar)`
   /* Задайте общие стили для контейнера */
   .simplebar-scrollbar {
     background: rgba(255, 255, 255, 0.4) !important;
     width: 6px !important;
-    height: 65px !important;
+    /* height: 65px !important; */
     border-radius: 12px !important;
   }
 
@@ -81,15 +83,34 @@ export const ColumnConteiner = styled.div`
 
 export const Input = styled.input`
   width: 224px;
-height: 44px;
-border: 1px solid rgba(29, 30, 33, 0.1);
-border-radius: 60px;
-background: rgb(255, 255, 255);
-padding: 13px 18px;
+  height: 44px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  background: rgb(255, 255, 255);
+  padding: 13px 18px;
 
-border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
+  border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
 `;
 
+export const DatePickerContainer = styled.div`
+  position: relative;
+`;
+
+export const StyledDatePicker = styled(DatePicker)`
+  width: 224px;
+  height: 44px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  background: rgb(255, 255, 255);
+  padding: 13px 18px;
+
+  border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
+`;
+export const DatePickerSvg = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 18px;
+`;
 
 
 ///////////////////////////////////////////////// 222
@@ -132,26 +153,21 @@ export const DropdownList = styled.ul`
   background-color: ${color.greenLight};
 
   display: ${({ open }) => (open ? 'block' : 'none')};
-  /* overflow-y: auto; */
-  /* overflow-x: hidden; */
   max-height: 140px; 
-  /* list-style: none; */
   padding: 13px 18px;
   margin: 0;
 
   width: 100%;
-  height: 140px;
+  /* height: 140px; */
   border-radius: 15px;
-
-
-
 `;
 
 export const DropdownItem = styled.li`
   font-size: 12px;
   font-weight: 400;
+  line-height: 1.5;
   color: ${color.whiterTranslucent};
-  padding: 3px;
+  padding:  3px 0;
   cursor: pointer;  
 
   &:hover {
@@ -169,3 +185,6 @@ export const BtnConteiner = styled.div`
   gap: 8px;
   margin-top: 40px;
 `;
+
+
+

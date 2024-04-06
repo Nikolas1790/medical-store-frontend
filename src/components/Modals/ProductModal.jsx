@@ -64,6 +64,15 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
   
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    // Обрезать пробелы если значение является строкой
+    const trimmedValue = typeof value === 'string' ? value.trim() : value;
+    // Установить значение поля в Formik
+    formik.setFieldValue(name, trimmedValue);
+    // Также устанавливаем touched для поля, чтобы валидация срабатывала сразу
+    formik.setFieldTouched(name, true);
+  };
   return (
     <Conteiner >
       <ClosingSymbol onClick={closeModals}>
@@ -80,7 +89,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
               <Input
                 name="name"
                 type="text"
-                onChange={formik.handleChange}
+                onChange={handleInputChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.name}
                 placeholder="Product Info"
@@ -90,7 +99,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
               <Input
                 name="stock"
                 type="text"
-                onChange={formik.handleChange}
+                onChange={handleInputChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.stock}
                 placeholder="Stock"
@@ -100,7 +109,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
               <Input
                 name="price"
                 type="text"
-                onChange={formik.handleChange}
+                onChange={handleInputChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.price}
                 placeholder="Price"
@@ -123,7 +132,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
               <Input
                 name="suppliers"
                 type="text"
-                onChange={formik.handleChange}
+                onChange={handleInputChange}
                 onBlur={formik.handleBlur} 
                 value={formik.values.suppliers}
                 placeholder="Suppliers"

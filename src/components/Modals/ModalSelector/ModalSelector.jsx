@@ -19,15 +19,11 @@ export default function  ModalSelector ({
     event.stopPropagation();
     toggleDropdown();
   };
-// console.log(hasError)
+
   const handleItemClick = (category) => {
     setSelectedCategory(category);
-    // formik.setFieldValue('category', category);
-    console.log(fieldName, category)
+    // console.log(fieldName, category)
     formik.setFieldValue(fieldName, category); 
-      // Сброс ошибки для поля после его изменения
-      // formik.setFieldTouched(fieldName, true, false); 
-      
     toggleDropdown();
   };
 
