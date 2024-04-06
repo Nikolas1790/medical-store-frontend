@@ -8,25 +8,28 @@ import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel
 import { useEffect, useRef, useState } from 'react';
 import { AVAILABLE_STATUS } from 'components/Utils/utils';
 import { useDispatch } from 'react-redux';
-import { addProduct, updateProduct } from '../../redux/ePharmacy/operations';
+import { addSupplier, updateSupplier } from '../../redux/ePharmacy/operations';
 import ModalSelector from './ModalSelector/ModalSelector';
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Product info is required'),
-  company: Yup.string().required('Product info is required'),
-  ammount: Yup.number().required('Stock is required').positive('Stock must be positive'),
-  address: Yup.string().required('Product info is required'),
-  suppliers: Yup.string().required('Suppliers are required'),
-  price: Yup.number().required('Price is required').positive('Price must be positive'),
+  name: Yup.string().required(),
+  suppliers: Yup.string().required(),
+
+  amount: Yup.string().required(),
+  // amount: Yup.number().required('Stock is required').positive('Stock must be positive'),
+
+  address: Yup.string().required(),
+  date: Yup.string().required(),
+  status: Yup.string().required(),
 });
 
-export default function SuppliesModals({ closeModals, isUpdate, existingProduct }) {  
+export default function SuppliesModals({ closeModals, isUpdate, existingSuppliers }) {  
   const [selectedLevels, setSelectedLevels] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const dispatch = useDispatch();
-  const id = existingProduct?.[5];
-
+  const id = existingSuppliers?.[6];
+// console.log(existingSuppliers)
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -37,18 +40,18 @@ export default function SuppliesModals({ closeModals, isUpdate, existingProduct 
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, []); 
   const initialValues = isUpdate ? {
-    name: existingProduct?.[0],
-    company: existingProduct?.[1],
-    ammount: existingProduct?.[2], 
-    address: existingProduct?.[3],
-    suppliers: existingProduct?.[3],
-    status: existingProduct?.[4],
+    name: existingSuppliers?.[0],
+    suppliers: existingSuppliers?.[2],
+    amount: existingSuppliers?.[4].replace(/^\D*/, '').trim(), 
+    address: existingSuppliers?.[1],
+    date: existingSuppliers?.[3],
+    status: existingSuppliers?.[5],
   } : {
     name: '',
-    company: '',
-    ammount: '',
-    address: '',
     suppliers: '',
+    amount: '',
+    address: '',
+    date: '',
     status: '',
   };
 
@@ -57,7 +60,8 @@ export default function SuppliesModals({ closeModals, isUpdate, existingProduct 
     initialValues: initialValues,
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-      isUpdate ? dispatch(updateProduct({ id: id, productData: values })) : dispatch(addProduct(values));
+      console.log(values)
+      isUpdate ? dispatch(updateSupplier({ id: id, supplierData: values })) : dispatch(addSupplier(values));
       resetForm(); 
       closeModals()
     },
@@ -89,23 +93,23 @@ export default function SuppliesModals({ closeModals, isUpdate, existingProduct 
               />
 
               <Input
-                name="company"
+                name="suppliers"
                 type="text"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur} 
-                value={formik.values.company}
+                value={formik.values.suppliers}
                 placeholder="Company"
-                haserror={formik.touched.company && formik.errors.company}
+                haserror={formik.touched.suppliers && formik.errors.suppliers}
               />
 
               <Input
-                name="ammount"
+                name="amount"
                 type="text"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur} 
-                value={formik.values.ammount}
+                value={formik.values.amount}
                 placeholder="Ammount"
-                haserror={formik.touched.ammount && formik.errors.ammount}
+                haserror={formik.touched.amount && formik.errors.amount}
               />
             </ColumnConteiner>
 
@@ -121,13 +125,13 @@ export default function SuppliesModals({ closeModals, isUpdate, existingProduct 
               />
 
               <Input
-                name="suppliers"
-                type="text"
+                name="date"
+                type="date"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur} 
-                value={formik.values.suppliers}
-                placeholder="Suppliers"
-                haserror={formik.touched.suppliers && formik.errors.suppliers}
+                value={formik.values.date}
+                placeholder="Delivery date"
+                haserror={formik.touched.date && formik.errors.date}
               />
               <ModalSelector
                 isDropdownOpen={isDropdownOpen}
@@ -136,8 +140,10 @@ export default function SuppliesModals({ closeModals, isUpdate, existingProduct 
                 setSelectedCategory={setSelectedLevels}
                 formik={formik}
                 categories={AVAILABLE_STATUS}
-                hasError={formik.touched.category && formik.errors.category}
-                reservName={ existingProduct?.[1] }
+                hasError={formik.touched.status && formik.errors.status}
+                reservName={ existingSuppliers?.[5] }
+                def="supplies"
+                fieldName="status"
               />
             </ColumnConteiner>
           </InputConteiner>

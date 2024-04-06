@@ -4,11 +4,13 @@ import PortalModal from "components/PortalModal/PortalModal";
 import { useState } from "react";
 import SuppliesModals from "components/Modals/SuppliesModal";
 
-export default function BtnAddEditSuppliers({width, height, name}){
+export default function BtnAddEditSuppliers({width, height, name, isUpdate, item }){
+  // console.log(item)
   const [openModal, setOpenModal] = useState(false);
   return (
     <div>
       <AddEditSuppliers width={width} height={height} onClick={() => setOpenModal(true)}>
+
         {name === "edit" ? (
           <>
             <svg width={14} height={14}>
@@ -16,11 +18,11 @@ export default function BtnAddEditSuppliers({width, height, name}){
             </svg>
             <EditSuppliers>Edit</EditSuppliers>
           </>
-          ) : (<p>Add a new suppliers</p>)}
-      </AddEditSuppliers>
+        ) : <p>Add a new suppliers</p>}
 
+      </AddEditSuppliers>
         <PortalModal active={openModal} setActive={setOpenModal}>
-          <SuppliesModals closeModals={() => setOpenModal()} />
+          <SuppliesModals closeModals={() => setOpenModal()} isUpdate={isUpdate} existingSuppliers={item}/>
         </PortalModal>
     </div>
   );

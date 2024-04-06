@@ -22,7 +22,7 @@ export default function Suppliers() {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-
+// console.log(suppliers)
   const totalSuppliers = suppliers.total || 0;
   const totalPages = Math.ceil(totalSuppliers / limitPerPage);
 
@@ -36,7 +36,7 @@ export default function Suppliers() {
         </FilterAddConteiner>
 
         <div>
-        <SuppliersAll suppliers={suppliers.suppliers} currentPage={currentPage} />
+        <SuppliersAll suppliers={suppliers.suppliers} />
         <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

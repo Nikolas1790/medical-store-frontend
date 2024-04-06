@@ -4,12 +4,13 @@ import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 import BtnAddEditSuppliers from "components/BtnAddEditSuppliers/BtnAddEditSuppliers";
 
-export default function SuppliersAll({ suppliers, currentPage }) { 
-  const data = suppliers ? suppliers.map(({ name, address, suppliers, date, amount, status }) => [ name, address, suppliers, date, amount, status ]) : [];
+export default function SuppliersAll({ suppliers }) { 
+  const data = suppliers ? suppliers.map(({ name, address, suppliers, date, amount, status, _id }) => [ name, address, suppliers, date, amount, status, _id ]) : [];
 
   const customCellRenderer = (rowIndex, columnId, data) => {
-    let content = data[rowIndex];
+    let content = data[rowIndex] ;
     let style = {};
+  
 
     if ( columnId !== 'action') {
       style.borderRight = `1px solid ${color.blackPrimarySecondary}`;
@@ -26,15 +27,15 @@ export default function SuppliersAll({ suppliers, currentPage }) {
 
     if (columnId === 'ammount') {
       content = content.replace(/^\D*/, '').trim();
-  }
-
+    }
     if (columnId === 'name') {
       style.paddingLeft = '0px';
     }
+    // console.log(content)
     return (
       <Cell style={style}>
-        {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : content}      
-        {columnId === 'action' && <BtnAddEditSuppliers width="82px" height="34px" name="edit"/>}  
+        {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : (
+          columnId === 'action' ? <BtnAddEditSuppliers width="82px" height="34px" name="edit" isUpdate={true} item={content}/> : content)}  
       </Cell>
     );
   };
@@ -45,7 +46,7 @@ export default function SuppliersAll({ suppliers, currentPage }) {
       
       <AllConteinersTable >
         <Table2  
-          key={`table-${currentPage}-${data[0]}`}
+          key={`table-${data}`}
           numRows={data.length} 
           defaultRowHeight={76} 
           columnWidths={[191, 188, 166, 215, 162, 189, 129 ]} 
@@ -59,7 +60,7 @@ export default function SuppliersAll({ suppliers, currentPage }) {
           <Column name="Delivery date" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'date', data.map(item => item[3]))} />
           <Column name="Ammount" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'ammount', data.map(item => item[4]))} />
           <Column name="Status" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'status', data.map(item => item[5]))} />
-          <Column name="Action" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'action', data.map(item => item[6]))} />
+          <Column name="Action" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'action', data)} />
 
         </Table2>
       </AllConteinersTable>

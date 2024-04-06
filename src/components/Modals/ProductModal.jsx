@@ -118,6 +118,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 categories={AVAILABLE_CATEGORIES}
                 hasError={formik.touched.category && formik.errors.category}
                 reservName={ existingProduct?.[1] }
+                fieldName="category"
               />
               <Input
                 name="suppliers"

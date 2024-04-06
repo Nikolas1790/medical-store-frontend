@@ -112,6 +112,8 @@ const pharmacySlice = createSlice({
       .addCase(suppliersInf.fulfilled, (state, action) => {
         state.loading = false;
         state.suppliersData = action.payload;
+        state.productsData.total = state.productsData.total + 1;
+        state.productsData.products = [ ...state.productsData.products, action.payload];
       })
       .addCase(suppliersInf.rejected, (state, action) => {
         state.loading = false;
@@ -124,7 +126,11 @@ const pharmacySlice = createSlice({
       })
       .addCase(addSupplier.fulfilled, (state, action) => {
         state.loading = false;
-        state.suppliersData = [ ...state.suppliersData, action.payload];
+        state.suppliersData.total = state.suppliersData.total + 1;
+        state.suppliersData.suppliers = [ ...state.suppliersData.suppliers, action.payload];
+
+        // state.productsData.total = state.productsData.total + 1;
+        // state.productsData.products = [ ...state.productsData.products, action.payload];
       })
       .addCase(addSupplier.rejected, (state, action) => {
         state.loading = false;
@@ -137,11 +143,20 @@ const pharmacySlice = createSlice({
         state.error = null;
       })
       .addCase(updateSupplier.fulfilled, (state, action) => {
+        console.log('index')
         state.loading = false;
-        const index = state.suppliersData.findIndex(supplier => supplier.id === action.payload.id);
+        const index = state.suppliersData.suppliers.findIndex(supplier => supplier._id === action.payload._id);
+        console.log(index)
         if (index !== -1) {
-          state.suppliersData[index] = action.payload;
+          state.suppliersData.suppliers[index] = action.payload;
         }
+        // const index = state.productsData.products.findIndex(product => product._id === action.payload._id);
+        // console.log(index)
+        // console.log(state.productsData.products)
+        // if (index !== -1) {
+          // state.productsData.products[index] = action.payload;
+        // console.log(state.productsData.products[index])
+        // }
       })
       .addCase(updateSupplier.rejected, (state, action) => {
         state.loading = false;

@@ -46,7 +46,7 @@ export const addProduct = createAsyncThunk("/products/add",
 export const updateProduct = createAsyncThunk("/products/update",
   async ({ id, productData }, thunkAPI) => {
     try {
-      // console.log({ id, productData })
+      console.log({ id, productData })
       const response = await axios.put(`/products/${id}`, productData );
       return response.data;
     } catch (e) {      
@@ -66,12 +66,6 @@ export const deleteProduct = createAsyncThunk("/products/dell",
   }
 );
 
-
-
-
-
-
-
 export const suppliersInf = createAsyncThunk("/suppliers",
   async ({ page = 1, limit = 5, name ="" }, thunkAPI) => {
     try {
@@ -81,9 +75,8 @@ export const suppliersInf = createAsyncThunk("/suppliers",
       return thunkAPI.rejectWithValue(e.message);
     }
 });
-
 export const addSupplier = createAsyncThunk("/suppliers/add",
-  async (data, thunkAPI) => {
+  async ({data, thunkAPI}) => {
     try {
       const response = await axios.post(`/suppliers`, data );
       return response.data;
@@ -91,20 +84,16 @@ export const addSupplier = createAsyncThunk("/suppliers/add",
       return thunkAPI.rejectWithValue(e.message);
     }
 });
-
 export const updateSupplier = createAsyncThunk("/suppliers/update",
   async ({ id, supplierData }, thunkAPI) => {
     try {
-      const response = await axios.put(`/products/${id}`, supplierData );
+      console.log({id, supplierData})
+      const response = await axios.put(`/suppliers/${id}`, supplierData );
       return response.data;
     } catch (e) {      
       return thunkAPI.rejectWithValue(e.message);
     }
 });
-
-
-
-
 
 export const customersInf = createAsyncThunk("/customers",
   async ({ page = 1, limit = 5, name ="" }, thunkAPI) => {
