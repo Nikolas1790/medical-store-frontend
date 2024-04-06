@@ -2,7 +2,6 @@ import color from 'common/GlobalColers'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +15,7 @@ export const HeaderBlock = styled.div`
 `
 ///////////////////////////////////////////////////
 export const HeaderMainInf = styled.div`
-width: 280px;
+  width: 280px;
   margin: 0 957px 0 60px;
 `
 
@@ -28,8 +27,6 @@ export const HeaderTitle = styled.h1`
 `
 export const HeaderTextBlock = styled.div`
   display: flex;
-  /* flex-direction: row; */
-  /* gap: 14px; */
 `
 export const HeaderText = styled.p`
   font-size: 12px;
@@ -39,20 +36,36 @@ export const HeaderText = styled.p`
 `
 
 export const Divider = styled.div`
-    position: relative;
-    display: inline-block;
-    margin: 0 8px; 
-    
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;        
-        height: 100%;
-        width: 1px;
-        background-color: ${color.blackPrimarySecondary}; 
-    }
+  position: relative;
+  display: inline-block;
+  margin: 0 8px; 
+  
+  &::before {
+      content: '';
+      position: absolute;
+      top: 0;        
+      height: 100%;
+      width: 1px;
+      background-color: ${color.blackPrimarySecondary}; 
+  }
+  /* @media (max-width: 560px) {
+     display: none;
+  }; */
+`;
 
-    /* @media (max-width: 560px) {
-       display: none;
-    }; */
+export const BtnLogout = styled.button`
+  stroke-width: 0;
+  padding: 0;
+  border:none;
+  color: red;
+  fill: ${color.greenLight};
+    stroke: ${color.white};
+    scale: 1.33;
+    transition: all 0.25s linear;
+  &:hover {
+    fill: ${color.greenDarker};
+    stroke: ${color.white};
+    scale: 1.5;
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);      */
+  }
 `;

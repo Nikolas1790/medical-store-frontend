@@ -15,13 +15,16 @@ export const CustomBtn = styled.button`
   border-radius: 60px;
   color: ${color.white};
   background: ${color.greenLight};
-  transition: background 0.3s linear;
+
+  /* box-shadow: none;  */
+  transition: all 0.25s linear;
 
   &:hover,
   &:focus {
     /* color: ${color.blackLight}; */
     background: ${color.greenDarker};  
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
+    outline: none;
   }
   
   @media (min-width: 768px) {

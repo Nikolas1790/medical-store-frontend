@@ -15,7 +15,8 @@ export const CustomBtn = styled.button`
   border-radius: 60px;
   color: ${color.blackColorSecondary};
   background: ${color.blackPrimarySecondary};
-  transition: background 0.3s linear;
+
+  transition: all 0.25s linear;
 
   &:hover,
   &:focus {
@@ -23,6 +24,7 @@ export const CustomBtn = styled.button`
     background: ${color.white};  
     border: 1px solid ${color.greenLight};
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
+    outline: none;
   }
   
   @media (min-width: 768px) {

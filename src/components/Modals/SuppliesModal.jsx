@@ -95,7 +95,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
         </svg>   
       </ClosingSymbol>
 
-      <Title>{ isUpdate  ? 'Edit product' :'Add a new suppliers'}</Title>
+      <Title>{ isUpdate  ? 'Edit supplier' :'Add a new supplier'}</Title>
       <div>
         <form onSubmit={formik.handleSubmit}>
           <InputConteiner>
@@ -132,7 +132,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
             </ColumnConteiner>
 
             <ColumnConteiner>   
-            <Input
+              <Input
                 name="address"
                 type="text"
                 onChange={handleInputChange}
@@ -151,21 +151,21 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 haserror={formik.touched.date && formik.errors.date}
               /> */}
               <DatePickerContainer>
-              <StyledDatePicker
-              ref={datePickerRef}
-                selected={formik.values.date}
-                onChange={(date) => formik.setFieldValue('date', date)}
-                dateFormat="MMMM d, yyyy"
-                placeholderText="Delivery date"
-                haserror={formik.touched.date && formik.errors.date}
-                name="date"
-                type="date"
-                onBlur={formik.handleBlur} 
-                // value={formik.values.date}
-              />
-              <DatePickerSvg onClick={handleCalendarClick} width={16} height={16} >
-                <use href={`${sprite}#icon-calendar`} />
-              </DatePickerSvg>
+                <StyledDatePicker
+                  ref={datePickerRef}
+                  selected={formik.values.date}
+                  onChange={(date) => formik.setFieldValue('date', date)}
+                  dateFormat="MMMM d, yyyy"
+                  placeholderText="Delivery date"
+                  haserror={formik.touched.date && formik.errors.date}
+                  name="date"
+                  type="date"
+                  onBlur={formik.handleBlur} 
+                  // value={formik.values.date}
+                />
+                <DatePickerSvg onClick={handleCalendarClick} width={16} height={16} >
+                  <use href={`${sprite}#icon-calendar`} />
+                </DatePickerSvg>
               </DatePickerContainer>
 
 

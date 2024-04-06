@@ -21,7 +21,6 @@ export const getPageName = (pathname) => {
       return 'All suppliers';
     case '/customers':
       return 'All customers';
-
     default:
       return 'Page'; 
   }

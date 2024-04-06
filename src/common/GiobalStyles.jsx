@@ -87,6 +87,11 @@ button {
   outline: 0;
   font-family: inherit;
   background: transparent;
+  /* outline: none; */
+  &:hover,
+  &:focus {
+    outline: none;
+  }
 }
 html {
   scroll-behavior: smooth;

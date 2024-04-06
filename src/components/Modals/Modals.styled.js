@@ -62,6 +62,7 @@ export const ClosingSymbol = styled.button`
   &:hover,
   &:focus {
     transform: scale(1.1);
+    outline: none;
   }
 `;
 ////////////////////////////////////
@@ -88,6 +89,7 @@ export const Input = styled.input`
   border-radius: 60px;
   background: rgb(255, 255, 255);
   padding: 13px 18px;
+    outline: none;
 
   border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
 `;
@@ -103,13 +105,14 @@ export const StyledDatePicker = styled(DatePicker)`
   border-radius: 60px;
   background: rgb(255, 255, 255);
   padding: 13px 18px;
-
+outline: none;
   border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
 `;
 export const DatePickerSvg = styled.svg`
   position: absolute;
   top: 14px;
   right: 18px;
+  cursor: pointer;
 `;
 
 

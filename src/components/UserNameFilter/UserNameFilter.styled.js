@@ -33,6 +33,10 @@ export const InputFilter = styled.input`
     font-size: 12px; // Пример изменения размера текста плейсхолдера
     color: ${color.blackColorSecondary};
   }
+    &:hover,
+  &:focus {
+    outline: none;
+  }
 `;
 
 // export const Button = styled.div`

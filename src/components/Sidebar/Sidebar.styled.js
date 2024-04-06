@@ -25,22 +25,29 @@ export const PageNav = styled(NavLink)`
   height: 44px;
   border-radius: 50%;
   background: ${color.white};
-  box-shadow: 0px -1px 7px 0px rgba(71, 71, 71, 0.05);
+  /* box-shadow: 0px -1px 7px 0px rgba(71, 71, 71, 0.05); */
 
   fill: ${color.grey};
+  transition: all 0.25s linear;
+
   &:hover,
   &:focus {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
     fill: ${color.greenDarker};
     stroke: ${color.greenDarker};
+    /* border: none; */
     /* color: red; */
+    outline: none;
   }
 
   &.active {
     fill: ${color.greenLight};
     stroke: ${color.greenLight};
     /* color: yellow; */
+      box-shadow: none; 
 
     &:hover {
+      /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);  */
       /* fill: ${color.greenDarker};
       stroke: ${color.greenDarker}; */
     }
