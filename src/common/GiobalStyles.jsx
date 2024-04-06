@@ -185,6 +185,7 @@ export const AllConteinersTable = styled.div`
   padding-left: 20px;
   box-shadow: none; //
   border-bottom: 1px solid ${color.blackPrimarySecondary};  
+  
 }
 `
 

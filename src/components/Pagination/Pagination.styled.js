@@ -13,8 +13,9 @@ export const PaginationButton = styled.button`
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  
-  &:hover {
+  transition: all 0.25s linear;
+  &:hover,
+  &:focus {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7); 
   }
 

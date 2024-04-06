@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import sprite from '../../img/sprite.svg';
-import { ActionBtnProduct, ActionConteiner } from './ActionBlock.styled';
+import { ActionBtnProduct, ActionBtnProductDell, ActionConteiner } from './ActionBlock.styled';
 import { deleteProduct } from '../../redux/ePharmacy/operations';
 import PortalModal from 'components/PortalModal/PortalModal';
 import { useState } from 'react';
@@ -24,11 +24,11 @@ export default function ActionBlock({ item }) {
         </svg>
       </ActionBtnProduct>
 
-      <button onClick={dellItem}>
+      <ActionBtnProductDell onClick={dellItem}>
         <svg width={32} height={32}>
           <use href={`${sprite}#icon-btn-dell`} />
         </svg>
-      </button>
+      </ActionBtnProductDell>
       <PortalModal active={openModal} setActive={setOpenModal}>
         <ProductModals closeModals={() => setOpenModal()} isUpdate={true} existingProduct={item} />
       </PortalModal>
