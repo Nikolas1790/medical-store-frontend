@@ -2,6 +2,7 @@ const color = {
   blackPrimary: 'rgb(29, 30, 33);',
   blackPrimarySecondary: 'rgba(29, 30, 33, 0.1)',
   blackColorSecondary: 'rgba(29, 30, 33, 0.4)',
+  blackModalColr: 'rgba(29, 30, 33, 0.8)',
   
   grey: 'rgb(220, 221, 223)',
   

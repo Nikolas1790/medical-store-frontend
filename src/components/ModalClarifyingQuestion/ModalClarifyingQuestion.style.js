@@ -21,8 +21,8 @@ export const ConteinerClarifyingGuestion = styled.div`
 
 export const ClosingSymbol = styled.button`
   position: absolute;
-  top: 34px;
-  right: 34px;
+  top: 18px;
+  right: 18px;
   display: flex;
   justify-content: center;
   align-items: center;

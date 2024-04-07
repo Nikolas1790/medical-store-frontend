@@ -17,22 +17,19 @@ export default function  ModalSelector ({
 }) {
   const dropdownRef = useRef();
   const defaultName= def === "supplies" ? "Status" : "Category"
-// console.log(dropdownRef)
 
 useEffect(() => {
   const handleOutsideClick = (event) => {
-    // console.log(dropdownRef.current)
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsDropdownOpen(false); 
     }
   };
   document.addEventListener('mousedown', handleOutsideClick);
   return () => document.removeEventListener('mousedown', handleOutsideClick);
-}, []); 
+}, [setIsDropdownOpen]); 
 
 
   const handleDropdownButtonClick = (event) => {
-    // event.stopPropagation();
     toggleDropdown();
   };
 
@@ -47,7 +44,14 @@ useEffect(() => {
       <DropdownSvg width={20} height={20} onClick={toggleDropdown}>
         <use href={`${sprite}#icon-chevron-${isDropdownOpen ? 'up' : 'down'}`} />
       </DropdownSvg>
-      <DropdownButton type="button" onClick={handleDropdownButtonClick} haserror={hasError}>{selectedCategory || reservName || defaultName}</DropdownButton>  
+      <DropdownButton 
+        type="button" 
+        onClick={handleDropdownButtonClick} 
+        haserror={hasError} 
+        defaultname={!selectedCategory && !reservName? "true" : ''}
+      >
+        {selectedCategory || reservName || defaultName}
+      </DropdownButton>  
       <DropdownList open={isDropdownOpen}>
         <StyledSimpleBar style={{ maxHeight: 126 }}>
           {categories.map((category, index) => (

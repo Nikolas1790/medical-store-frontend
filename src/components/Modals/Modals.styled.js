@@ -10,13 +10,12 @@ export const StyledSimpleBar = styled(SimpleBar)`
   .simplebar-scrollbar {
     background: rgba(255, 255, 255, 0.4) !important;
     width: 6px !important;
-    /* height: 65px !important; */
     border-radius: 12px !important;
   }
 
   .simplebar-track.simplebar-vertical {
     width: 6px !important;
-    right: -10px !important; /* Смещение вправо */
+    right: -10px !important;
   }
 
   .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
@@ -27,9 +26,6 @@ export const StyledSimpleBar = styled(SimpleBar)`
     background-color: #bcbcbc;
   }
 `;
-
-
-
 
 export const Conteiner = styled.div`
   position: relative;
@@ -88,10 +84,11 @@ export const Input = styled.input`
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
   background: rgb(255, 255, 255);
+  font-size: 12px;
   padding: 13px 18px;
-    outline: none;
-
-  border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
+  outline: none;
+  color: rgba(29, 30, 33, 0.8);
+  border-color: ${({ haserror }) => haserror ?  color.red : color.blackPrimarySecondary};
 `;
 
 export const DatePickerContainer = styled.div`
@@ -143,13 +140,15 @@ background: ${color.greenLight};
 export const StyledDatePicker = styled(DatePicker)`
   width: 224px;
   height: 44px;
-  border: 1px solid rgba(29, 30, 33, 0.1);
+  border: 1px solid ${color.blackPrimarySecondary};
   border-radius: 60px;
-  background: rgb(255, 255, 255);
+  background: ${color.white};
   padding: 13px 18px;
   outline: none;
-  border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
+  color: ${color.blackModalColr};
+  border-color: ${({ haserror }) => haserror ? color.red : color.blackPrimarySecondary};
 `;
+
 export const DatePickerSvg = styled.svg`
   position: absolute;
   top: 14px;
@@ -187,7 +186,8 @@ export const DropdownButton = styled.button`
   padding: 13px 18px;
 
   width: 224px;
-  border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
+  color: ${({ defaultname }) => defaultname ? color.blackColorSecondary : color.blackModalColr};
+  border-color: ${({ haserror }) => haserror ? color.red : color.blackPrimarySecondary};
 `;
 
 export const DropdownList = styled.ul`
