@@ -96,6 +96,48 @@ export const Input = styled.input`
 
 export const DatePickerContainer = styled.div`
   position: relative;
+
+  .react-datepicker{
+    background: ${color.greenLight};
+    color: ${color.white};
+    border-radius: 12px;
+    
+  };
+
+  .react-datepicker__header {
+background: ${color.greenLight};
+
+  }
+
+  .react-datepicker__day-name {
+  color: #fff;
+}
+.react-datepicker__day {
+  color: #fff;
+}
+.react-datepicker__current-month {
+  color: #fff;
+}
+
+.react-datepicker__day--selected {
+  color: #fff;
+}
+/* Цвет текста при наведении */
+.react-datepicker__day:hover {
+  color: ${color.greenLight};
+}
+
+.react-datepicker__day--outside-month {
+  color: gray;
+}
+
+.react-datepicker__day--selected:hover{
+  background: ${color.greenDarker};
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+  background: ${color.greenDarker};
+}
 `;
 
 export const StyledDatePicker = styled(DatePicker)`
@@ -105,7 +147,7 @@ export const StyledDatePicker = styled(DatePicker)`
   border-radius: 60px;
   background: rgb(255, 255, 255);
   padding: 13px 18px;
-outline: none;
+  outline: none;
   border-color: ${({ haserror }) => haserror ? 'red' : 'rgba(29, 30, 33, 0.1)'};
 `;
 export const DatePickerSvg = styled.svg`
@@ -161,7 +203,6 @@ export const DropdownList = styled.ul`
   margin: 0;
 
   width: 100%;
-  /* height: 140px; */
   border-radius: 15px;
 `;
 
@@ -180,14 +221,8 @@ export const DropdownItem = styled.li`
 
 
 /////////////////////////////////////////////////// 222
-
-
-
 export const BtnConteiner = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 40px;
 `;
-
-
-
