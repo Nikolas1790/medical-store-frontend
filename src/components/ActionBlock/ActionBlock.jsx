@@ -1,20 +1,13 @@
-import { useDispatch } from 'react-redux';
 import sprite from '../../img/sprite.svg';
 import { ActionBtnProduct, ActionBtnProductDell, ActionConteiner } from './ActionBlock.styled';
-import { deleteProduct } from '../../redux/ePharmacy/operations';
 import PortalModal from 'components/PortalModal/PortalModal';
 import { useState } from 'react';
 import ProductModals from 'components/Modals/ProductModal';
+import ModalClarifyingGuestion from 'components/ModalClarifyingQuestion/ModalClarifyingQuestion';
 
 export default function ActionBlock({ item }) { 
   const [openModal, setOpenModal] = useState(false);
-  const dispatch = useDispatch();
-  const id = item?.[5];
-//  console.log(id)
-  
-  const dellItem = () => {
-    dispatch(deleteProduct(id))
-  };  
+  const [openDellModal, setOpenDellModal] = useState(false);
 
   return (        
     <ActionConteiner>
@@ -23,12 +16,15 @@ export default function ActionBlock({ item }) {
           <use href={`${sprite}#icon-btn-edit`} />
         </svg>
       </ActionBtnProduct>
-
-      <ActionBtnProductDell onClick={dellItem}>
+      <ActionBtnProductDell onClick={() => setOpenDellModal(true)} >
         <svg width={32} height={32}>
           <use href={`${sprite}#icon-btn-dell`} />
         </svg>
       </ActionBtnProductDell>
+
+      <PortalModal active={openDellModal} setActive={setOpenDellModal}>
+        <ModalClarifyingGuestion closeModals={() => setOpenDellModal()} item={item}/>
+      </PortalModal>
       <PortalModal active={openModal} setActive={setOpenModal}>
         <ProductModals closeModals={() => setOpenModal()} isUpdate={true} existingProduct={item} />
       </PortalModal>

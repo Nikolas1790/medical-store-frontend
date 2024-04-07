@@ -1,7 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import 'react-datepicker/dist/react-datepicker.css';
-
 import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, DatePickerContainer, DatePickerSvg, Input, InputConteiner, StyledDatePicker, Title } from "./Modals.styled";
 import sprite from '../../img/sprite.svg';
 import CustomButton from "components/CustomButton/CustomButton";
@@ -15,10 +14,7 @@ import ModalSelector from './ModalSelector/ModalSelector';
 const validationSchema = Yup.object({
   name: Yup.string().required(),
   suppliers: Yup.string().required(),
-
-  // amount: Yup.string().required(),
   amount: Yup.number().required('Stock is required').positive('Stock must be positive'),
-
   address: Yup.string().required(),
   date: Yup.string().required(),
   status: Yup.string().required(),
@@ -30,9 +26,8 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
   const dropdownRef = useRef(null);
   const dispatch = useDispatch();
   const id = existingSuppliers?.[6];
-
   const datePickerRef = useRef();
-// console.log(existingSuppliers)
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -42,6 +37,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     document.addEventListener('mousedown', handleOutsideClick);
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, []); 
+  
   const initialValues = isUpdate ? {
     name: existingSuppliers?.[0],
     suppliers: existingSuppliers?.[2],
@@ -75,8 +71,6 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
   const handleCalendarClick = () => {
     datePickerRef.current.setOpen(true);
   };
-
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -141,15 +135,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 placeholder="Address"
                 haserror={formik.touched.address && formik.errors.address}
               />
-              {/* <Input
-                name="date"
-                type="date"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur} 
-                value={formik.values.date}
-                placeholder="Delivery date"
-                haserror={formik.touched.date && formik.errors.date}
-              /> */}
+
               <DatePickerContainer>
                 <StyledDatePicker
                   ref={datePickerRef}
@@ -161,13 +147,11 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                   name="date"
                   type="date"
                   onBlur={formik.handleBlur} 
-                  // value={formik.values.date}
                 />
                 <DatePickerSvg onClick={handleCalendarClick} width={16} height={16} >
                   <use href={`${sprite}#icon-calendar`} />
                 </DatePickerSvg>
               </DatePickerContainer>
-
 
               <ModalSelector
                 isDropdownOpen={isDropdownOpen}
@@ -193,6 +177,3 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     </Conteiner>
   );
 }
-
-
-
