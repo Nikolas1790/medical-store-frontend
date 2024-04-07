@@ -27,7 +27,7 @@ export const AddEditSuppliers = styled.button`
     outline: none;
     color: ${color.white};
     background:  ${color.greenLight};
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
+    box-shadow: ${({ name }) => name === "edit" ? "none" :'0px 4px 8px rgba(0, 0, 0, 0.4)'}; ; 
     border: none;
 
     ${EditSuppliers} {   

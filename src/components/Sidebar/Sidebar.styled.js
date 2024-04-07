@@ -26,6 +26,7 @@ export const PageNav = styled(NavLink)`
   border-radius: 50%;
   background: ${color.white};
   /* box-shadow: 0px -1px 7px 0px rgba(71, 71, 71, 0.05); */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 
   fill: ${color.grey};
   transition: all 0.25s linear;
@@ -44,7 +45,8 @@ export const PageNav = styled(NavLink)`
     fill: ${color.greenLight};
     stroke: ${color.greenLight};
     /* color: yellow; */
-      box-shadow: none; 
+      /* box-shadow: none;  */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 
     &:hover {
       /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);  */

@@ -26,12 +26,6 @@ export const getPageName = (pathname) => {
   }
 };
 
-export const FilterIcon = () => (
-  <svg width="14" height="14">
-      <use href={`${sprite}#icon-filter`} />
-  </svg>
-);
-
 export const getColor = (type) => {
   switch (type) {
     case 'Expense':
@@ -123,3 +117,15 @@ export const getBackgroundActiveColor = (type) => {
   }
 };
 
+export const FilterIcon = () => (
+  <svg width="14" height="14">
+      <use href={`${sprite}#icon-filter`} />
+  </svg>
+);
+
+export const AddIcon = () => (
+  <svg width="42" height="42" viewBox="0 0 42 42"  xmlns="http://www.w3.org/2000/svg">
+    <rect width="42" height="42" rx="21" />
+    <path d="M27 21H15M21 15V27V15Z"  />
+  </svg>
+);

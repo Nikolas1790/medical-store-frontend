@@ -46,7 +46,7 @@ export const addProduct = createAsyncThunk("/products/add",
 export const updateProduct = createAsyncThunk("/products/update",
   async ({ id, productData }, thunkAPI) => {
     try {
-      console.log({ id, productData })
+      // console.log({ id, productData })
       const response = await axios.put(`/products/${id}`, productData );
       return response.data;
     } catch (e) {      

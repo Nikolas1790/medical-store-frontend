@@ -9,6 +9,7 @@ import { Pagination } from "components/Pagination/Pagination";
 import { AddProduct, AddProductConteiner } from "./Products.styled";
 import PortalModal from "components/PortalModal/PortalModal";
 import ProductModals from "components/Modals/ProductModal";
+import { AddIcon } from "components/Utils/utils";
 
 export default function Products() {  
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default function Products() {
   const [filterName, setFilterName] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const limitPerPage = 5;
-// console.log(products)
+ 
   useEffect(() => {
     dispatch(productInf({ page: currentPage, limit: limitPerPage, name: '' || filterName }));
   }, [dispatch, currentPage, limitPerPage, filterName, products.total]);
@@ -28,6 +29,7 @@ export default function Products() {
   
   const totalProducts = products.total || 0;
   const totalPages = Math.ceil(totalProducts / limitPerPage);
+  
   return (
     <ContentContainer>
       <ContentBlock>
@@ -35,12 +37,9 @@ export default function Products() {
           <UserNameFilter dataFactory={productInf} plholder="Product Name" setFilterName={setFilterName} setCurrentPage={setCurrentPage}/>
           <AddProductConteiner onClick={() => setOpenModal(true)} >
 
-            <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="42" height="42" rx="21" fill="#59B17A"/>
-              <path d="M27 21H15M21 15V27V15Z" stroke="white" />
-            </svg>
-
+            <AddIcon />
             <AddProduct>Add a new product</AddProduct>
+
           </AddProductConteiner>
         </FilterAddConteiner>
 
@@ -61,5 +60,3 @@ export default function Products() {
     </ContentContainer>
   );
 }
-
-

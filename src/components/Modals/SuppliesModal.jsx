@@ -5,7 +5,7 @@ import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, DatePickerCont
 import sprite from '../../img/sprite.svg';
 import CustomButton from "components/CustomButton/CustomButton";
 import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { AVAILABLE_STATUS } from 'components/Utils/utils';
 import { useDispatch } from 'react-redux';
 import { addSupplier, updateSupplier } from '../../redux/ePharmacy/operations';
@@ -23,20 +23,9 @@ const validationSchema = Yup.object({
 export default function SuppliesModals({ closeModals, isUpdate, existingSuppliers }) {  
   const [selectedLevels, setSelectedLevels] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
   const dispatch = useDispatch();
   const id = existingSuppliers?.[6];
   const datePickerRef = useRef();
-
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false); 
-      }
-    };
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => document.removeEventListener('mousedown', handleOutsideClick);
-  }, []); 
   
   const initialValues = isUpdate ? {
     name: existingSuppliers?.[0],
@@ -59,7 +48,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     initialValues: initialValues,
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-      console.log(values)
+      // console.log(values)
 
       isUpdate ? dispatch(updateSupplier({ id: id, supplierData: values })) : dispatch(addSupplier(values));
       resetForm(); 
@@ -155,6 +144,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
 
               <ModalSelector
                 isDropdownOpen={isDropdownOpen}
+                setIsDropdownOpen={setIsDropdownOpen}
                 toggleDropdown={toggleDropdown}
                 selectedCategory={selectedLevels}
                 setSelectedCategory={setSelectedLevels}

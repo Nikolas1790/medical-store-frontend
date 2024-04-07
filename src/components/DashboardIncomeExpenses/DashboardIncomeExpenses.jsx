@@ -11,6 +11,7 @@ export default function DashboardIncomeExpenses() {
   const dispatch = useDispatch();
   const { incomeExpenses } = useSelector(selectDataInf);  
   const data = incomeExpenses ? incomeExpenses.map(({ name, amount, type }) => [type, name, amount]) : [];
+  
   useEffect(() => {
     dispatch(dashboardInf());
   }, [dispatch]); 

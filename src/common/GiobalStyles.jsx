@@ -205,12 +205,12 @@ export const AllConteinersTable = styled.div`
   } */
 }
 
-.btQpSa .bp5-table-cell {
+/* .btQpSa .bp5-table-cell {
   &:hover,
     &:focus {
       outline: none; 
     } 
-}
+} */
 
 
 

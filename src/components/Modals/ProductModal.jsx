@@ -5,7 +5,7 @@ import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, Input, InputCo
 import sprite from '../../img/sprite.svg';
 import CustomButton from "components/CustomButton/CustomButton";
 import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { AVAILABLE_CATEGORIES } from 'components/Utils/utils';
 import { useDispatch } from 'react-redux';
 import { addProduct, updateProduct } from '../../redux/ePharmacy/operations';
@@ -22,20 +22,8 @@ const validationSchema = Yup.object({
 export default function ProductModals({ closeModals, isUpdate, existingProduct }) {  
   const [selectedLevels, setSelectedLevels] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
   const dispatch = useDispatch();
   const id = existingProduct?.[5];
-
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        // console.log(dropdownRef.current.contains(event.target))
-        setIsDropdownOpen(false); 
-      }
-    };
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => document.removeEventListener('mousedown', handleOutsideClick);
-  }, []); 
 
   const initialValues = isUpdate ? {
     name: existingProduct?.[0],
@@ -128,6 +116,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 hasError={formik.touched.category && formik.errors.category}
                 reservName={ existingProduct?.[1] }
                 fieldName="category"
+                setIsDropdownOpen={setIsDropdownOpen}
               />
               <Input
                 name="suppliers"

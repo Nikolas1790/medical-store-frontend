@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { StyledSimpleBar, Dropdown, DropdownSvg, DropdownButton, DropdownList, DropdownItem } from "../Modals.styled";
 import sprite from '../../../img/sprite.svg';
 
@@ -12,23 +12,38 @@ export default function  ModalSelector ({
   hasError,
   reservName,
   def,
-  fieldName
+  fieldName,
+  setIsDropdownOpen
 }) {
+  const dropdownRef = useRef();
   const defaultName= def === "supplies" ? "Status" : "Category"
+// console.log(dropdownRef)
+
+useEffect(() => {
+  const handleOutsideClick = (event) => {
+    // console.log(dropdownRef.current)
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false); 
+    }
+  };
+  document.addEventListener('mousedown', handleOutsideClick);
+  return () => document.removeEventListener('mousedown', handleOutsideClick);
+}, []); 
+
+
   const handleDropdownButtonClick = (event) => {
-    event.stopPropagation();
+    // event.stopPropagation();
     toggleDropdown();
   };
 
   const handleItemClick = (category) => {
     setSelectedCategory(category);
-    // console.log(fieldName, category)
     formik.setFieldValue(fieldName, category); 
     toggleDropdown();
   };
 
   return (
-    <Dropdown>
+    <Dropdown ref={dropdownRef}>
       <DropdownSvg width={20} height={20} onClick={toggleDropdown}>
         <use href={`${sprite}#icon-chevron-${isDropdownOpen ? 'up' : 'down'}`} />
       </DropdownSvg>

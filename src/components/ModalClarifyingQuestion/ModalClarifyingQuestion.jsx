@@ -15,7 +15,7 @@ export default function ModalClarifyingGuestion ({ closeModals, item }) {
   const id = item?.[5];
   const product = item?.[0];
 
-console.log(item?.[0])
+// console.log(item?.[0])
   const dellItem = () => {
     dispatch(deleteProduct(id))
   };  

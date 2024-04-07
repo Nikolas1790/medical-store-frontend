@@ -9,7 +9,7 @@ export default function BtnAddEditSuppliers({width, height, name, isUpdate, item
   const [openModal, setOpenModal] = useState(false);
   return (
     <div>
-      <AddEditSuppliers width={width} height={height} onClick={() => setOpenModal(true)}>
+      <AddEditSuppliers width={width} height={height} name={name} onClick={() => setOpenModal(true)}>
 
         {name === "edit" ? (
           <>

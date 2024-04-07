@@ -23,5 +23,6 @@ export const PaginationButton = styled.button`
     cursor: default;
     background: ${color.greenLight};
     scale: 1.25;
+    box-shadow: none;
   }
 `;

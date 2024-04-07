@@ -1,4 +1,3 @@
-// import color from 'common/GlobalColers';
 import color from 'common/GlobalColers'
 import styled from 'styled-components'
 
@@ -8,21 +7,17 @@ export const AddProductConteiner = styled.button`
   align-items: center; 
   gap: 8px;
 
-  /* fill: ${color.red}; */
-    /* stroke: ${color.red}; */
+  fill: ${color.greenLight};
+  stroke: ${color.white};
   transition: all 0.25s linear;
+
   &:hover,
   &:focus {
     scale: 1.03;
-    /* fill: ${color.white}; */
-    /* stroke: ${color.white}; */
-    outline: none;
-    
-    /* color: ${color.greenLight}; */
-    /* background:  ${color.greenLight}; */
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);  */
+    fill: ${color.greenDarker};    
+    color: ${color.greenLight};
     border: none;
-
+    outline: none;    
   }
 `
 export const AddProduct = styled.p`

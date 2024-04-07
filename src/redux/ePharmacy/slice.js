@@ -147,48 +147,15 @@ const pharmacySlice = createSlice({
         
         state.loading = false;
         const index = state.suppliersData.suppliers.findIndex(supplier => supplier._id === action.payload._id);
-        console.log(index)
+        // console.log(index)
         if (index !== -1) {
           state.suppliersData.suppliers[index] = action.payload;
         }
-        // const index = state.productsData.products.findIndex(product => product._id === action.payload._id);
-        // console.log(index)
-        // console.log(state.productsData.products)
-        // if (index !== -1) {
-          // state.productsData.products[index] = action.payload;
-        // console.log(state.productsData.products[index])
-        // }
       })
       .addCase(updateSupplier.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       .addCase(customersInf.pending, (state) => {

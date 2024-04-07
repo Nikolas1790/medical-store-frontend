@@ -8,7 +8,12 @@ export const IncomeExpensesTableConteiner = styled.div`
   justify-content: center;
 
   .bp5-table-container {    
-    box-shadow: none;    
+    box-shadow: none;  
+    
+    &:hover,
+    &:focus {
+      outline: none; 
+    } 
   }
 
   .bp5-table-header {
