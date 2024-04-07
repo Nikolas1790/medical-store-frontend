@@ -17,13 +17,11 @@ export const AddEditSuppliers = styled.button`
 
   fill: ${color.greenLight};
   stroke: ${color.greenLight};
-  background:  ${color.white};
-  
+  background:  ${color.white};  
   color: ${color.blackPrimary};
   transition: all 0.25s linear;
   &:hover,
-  &:focus {
-    
+  &:focus {    
     fill: ${color.white};
     stroke: ${color.white};
     outline: none;
@@ -31,9 +29,9 @@ export const AddEditSuppliers = styled.button`
     background:  ${color.greenLight};
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
     border: none;
+
     ${EditSuppliers} {   
       color: ${color.white}; /* Так текст станет белым при наведении на кнопку */
     }
   }
 `
-

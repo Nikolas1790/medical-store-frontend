@@ -87,7 +87,6 @@ button {
   outline: 0;
   font-family: inherit;
   background: transparent;
-  /* outline: none; */
   &:hover,
   &:focus {
     outline: none;
@@ -119,8 +118,6 @@ export const ContentBlock = styled.div`
   padding: 75px 40px 20px 120px;
   padding-top:  ${({ top }) => top || '75px'};
   padding-bottom:  ${({ bottom }) => bottom || '20px'};
-
-  /* background: pink;  */
   width: 1440px;
 `
 //////////////////////////////////////////////////////////////
@@ -145,7 +142,12 @@ export const AllConteinersTable = styled.div`
   justify-content: center;
 
   .bp5-table-container {    
-    box-shadow: none;    
+    box-shadow: none; 
+     
+    &:hover,
+    &:focus {
+      outline: none; 
+    }  
   }
 
   .bp5-table-header {
@@ -161,6 +163,10 @@ export const AllConteinersTable = styled.div`
     color: ${color.blackColorSecondary};
     box-shadow: none; //
     border-bottom: 1px solid ${color.blackPrimarySecondary};
+    /* &:hover,
+  &:focus {
+    outline: none; 
+  } */
   }
 
   .bp5-table-header:not(:last-child)::after {
@@ -170,10 +176,18 @@ export const AllConteinersTable = styled.div`
     right: 0;
     bottom: 0; 
     border-right: 1px solid ${color.blackPrimarySecondary}; 
+    /* &:hover,
+  &:focus {
+    outline: none; 
+  } */
   }
   
   .bp5-table-column-header-cell:first-child .bp5-table-column-name {
     margin-left: -20px;
+    /* &:hover,
+  &:focus {
+    outline: none; 
+  } */
   }
 
  .bp5-table-cell { 
@@ -185,8 +199,21 @@ export const AllConteinersTable = styled.div`
   padding-left: 20px;
   box-shadow: none; //
   border-bottom: 1px solid ${color.blackPrimarySecondary};  
-  
+  /* &:hover,
+  &:focus {
+    outline: none; 
+  } */
 }
+
+.btQpSa .bp5-table-cell {
+  &:hover,
+    &:focus {
+      outline: none; 
+    } 
+}
+
+
+
 `
 
 export const AllConteinerBigTable = styled.div`
