@@ -31,7 +31,7 @@ export default function SuppliersAll({ suppliers }) {
     if (columnId === 'name') {
       style.paddingLeft = '0px';
     }
-    // console.log(content)
+    
     return (
       <Cell style={style}>
         {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : (
@@ -54,7 +54,7 @@ export default function SuppliersAll({ suppliers }) {
           enableRowResizing={false} 
           enableRowHeader={false}
         >
-          <Column name="User Info" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'name', data.map(item => item[0]))} />
+          <Column name="Suppliers Info" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'name', data.map(item => item[0]))} />
           <Column name="Address" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'address', data.map(item => item[1]))} />
           <Column name="Company" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'company', data.map(item => item[2]))} />
           <Column name="Delivery date" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'date', data.map(item => item[3]))} />

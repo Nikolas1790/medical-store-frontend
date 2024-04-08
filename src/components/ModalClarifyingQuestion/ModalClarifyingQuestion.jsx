@@ -15,6 +15,7 @@ export default function ModalClarifyingGuestion ({ closeModals, item }) {
   const product = item?.[0];
 
   const dellItem = () => {
+    toast.success(`${product} removed.`)
     dispatch(deleteProduct(id))
   };  
 

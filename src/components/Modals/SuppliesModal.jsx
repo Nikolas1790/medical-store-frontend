@@ -48,8 +48,6 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     initialValues: initialValues,
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-      // console.log(values)
-
       isUpdate ? dispatch(updateSupplier({ id: id, supplierData: values })) : dispatch(addSupplier(values));
       resetForm(); 
       closeModals()

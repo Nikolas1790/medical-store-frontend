@@ -17,7 +17,7 @@ export default function Suppliers() {
 
   useEffect(() => {
     dispatch(suppliersInf({ page: currentPage, limit: limitPerPage, name: '' || filterName }));
-  }, [dispatch, currentPage, limitPerPage, filterName]);
+  }, [dispatch, currentPage, limitPerPage, filterName, suppliers.total]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);

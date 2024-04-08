@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const dashboardInf = createAsyncThunk(
   "dashboard",
@@ -37,8 +38,10 @@ export const addProduct = createAsyncThunk("/products/add",
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(`/products`, data );
+      toast.success(`${data.name} added successfully)`)
       return response.data;
     } catch (e) {
+      toast.error("Oops there was an error")
       return thunkAPI.rejectWithValue(e.message);
     }
 });
@@ -78,17 +81,17 @@ export const suppliersInf = createAsyncThunk("/suppliers",
 export const addSupplier = createAsyncThunk("/suppliers/add",
   async (data, thunkAPI) => {
     try {
-      // console.log(data)
       const response = await axios.post(`/suppliers`, data );
+      toast.success(`${data.name} added successfully)`)
       return response.data;
     } catch (e) {
+      toast.error("Oops there was an error")
       return thunkAPI.rejectWithValue(e.message);
     }
 });
 export const updateSupplier = createAsyncThunk("/suppliers/update",
   async ({ id, supplierData }, thunkAPI) => {
     try {
-      // console.log({id, supplierData})
       const response = await axios.put(`/suppliers/${id}`, supplierData );
       return response.data;
     } catch (e) {      

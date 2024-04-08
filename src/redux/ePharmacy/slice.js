@@ -125,7 +125,7 @@ const pharmacySlice = createSlice({
         state.error = null;
       })
       .addCase(addSupplier.fulfilled, (state, action) => {
-        console.log('index')
+        // console.log('index')
         state.loading = false;
         state.suppliersData.total = state.suppliersData.total + 1;
         state.suppliersData.suppliers = [ ...state.suppliersData.suppliers, action.payload];
