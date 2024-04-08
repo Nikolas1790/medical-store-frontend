@@ -2,7 +2,6 @@ import { createGlobalStyle, styled } from 'styled-components';
 import color from './GlobalColers';
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/table/lib/css/table.css";
-
 import InterRegularWoff from '../fonts/Inter-Regular.woff';
 import InterSemiBoldWoff from '../fonts/Inter-SemiBold.woff';
 import InterMediumWoff from '../fonts/Inter-Medium.woff';
@@ -95,12 +94,9 @@ button {
 html {
   scroll-behavior: smooth;
 }
-
 .no-scroll {
   overflow: hidden;
 }
-
-
 `;
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -127,7 +123,6 @@ export const FilterAddConteiner = styled.div`
   justify-content: space-between; 
   align-items: center; 
 `
-
 
 export const TableHeader = styled.h2`
   height: 64px;
@@ -163,10 +158,6 @@ export const AllConteinersTable = styled.div`
     color: ${color.blackColorSecondary};
     box-shadow: none; //
     border-bottom: 1px solid ${color.blackPrimarySecondary};
-    /* &:hover,
-  &:focus {
-    outline: none; 
-  } */
   }
 
   .bp5-table-header:not(:last-child)::after {
@@ -176,34 +167,22 @@ export const AllConteinersTable = styled.div`
     right: 0;
     bottom: 0; 
     border-right: 1px solid ${color.blackPrimarySecondary}; 
-    /* &:hover,
-  &:focus {
-    outline: none; 
-  } */
   }
   
   .bp5-table-column-header-cell:first-child .bp5-table-column-name {
     margin-left: -20px;
-    /* &:hover,
-  &:focus {
-    outline: none; 
-  } */
   }
 
  .bp5-table-cell { 
-  display: flex;
-  align-items: center;
-  background: ${color.white};
-  font-size: 16px;
-  font-weight: 500;
-  padding-left: 20px;
-  box-shadow: none; //
-  border-bottom: 1px solid ${color.blackPrimarySecondary};  
-  /* &:hover,
-  &:focus {
-    outline: none; 
-  } */
-}
+    display: flex;
+    align-items: center;
+    background: ${color.white};
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 20px;
+    box-shadow: none; //
+    border-bottom: 1px solid ${color.blackPrimarySecondary};  
+  }
 `
 
 export const AllConteinerBigTable = styled.div`
@@ -214,5 +193,4 @@ export const AllConteinerBigTable = styled.div`
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 20px;
-  /* margin-block-end:20px; */
 `

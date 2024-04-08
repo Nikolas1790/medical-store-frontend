@@ -66,6 +66,5 @@ export const BtnLogout = styled.button`
     fill: ${color.greenDarker};
     stroke: ${color.white};
     scale: 1.5;
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);      */
   }
 `;

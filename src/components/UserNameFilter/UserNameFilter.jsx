@@ -1,23 +1,19 @@
 import { useFormik } from "formik";
 import {  FilterConteiner, FilterForm, InputFilter } from "./UserNameFilter.styled";
-// import { customersInf, ordersInf } from "../../redux/ePharmacy/operations";
 import { useDispatch } from "react-redux";
 import * as Yup from 'yup';
 import CustomButton from "components/CustomButton/CustomButton";
 import { useState } from "react";
-// import { selectCustomersInf } from "../../redux/ePharmacy/selector";
 
 const validationSchema = Yup.object({
   userName: Yup.string()
     .required('Required')
-    // Дополнительные правила валидации можно добавить здесь
 });
 
 export default function UserNameFilter({dataFactory, plholder, setFilterName, setCurrentPage }) {  
   const [isRestButtonVisible, setIsRestButtonVisible] = useState(false);
   const dispatch = useDispatch();
-//   const customers = useSelector(selectCustomersInf);  
-// console.log(customers)
+  
   const formik = useFormik({
     initialValues: {
       userName: '',

@@ -4,9 +4,7 @@ import DashboardRecentCustomers from "components/DashboardRecentCustomers/Dashbo
 import DashboardStatistic from "components/DashboardStatistic/DashboardStatistic";
 import { TableConteiner } from "./Dashboard.styled";
 
-
-export default function Dashboard() {  
-
+export default function Dashboard() { 
   return (
     <ContentContainer>
       <ContentBlock top="20px" bottom="40px" >

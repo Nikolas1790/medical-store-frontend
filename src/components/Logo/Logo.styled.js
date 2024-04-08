@@ -8,6 +8,11 @@ export const LogoLink = styled(NavLink)`
   font-size: 20px;
   font-weight: 600; 
   outline: none;
+
+  &:hover { 
+    text-decoration: none;
+    color: inherit;
+  }
 `; 
 
 export const LogoImgResricted = styled.img`

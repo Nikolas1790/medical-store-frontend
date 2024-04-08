@@ -42,7 +42,6 @@ const pharmacySlice = createSlice({
         state.error = action.error.message;
       })
 
-
       .addCase(productInf.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -77,13 +76,9 @@ const pharmacySlice = createSlice({
       .addCase(updateProduct.fulfilled, (state, action) => {
         state.loading = false;
         const index = state.productsData.products.findIndex(product => product._id === action.payload._id);
-        // console.log(index)
-        // console.log(state.productsData.products)
         if (index !== -1) {
           state.productsData.products[index] = action.payload;
-        // console.log(state.productsData.products[index])
         }
-        // console.log(state.productsData.products.findIndex(product => product.id === action.payload.id))
       })
       .addCase(updateProduct.rejected, (state, action) => {
         state.loading = false;
@@ -103,7 +98,6 @@ const pharmacySlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
 
       .addCase(suppliersInf.pending, (state) => {
         state.loading = true;
@@ -125,29 +119,22 @@ const pharmacySlice = createSlice({
         state.error = null;
       })
       .addCase(addSupplier.fulfilled, (state, action) => {
-        // console.log('index')
         state.loading = false;
         state.suppliersData.total = state.suppliersData.total + 1;
         state.suppliersData.suppliers = [ ...state.suppliersData.suppliers, action.payload];
-
-        // state.productsData.total = state.productsData.total + 1;
-        // state.productsData.products = [ ...state.productsData.products, action.payload];
       })
       .addCase(addSupplier.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
 
-
       .addCase(updateSupplier.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(updateSupplier.fulfilled, (state, action) => {
-        
+      .addCase(updateSupplier.fulfilled, (state, action) => {        
         state.loading = false;
         const index = state.suppliersData.suppliers.findIndex(supplier => supplier._id === action.payload._id);
-        // console.log(index)
         if (index !== -1) {
           state.suppliersData.suppliers[index] = action.payload;
         }

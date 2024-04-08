@@ -22,7 +22,7 @@ export default function Suppliers() {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-// console.log(suppliers)
+
   const totalSuppliers = suppliers.total || 0;
   const totalPages = Math.ceil(totalSuppliers / limitPerPage);
 

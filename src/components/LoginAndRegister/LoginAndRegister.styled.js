@@ -13,7 +13,6 @@ export const LoginContainer = styled.div`
   position: relative;
   width: 1440px;
   padding: 28px 253px 262px 100px;
-  /* background: yellow; */
   overflow: hidden;
 `
 export const ElementsSvg = styled.svg`
@@ -74,16 +73,11 @@ export const FormFieldConteiner = styled.div`
 export const FormField = styled(Field)`
   width: 100%;
   max-width: 335px;
-
   height: 44px;
-
   border: 1px solid	${color.blackPrimarySecondary};
-  /* border: 1px solid	${(props) => (props.error === "true" ? color.red : color.blackPrimarySecondary)}; */
-
   border-radius: 60px;
   padding: 13px 18px;
   outline: none;
-  /* color: ${color.whitePrimary}; */
   background: ${color.white};
   
   @media (min-width: 768px) {

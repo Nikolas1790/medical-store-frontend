@@ -6,7 +6,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const StyledSimpleBar = styled(SimpleBar)`
-  /* Задайте общие стили для контейнера */
   .simplebar-scrollbar {
     background: rgba(255, 255, 255, 0.4) !important;
     width: 6px !important;
@@ -97,44 +96,42 @@ export const DatePickerContainer = styled.div`
   .react-datepicker{
     background: ${color.greenLight};
     color: ${color.white};
-    border-radius: 12px;
-    
+    border-radius: 12px;    
   };
 
   .react-datepicker__header {
-background: ${color.greenLight};
-
+    background: ${color.greenLight};
   }
 
   .react-datepicker__day-name {
-  color: #fff;
-}
-.react-datepicker__day {
-  color: #fff;
-}
-.react-datepicker__current-month {
-  color: #fff;
-}
+    color: #fff;
+  }
+  .react-datepicker__day {
+    color: #fff;
+  }
+  .react-datepicker__current-month {
+    color: #fff;
+  }
 
-.react-datepicker__day--selected {
-  color: #fff;
-}
-/* Цвет текста при наведении */
-.react-datepicker__day:hover {
-  color: ${color.greenLight};
-}
+  .react-datepicker__day--selected {
+    color: #fff;
+  }
+  /* Цвет текста при наведении */
+  .react-datepicker__day:hover {
+    color: ${color.greenLight};
+  }
 
-.react-datepicker__day--outside-month {
-  color: gray;
-}
+  .react-datepicker__day--outside-month {
+    color: gray;
+  }
 
-.react-datepicker__day--selected:hover{
-  background: ${color.greenDarker};
-}
+  .react-datepicker__day--selected:hover{
+    background: ${color.greenDarker};
+  }
 
-.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
-  background: ${color.greenDarker};
-}
+  .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+    background: ${color.greenDarker};
+  }
 `;
 
 export const StyledDatePicker = styled(DatePicker)`
@@ -155,7 +152,6 @@ export const DatePickerSvg = styled.svg`
   right: 18px;
   cursor: pointer;
 `;
-
 
 ///////////////////////////////////////////////// 222
 export const Dropdown = styled.div`
@@ -181,7 +177,6 @@ export const DropdownButton = styled.button`
   border: 1px solid ${color.blackPrimarySecondary};
   outline: none;
   cursor: pointer;
-
   background-color: ${color.white};
   padding: 13px 18px;
 
@@ -218,7 +213,6 @@ export const DropdownItem = styled.li`
     color: ${color.white};
   }
 `;
-
 
 /////////////////////////////////////////////////// 222
 export const BtnConteiner = styled.div`

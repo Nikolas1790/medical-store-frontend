@@ -6,7 +6,6 @@ export const AddProductConteiner = styled.button`
   justify-content: center; 
   align-items: center; 
   gap: 8px;
-
   fill: ${color.greenLight};
   stroke: ${color.white};
   transition: all 0.25s linear;

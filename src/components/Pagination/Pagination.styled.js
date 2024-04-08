@@ -17,7 +17,6 @@ export const PaginationButton = styled.button`
   color: ${color.blackModalColr};
 
   transition: all 0.25s linear;
-
     // Убираем фокус после нажатия
   &:focus {
     outline: none;

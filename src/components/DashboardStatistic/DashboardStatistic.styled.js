@@ -5,7 +5,6 @@ export const StatisticConteiner = styled.div`
   display: flex;
   gap: 20px;
 `
-
 export const StatisticItem  = styled.li`
   width: 240px;
   height: 108px;
@@ -13,7 +12,6 @@ export const StatisticItem  = styled.li`
   background: ${color.white};
   border: 1px solid ${color.blackPrimarySecondary};
   padding: 14px 18px;
-
 
   fill: transparent;
   stroke: ${color.blackPrimary};
@@ -25,19 +23,16 @@ export const StatisticTitleConteiner = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 28px;
-  
+  margin-bottom: 28px;  
 `
 
 export const StatisticSectionTitle = styled.h4`
   font-size: 12px;
   font-weight: 400;
-  color: ${color.blackColorSecondary};
-  
+  color: ${color.blackColorSecondary};  
 `
 export const StatisticValue = styled.p`
   font-size: 24px;
   font-weight: 600;
-  line-height: 1.33;
-  
+  line-height: 1.33;  
 `

@@ -61,7 +61,6 @@ export default function SuppliersAll({ suppliers }) {
           <Column name="Ammount" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'ammount', data.map(item => item[4]))} />
           <Column name="Status" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'status', data.map(item => item[5]))} />
           <Column name="Action" cellRenderer={(rowIndex) => customCellRenderer(rowIndex, 'action', data)} />
-
         </Table2>
       </AllConteinersTable>
     </AllConteinerBigTable>

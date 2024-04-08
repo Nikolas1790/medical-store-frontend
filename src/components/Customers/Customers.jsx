@@ -28,8 +28,8 @@ export default function Customers() {
   return (
     <ContentContainer>
       <ContentBlock>
-
         <UserNameFilter dataFactory={customersInf} setFilterName={setFilterName} setCurrentPage={setCurrentPage} />
+
         <div>
         <CustomersAll customers={customers.customers} currentPage={currentPage} />
         <Pagination
@@ -37,8 +37,7 @@ export default function Customers() {
             totalPages={totalPages}
             onPageChange={handlePageChange}
           />
-        </div>
-        
+        </div>        
       </ContentBlock>
     </ContentContainer>
   );

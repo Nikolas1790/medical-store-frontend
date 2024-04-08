@@ -16,7 +16,6 @@ export const CustomBtn = styled.button`
   color: ${color.white};
   background: ${color.greenLight};
 
-  /* box-shadow: none;  */
   transition: all 0.25s linear;
 
   &:focus {

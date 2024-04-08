@@ -9,8 +9,6 @@ export const StatucColor = styled.p`
   height: 25px;
   color: ${({ type }) => getActiveColor(type)};
   background: ${({ type }) => getBackgroundActiveColor(type)};
-
   font-size: 14px;
   border-radius: 40px;
-
 `

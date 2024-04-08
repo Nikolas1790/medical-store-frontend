@@ -39,11 +39,9 @@ export const ClosingSymbol = styled.button`
 export const BtnConteiner = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  /* justify-content: flex-end; */
   gap: 8px;
   margin-top: 40px;
 `;
-
 
 export const ProductText = styled.span`
   color: ${color.greenDarker};

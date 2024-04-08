@@ -9,7 +9,7 @@ export const AddEditSuppliers = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${({ width }) => width || '196px'}; // default value if width is not provided
+  width: ${({ width }) => width || '196px'}; 
   height: ${({ height }) => height || '44px'};
   font-size: 14px;
   border: 1px solid ${color.greenAmazing};

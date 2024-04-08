@@ -4,11 +4,6 @@ import styled from 'styled-components'
 export const FilterConteiner = styled.div`
   display: flex;
   gap: 8px;
-  /* align-items: center;
-
-  width: 354px;
-  height: 44px;
-  background: red; */
 `
 export const FilterForm = styled.form`
   display: flex;
@@ -38,7 +33,3 @@ export const InputFilter = styled.input`
     outline: none;
   }
 `;
-
-// export const Button = styled.div`
-//   width: 116px;
-// `;

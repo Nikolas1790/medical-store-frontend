@@ -18,7 +18,6 @@ export default function DashboardRecentCustomers() {
 
   const data = recentCustomers ? recentCustomers.map(({ name, email, spent, image }) => [ name, email, spent, image ]) : [];
 
-
   const customCellRenderer = (rowIndex, columnId, data) => {
     let style = {};
     if ( columnId === 'email') {
