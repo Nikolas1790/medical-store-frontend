@@ -19,9 +19,10 @@ export const CustomBtn = styled.button`
   /* box-shadow: none;  */
   transition: all 0.25s linear;
 
-  &:hover,
   &:focus {
-    /* color: ${color.blackLight}; */
+    outline: none;
+  }
+  &:hover {
     background: ${color.greenDarker};  
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
     outline: none;
