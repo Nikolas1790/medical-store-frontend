@@ -11,11 +11,9 @@ import { deleteProduct } from "../../redux/ePharmacy/operations";
 export default function ModalClarifyingGuestion ({ closeModals, item }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const id = item?.[5];
   const product = item?.[0];
 
-// console.log(item?.[0])
   const dellItem = () => {
     dispatch(deleteProduct(id))
   };  
@@ -39,8 +37,7 @@ export default function ModalClarifyingGuestion ({ closeModals, item }) {
       {item ? <h2>Delete product</h2> : <h2>Log out</h2>}
     
       <div>
-        {item ? <p>Are you sure you want to delete <ProductText>{product}</ProductText>?</p> : <p>Do you really want to leave?</p>}
-   
+        {item ? <p>Are you sure you want to delete <ProductText>{product}</ProductText>?</p> : <p>Do you really want to leave?</p>}   
         <BtnConteiner>
           <CustomButton width="163px" label={item ? "Delete" : "Logout"}  type='submit' onClick={item ? dellItem : handleButtonClick}/>
           <CustomButtonCansel width="163px" label="Cansel" onClick={closeModals} />        

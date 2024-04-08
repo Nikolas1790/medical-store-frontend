@@ -5,7 +5,6 @@ import color from "common/GlobalColers";
 import ActionBlock from "components/ActionBlock/ActionBlock";
 
 export default function ProductsAll({ products }) { 
-  // const data = products ? products.map(({ name, category, stock, suppliers, price, _id }) => [ name, category, stock, suppliers, price, _id ]) : [];
   const data = products ? products.map(({ name, category, stock, suppliers, price, _id }) => 
   [ name, category, stock, 
     Array.isArray(suppliers) ? suppliers.map(s => s.name).join(", ") : suppliers, 
@@ -15,7 +14,7 @@ export default function ProductsAll({ products }) {
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex];
     let style = {};
-    // console.log(content)
+    
     if ( columnId !== 'actions') {
       style.borderRight = `1px solid ${color.blackPrimarySecondary}`;
     }  

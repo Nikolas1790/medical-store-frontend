@@ -8,12 +8,14 @@ import { getPageName } from "components/Utils/utils";
 import { useState } from "react";
 import PortalModal from "components/PortalModal/PortalModal";
 import ModalClarifyingGuestion from "components/ModalClarifyingQuestion/ModalClarifyingQuestion";
+import { selectUser } from "../../redux/auth/selectorAuth";
 
 export default function Header() {
   const [openModal, setOpenModal] = useState(false);
-  const email = useSelector((state) => state.auth.user.email); 
-  const location = useLocation(); // Получаем текущий путь
+  const {email} = useSelector(selectUser); 
+  const location = useLocation(); 
   const pageName = getPageName(location.pathname);
+
   return (
     <HeaderContainer>
       <HeaderBlock>

@@ -4,13 +4,12 @@ import styled from 'styled-components';
 
 export const SidebarConteiner = styled.div`
   position: absolute;
-  top: 100%; /* Это разместит Sidebar прямо под Header */
+  top: 100%;
   left: 0;
   z-index: 1;
   height: 721px;
   display: flex;
   flex-direction: column;
-  /* align-items:center; */
   gap: 14px;
   width: 80px;
   padding: 40px 18px;
@@ -25,7 +24,6 @@ export const PageNav = styled(NavLink)`
   height: 44px;
   border-radius: 50%;
   background: ${color.white};
-  /* box-shadow: 0px -1px 7px 0px rgba(71, 71, 71, 0.05); */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 
   fill: ${color.grey};
@@ -36,22 +34,16 @@ export const PageNav = styled(NavLink)`
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
     fill: ${color.greenDarker};
     stroke: ${color.greenDarker};
-    /* border: none; */
-    /* color: red; */
     outline: none;
   }
 
   &.active {
     fill: ${color.greenLight};
     stroke: ${color.greenLight};
-    /* color: yellow; */
-      /* box-shadow: none;  */
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 
     &:hover {
       /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);  */
-      /* fill: ${color.greenDarker};
-      stroke: ${color.greenDarker}; */
     }
   }
 `; 

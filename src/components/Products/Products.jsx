@@ -50,12 +50,10 @@ export default function Products() {
             totalPages={totalPages}
             onPageChange={handlePageChange}
           />
-        </div>
-        
+        </div>        
         <PortalModal active={openModal} setActive={setOpenModal}>
           <ProductModals closeModals={() => setOpenModal()} />
         </PortalModal>
-
       </ContentBlock>
     </ContentContainer>
   );

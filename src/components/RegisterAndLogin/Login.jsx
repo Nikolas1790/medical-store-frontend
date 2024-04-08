@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { logIn } from "../../redux/auth/operationsAuth";
-
 import { useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import CustomButton from "components/CustomButton/CustomButton";
@@ -37,8 +36,7 @@ export default function Login() {
       navigate('/dashboard');
     } catch (error) {
       toast.error("Please check the Mail and Password.");
-    }
-    
+    }    
   }
 
   return (
@@ -56,69 +54,60 @@ export default function Login() {
           </TitleContainer>
 
           <FormContainer>
-            
-
             <Formik  initialValues = {initialValues} validationSchema={schema} onSubmit={handleSubmit} >
-            {({ errors, touched }) => (
-              <Form>
-                <FormFields>  
-                  <FormConteiner>           
-                    <FormFieldConteiner>
-                      <FormField 
-                        id="email"
-                        name="email" 
-                        type="email" 
-                        placeholder="Email address" 
-                        error={errors.email && touched.email ? "true" : "false" } 
-                        style={{
-                          borderColor: touched.email && errors.email ? "red" : 
-                                       touched.email && !errors.email ? "green" : "defaultColor",
+              {({ errors, touched }) => (
+                <Form>
+                  <FormFields>  
+                    <FormConteiner>           
+                      <FormFieldConteiner>
+                        <FormField 
+                          id="email"
+                          name="email" 
+                          type="email" 
+                          placeholder="Email address" 
+                          error={errors.email && touched.email ? "true" : "false" } 
+                          style={{
+                            borderColor: touched.email && errors.email ? "red" : 
+                                         touched.email && !errors.email ? "green" : "defaultColor",
+                          }}
+                        />
+                      </FormFieldConteiner>
+                        
+                      <FormFieldConteiner>
+                        <FormField
+                         id="password" 
+                         name="password" 
+                         type={showPassword ? "text" : "password"} 
+                         placeholder="Passwor" error={errors.password && touched.password ? "true" : "false"} 
+                        
+                         style={{
+                          borderColor: touched.password && errors.password ? "red" : 
+                                       touched.password && !errors.password ? "green" : "defaultColor",
                         }}
-                      />
-                    </FormFieldConteiner>
-                      
-                    <FormFieldConteiner>
-                      <FormField
-                       id="password" 
-                       name="password" 
-                       type={showPassword ? "text" : "password"} 
-                       placeholder="Passwor" error={errors.password && touched.password ? "true" : "false"} 
-                       
-                       style={{
-                        borderColor: touched.password && errors.password ? "red" : 
-                                     touched.password && !errors.password ? "green" : "defaultColor",
-                      }}
-                     />
+                       />
 
-                      {showPassword ? (
-                        <EyeSvg width={18} height={18} onMouseDown={(e) => {
-                          e.preventDefault(); 
-                          togglePasswordVisibility();
-                        }}>
-                          <use href={`${sprite}#icon-eye`} />
-                        </EyeSvg>
-                      ) : (
-                        <EyeSvg width={18} height={18} onMouseDown={(e) => {
-                          e.preventDefault(); 
-                          togglePasswordVisibility();
-                        }}>
-                          <use href={`${sprite}#icon-eye-off`} />
-                        </EyeSvg>
-                      )}
-                    </FormFieldConteiner>
-                  </FormConteiner>     
-                  <CustomButton label="Log in" />
-                  {/* <CustomBtn label="Log in" /> */}
-                </FormFields>                    
-              </Form>
-            )}
-          </Formik>
-
-
-
-
-
-
+                        {showPassword ? (
+                          <EyeSvg width={18} height={18} onMouseDown={(e) => {
+                            e.preventDefault(); 
+                            togglePasswordVisibility();
+                          }}>
+                            <use href={`${sprite}#icon-eye`} />
+                          </EyeSvg>
+                        ) : (
+                          <EyeSvg width={18} height={18} onMouseDown={(e) => {
+                            e.preventDefault(); 
+                            togglePasswordVisibility();
+                          }}>
+                            <use href={`${sprite}#icon-eye-off`} />
+                          </EyeSvg>
+                        )}
+                      </FormFieldConteiner>
+                    </FormConteiner>     
+                    <CustomButton label="Log in" />
+                  </FormFields>                    
+                </Form>
+              )}
+            </Formik>
           </FormContainer>
         </ContextContainer>
       </LoginContainer>
