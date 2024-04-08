@@ -204,16 +204,6 @@ export const AllConteinersTable = styled.div`
     outline: none; 
   } */
 }
-
-/* .btQpSa .bp5-table-cell {
-  &:hover,
-    &:focus {
-      outline: none; 
-    } 
-} */
-
-
-
 `
 
 export const AllConteinerBigTable = styled.div`

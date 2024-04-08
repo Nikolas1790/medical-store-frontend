@@ -8,21 +8,34 @@ export const PaginationConteiner = styled.div`
 `
 
 export const PaginationButton = styled.button`
+opacity: ${({ disabled, current }) => (disabled && current ? 0 : 1)};
   background: ${(props) => props.disabled ? color.greenLight : color.greenSupperLight}; /* Более тусклый фон для активной (отключенной) страницы */
   margin-right: 17px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  color: ${color.blackModalColr};
+
   transition: all 0.25s linear;
-  &:hover,
-  &:focus {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7); 
+    // Убираем фокус после нажатия
+    &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);  */
+    box-shadow: ${({ isClicked }) => (isClicked ? 'none' : '0px 4px 8px rgba(0, 0, 0, 0.7)')};
   }
 
   &:disabled {
     cursor: default;
-    background: ${color.greenLight};
+    /* background: ${color.greenLight}; */
+    color: ${color.white};
     scale: 1.25;
     box-shadow: none;
   }
 `;
+
+// export const ThreeDots = styled.span`
+//   margin-right: 17px;
+// `

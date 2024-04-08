@@ -1,6 +1,6 @@
 import Logo from "components/Logo/Logo";
 import * as Yup from 'yup';
-import { Container, ContextContainer, ElementsSvg, EyeSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, Title, TitleContainer, TitleSpan, WhitePill } from "./RegisterAndLogin.styled";
+import { Container, ContextContainer, ElementsSvg, EyeSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, Title, TitleContainer, TitleSpan, WhitePill } from "./LoginAndRegister.styled";
 import whitePill from "../../img/whiteRoundPill/white-round-pill.png"
 import sprite from '../../img/sprite.svg';
 import { useState } from "react";
@@ -41,7 +41,6 @@ export default function Login() {
 
   return (
     <Container>
-
       <LoginContainer>
         <ElementsSvg width={464} height={345}>
           <use href={`${sprite}#icon-elements`} />

@@ -106,10 +106,3 @@ export const EyeSvg = styled.svg`
     right: 18px;
   }
 `;
-
-// export const SecureMessage = styled.p`
-//   font-size: 10px;
-//   color: ${color.green};
-//   padding: 4px 0px 0px 14px;
-// `;
-
