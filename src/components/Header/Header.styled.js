@@ -5,28 +5,94 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+  border-bottom: 1px solid ${color.blackPrimarySecondary};
 `
 
 export const HeaderBlock = styled.div`
   position: relative;
   display: flex;
-  padding: 15px 40px 15px 20px; 
+  justify-content: space-between;
+  max-width: 375px;
+  padding: 17px 24px; 
+  background: yellow;
+  @media (min-width: 768px) {
+    width: 768px;
+    padding: 15px 32px; 
+  }
+  @media (min-width: 1440px) {
+    width: 1440px;
+    padding: 15px 40px 15px 20px; 
+  }
 `
 ///////////////////////////////////////////////////
+export const HeaderNavBlock = styled.div`
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  /* gap: 60px; */
+  /* padding: 17px 24px;  */
+  @media (min-width: 768px) {
+    /* padding: 15px 32px;  */
+  }
+  @media (min-width: 1440px) {
+    /* padding: 15px 40px 15px 20px;  */
+  }
+`
+export const SvgBurgerMenu = styled.svg`
+  stroke: ${color.blackPrimary};
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+  @media (min-width: 768px) {
+    margin-right: 20px;
+    /* width: 32px;
+    height: 32px; */
+  }
+  @media (min-width: 1440px) {
+    display: none;
+  }
+`; 
+
+export const DesctopSvgConteiner = styled.div`
+  display: none;
+  @media (min-width: 1440px) {
+    display: block;
+  }
+`; 
+
+
 export const HeaderMainInf = styled.div`
-  width: 280px;
-  margin: 0 957px 0 60px;
+  max-width: 227px;
+  margin-left: 20px;
+/* display: block; */
+  white-space: nowrap; /* Указывает, что весь текст должен быть в одной строке */
+  overflow: hidden; /* Прячет текст, выходящий за границы элемента */
+  text-overflow: ellipsis; /* Заменяет обрезанный текст на многоточие */
+
+  @media (min-width: 768px) {
+    margin-left: 32px;
+    width: 280px;
+  }
+  @media (min-width: 1440px) {
+    margin-left: 60px;
+  }
 `
 
 export const HeaderTitle = styled.h1`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.18;
   margin-bottom: 4px;
+
+  
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
 `
 export const HeaderTextBlock = styled.div`
   display: flex;
+  
+  /* flex-wrap: wrap; */
 `
 export const HeaderText = styled.p`
   font-size: 12px;
@@ -53,18 +119,3 @@ export const Divider = styled.div`
   }; */
 `;
 
-export const BtnLogout = styled.button`
-  stroke-width: 0;
-  padding: 0;
-  border:none;
-  color: red;
-  fill: ${color.greenLight};
-    stroke: ${color.white};
-    scale: 1.33;
-    transition: all 0.25s linear;
-  &:hover {
-    fill: ${color.greenDarker};
-    stroke: ${color.white};
-    scale: 1.5;
-  }
-`;

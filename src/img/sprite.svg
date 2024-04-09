@@ -71,5 +71,8 @@
     <symbol id="icon-chevron-right" viewBox="0 0 32 32">
       <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="m12 8 8 8-8 8"/>
     </symbol>
+    <symbol id="icon-burger-menu" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M4 8.001h24M4 16.001h24M4 24.001h24"></path>
+    </symbol>
   </defs>
 </svg>

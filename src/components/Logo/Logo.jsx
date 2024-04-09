@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import {  LogoImgResricted, LogoLink } from "./Logo.styled";
+import {  LogoAccaunt, LogoImgResricted, LogoLink } from "./Logo.styled";
 import logoPrivate from "../../img/logo/logo-private.png"
 import logoRestricted from "../../img/logo/logo-restricted.png"
 import { selectToken } from '../../redux/auth/selectorAuth';
@@ -20,7 +20,7 @@ export default function Logo() {
         </>
       ) : (
         <div>
-          <img src={logoPrivate} alt="logo" />
+          <LogoAccaunt src={logoPrivate} alt="logo" />
         </div>
       )}
     </LogoLink > 

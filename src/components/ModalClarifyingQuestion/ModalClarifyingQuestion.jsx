@@ -27,7 +27,6 @@ export default function ModalClarifyingGuestion ({ closeModals, item }) {
       toast.error("Log out failed. Something went wrong.");
     }
   };  
-
   return (
     <ConteinerClarifyingGuestion >
       <ClosingSymbol onClick={closeModals}>

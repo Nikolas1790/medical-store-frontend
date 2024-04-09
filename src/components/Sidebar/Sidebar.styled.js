@@ -3,17 +3,22 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SidebarConteiner = styled.div`
-  position: absolute;
   top: 100%;
   left: 0;
   z-index: 1;
-  height: 721px;
+
   display: flex;
   flex-direction: column;
   gap: 14px;
-  width: 80px;
-  padding: 40px 18px;
-  border-right: 1px solid ${color.blackPrimarySecondary};
+  
+
+  @media (min-width: 1440px) {
+    position: absolute;
+    height: 721px;
+    padding: 40px 18px;
+    width: 80px;
+    border-right: 1px solid ${color.blackPrimarySecondary};
+  }  
 `; 
 
 export const PageNav = styled(NavLink)`
