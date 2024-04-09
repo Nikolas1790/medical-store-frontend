@@ -12,7 +12,7 @@ export const HeaderBlock = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  max-width: 375px;
+  width: 375px;
   padding: 17px 24px; 
   background: yellow;
   @media (min-width: 768px) {
@@ -62,7 +62,7 @@ export const DesctopSvgConteiner = styled.div`
 
 
 export const HeaderMainInf = styled.div`
-  max-width: 227px;
+  width: 227px;
   margin-left: 20px;
 /* display: block; */
   white-space: nowrap; /* Указывает, что весь текст должен быть в одной строке */
