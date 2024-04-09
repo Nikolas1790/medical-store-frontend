@@ -1,4 +1,5 @@
-import { PaginationButton, PaginationConteiner } from "./Pagination.styled";
+import { PaginationButton, PaginationConteiner, PaginationSvg } from "./Pagination.styled";
+import sprite from '../../img/sprite.svg';
 
 export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pages = [...Array(totalPages).keys()].map(num => num + 1);
@@ -22,7 +23,9 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         current='true'
         onClick={goToPreviousPage}
       >
-        &lt;
+        <PaginationSvg>
+          <use href={`${sprite}#icon-chevron-left`} />
+        </PaginationSvg>
       </PaginationButton>
 
       {pages.map(page => (
@@ -37,10 +40,12 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
       <PaginationButton
         disabled={currentPage === totalPages}
-        current='true'
+        current='last'
         onClick={goToNextPage}
       >
-        &gt;
+        <PaginationSvg >
+          <use href={`${sprite}#icon-chevron-right`} />
+        </PaginationSvg>
       </PaginationButton>
     </PaginationConteiner>
   );

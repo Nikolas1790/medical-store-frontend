@@ -8,20 +8,21 @@ export const PaginationConteiner = styled.div`
 `
 
 export const PaginationButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: ${({ disabled, current }) => (disabled && current ? 0 : 1)};
   background: ${({disabled, current }) => disabled ? color.greenLight : (current ? color.white : color.greenSupperLight)}; /* Более тусклый фон для активной (отключенной) страницы */
-  margin-right: 17px;
+  margin-right:  ${({current }) => current === 'last' ? '0' : '17px'};
   width: 18px;
-  height: 18px;
+  height: ${({current }) => current ?  '14px' : '18px'};
   border-radius: 4px;
   color: ${color.blackModalColr};
 
   transition: all 0.25s linear;
-    // Убираем фокус после нажатия
   &:focus {
     outline: none;
   }
-
   &:hover {
     box-shadow: ${({ isClicked }) => (isClicked ? 'none' : '0px 4px 8px rgba(0, 0, 0, 0.7)')};
   }
@@ -33,3 +34,20 @@ export const PaginationButton = styled.button`
     box-shadow: none;
   }
 `;
+
+
+export const PaginationSvg = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: ${color.blackColorSecondary};
+
+  transition: all 0.25s linear;
+  &:focus,
+  &:hover {
+    stroke: ${color.blackModalColr};
+  }
+  /* @media (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  } */
+`

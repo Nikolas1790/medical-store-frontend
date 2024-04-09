@@ -42,7 +42,7 @@ export default function Login() {
   return (
     <Container>
       <LoginContainer>
-        <ElementsSvg width={464} height={345}>
+        <ElementsSvg >
           <use href={`${sprite}#icon-elements`} />
         </ElementsSvg>
         <Logo />
