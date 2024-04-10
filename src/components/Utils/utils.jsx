@@ -26,6 +26,23 @@ export const getPageName = (pathname) => {
   }
 };
 
+export const getPageTitle =(icon) => {
+  switch (icon) {
+    case "#icon-dashboard":
+      return "Dashboard";
+    case "#icon-orders":
+      return "Orders";
+    case "#icon-products":
+      return "Products";
+    case "#icon-suppliers":
+      return "Suppliers";
+    case "#icon-customers":
+      return "Customers";
+    default:
+      return "";
+  }
+}
+
 export const getColor = (type) => {
   switch (type) {
     case 'Expense':
