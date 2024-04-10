@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { StyledSimpleBar, Dropdown, DropdownSvg, DropdownButton, DropdownList, DropdownItem } from "../Modals.styled";
 import sprite from '../../../img/sprite.svg';
 
-export default function  ModalSelector ({
+export default function ModalSelector ({
   isDropdownOpen,
   toggleDropdown,
   selectedCategory,
@@ -41,7 +41,7 @@ useEffect(() => {
 
   return (
     <Dropdown ref={dropdownRef}>
-      <DropdownSvg width={20} height={20} onClick={toggleDropdown}>
+      <DropdownSvg onClick={toggleDropdown}>
         <use href={`${sprite}#icon-chevron-${isDropdownOpen ? 'up' : 'down'}`} />
       </DropdownSvg>
       <DropdownButton 

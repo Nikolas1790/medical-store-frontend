@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, Input, InputConteiner, Title } from "./Modals.styled";
+import { BtnConteiner, ClosingSymbol, Conteiner, Input, InputConteiner, SvgX, Title } from "./Modals.styled";
 import sprite from '../../img/sprite.svg';
 import CustomButton from "components/CustomButton/CustomButton";
 import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
@@ -63,16 +63,15 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
   return (
     <Conteiner >
       <ClosingSymbol onClick={closeModals}>
-        <svg width={26} height={26}>
+        <SvgX >
           <use href={`${sprite}#icon-x`} />
-        </svg>   
+        </SvgX>   
       </ClosingSymbol>
 
       <Title>{ isUpdate  ? 'Edit product' :'Add a new product'}</Title>
       <div>
         <form onSubmit={formik.handleSubmit}>
           <InputConteiner>
-            <ColumnConteiner>
               <Input
                 name="name"
                 type="text"
@@ -82,29 +81,6 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 placeholder="Product Info"
                 haserror={formik.touched.name && formik.errors.name}
               />
-
-              <Input
-                name="stock"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={formik.handleBlur} 
-                value={formik.values.stock}
-                placeholder="Stock"
-                haserror={formik.touched.stock && formik.errors.stock}
-              />
-
-              <Input
-                name="price"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={formik.handleBlur} 
-                value={formik.values.price}
-                placeholder="Price"
-                haserror={formik.touched.price && formik.errors.price}
-              />
-            </ColumnConteiner>
-
-            <ColumnConteiner>   
               <ModalSelector
                 isDropdownOpen={isDropdownOpen}
                 toggleDropdown={toggleDropdown}
@@ -116,7 +92,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 reservName={ existingProduct?.[1] }
                 fieldName="category"
                 setIsDropdownOpen={setIsDropdownOpen}
-              />
+              />              
               <Input
                 name="suppliers"
                 type="text"
@@ -126,7 +102,25 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 placeholder="Suppliers"
                 haserror={formik.touched.suppliers && formik.errors.suppliers}
               />
-            </ColumnConteiner>
+              <Input
+                name="stock"
+                type="text"
+                onChange={handleInputChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.stock}
+                placeholder="Stock"
+                haserror={formik.touched.stock && formik.errors.stock}
+              />
+              <Input
+                name="price"
+                type="text"
+                onChange={handleInputChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.price}
+                placeholder="Price"
+                haserror={formik.touched.price && formik.errors.price}
+              />        
+
           </InputConteiner>
 
           <BtnConteiner>

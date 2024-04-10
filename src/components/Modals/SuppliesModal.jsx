@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import 'react-datepicker/dist/react-datepicker.css';
-import { BtnConteiner, ClosingSymbol, ColumnConteiner, Conteiner, DatePickerContainer, DatePickerSvg, Input, InputConteiner, StyledDatePicker, Title } from "./Modals.styled";
+import { BtnConteiner, ClosingSymbol, Conteiner, DatePickerContainer, DatePickerSvg, Input, InputConteiner, StyledDatePicker, Title } from "./Modals.styled";
 import sprite from '../../img/sprite.svg';
 import CustomButton from "components/CustomButton/CustomButton";
 import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
@@ -69,7 +69,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     formik.setFieldTouched(name, true);
   };
   return (
-    <Conteiner >
+    <Conteiner height='542px' >
       <ClosingSymbol onClick={closeModals}>
         <svg width={26} height={26}>
           <use href={`${sprite}#icon-x`} />
@@ -80,7 +80,6 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
       <div>
         <form onSubmit={formik.handleSubmit}>
           <InputConteiner>
-            <ColumnConteiner>
               <Input
                 name="name"
                 type="text"
@@ -90,29 +89,6 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 placeholder="Suppliers Info"
                 haserror={formik.touched.name && formik.errors.name}
               />
-
-              <Input
-                name="suppliers"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={formik.handleBlur} 
-                value={formik.values.suppliers}
-                placeholder="Company"
-                haserror={formik.touched.suppliers && formik.errors.suppliers}
-              />
-
-              <Input
-                name="amount"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={formik.handleBlur} 
-                value={formik.values.amount}
-                placeholder="Ammount"
-                haserror={formik.touched.amount && formik.errors.amount}
-              />
-            </ColumnConteiner>
-
-            <ColumnConteiner>   
               <Input
                 name="address"
                 type="text"
@@ -122,7 +98,15 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 placeholder="Address"
                 haserror={formik.touched.address && formik.errors.address}
               />
-
+              <Input
+                name="suppliers"
+                type="text"
+                onChange={handleInputChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.suppliers}
+                placeholder="Company"
+                haserror={formik.touched.suppliers && formik.errors.suppliers}
+              />
               <DatePickerContainer>
                 <StyledDatePicker
                   ref={datePickerRef}
@@ -139,7 +123,15 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                   <use href={`${sprite}#icon-calendar`} />
                 </DatePickerSvg>
               </DatePickerContainer>
-
+              <Input
+                name="amount"
+                type="text"
+                onChange={handleInputChange}
+                onBlur={formik.handleBlur} 
+                value={formik.values.amount}
+                placeholder="Ammount"
+                haserror={formik.touched.amount && formik.errors.amount}
+              /> 
               <ModalSelector
                 isDropdownOpen={isDropdownOpen}
                 setIsDropdownOpen={setIsDropdownOpen}
@@ -152,8 +144,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 reservName={ existingSuppliers?.[5] }
                 def="supplies"
                 fieldName="status"
-              />
-            </ColumnConteiner>
+              />            
           </InputConteiner>
 
           <BtnConteiner>

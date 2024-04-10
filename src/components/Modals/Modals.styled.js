@@ -30,18 +30,19 @@ export const Conteiner = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  width: 536px;
-  min-height: 392px;
+  gap: 20px;
+  width: 335px;
+  height:  ${({ height }) => height || '484px'};
   background: ${color.white};
   border-radius: 12px;
-  padding: 40px ;
+  padding: 40px 20px;
 
-  /* @media (min-width: 768px) {
-    width: 500px;
-    height: 483px;
-    padding: 50px ;
-  } */
+  @media (min-width: 768px) {
+    width: 536px;
+    height: 392px;
+    padding: 40px ;
+    gap: 40px;
+  }
 `;
 
 export const ClosingSymbol = styled.button`
@@ -60,25 +61,38 @@ export const ClosingSymbol = styled.button`
     outline: none;
   }
 `;
+
+export const SvgX = styled.svg`
+  width: 24px;
+  height: 24px;
+
+  @media (min-width: 768px) {
+    width: 26px;
+    height: 26px;
+  }
+`;
 ////////////////////////////////////
 export const Title = styled.h2`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 export const InputConteiner = styled.div`
   display: flex;
-  gap: 8px;
-`;
-
-export const ColumnConteiner = styled.div`
-    display: flex;
   flex-direction: column;
   gap: 14px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px 8px;
+  }
 `;
 
 export const Input = styled.input`
-  width: 224px;
+  width: 295px;
   height: 44px;
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
@@ -88,6 +102,10 @@ export const Input = styled.input`
   outline: none;
   color: rgba(29, 30, 33, 0.8);
   border-color: ${({ haserror }) => haserror ?  color.red : color.blackPrimarySecondary};
+
+  @media (min-width: 768px) {
+    width: 224px;
+  }
 `;
 
 export const DatePickerContainer = styled.div`
@@ -135,8 +153,9 @@ export const DatePickerContainer = styled.div`
 `;
 
 export const StyledDatePicker = styled(DatePicker)`
-  width: 224px;
+  width: 295px;
   height: 44px;
+  font-size: 12px;
   border: 1px solid ${color.blackPrimarySecondary};
   border-radius: 60px;
   background: ${color.white};
@@ -144,6 +163,9 @@ export const StyledDatePicker = styled(DatePicker)`
   outline: none;
   color: ${color.blackModalColr};
   border-color: ${({ haserror }) => haserror ? color.red : color.blackPrimarySecondary};
+  @media (min-width: 768px) {
+    width: 224px;
+  }
 `;
 
 export const DatePickerSvg = styled.svg`
@@ -162,6 +184,8 @@ export const DropdownSvg = styled.svg`
   position: absolute;
   top: 14px;
   right: 14px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
   stroke: ${color.blackPrimary};
   fill: none;
@@ -169,7 +193,6 @@ export const DropdownSvg = styled.svg`
 
 export const DropdownButton = styled.button`
   display: flex;
-
   font-weight: 400;
   font-size: 12px;
   height: 44px;
@@ -180,9 +203,13 @@ export const DropdownButton = styled.button`
   background-color: ${color.white};
   padding: 13px 18px;
 
-  width: 224px;
+  width: 295px;
   color: ${({ defaultname }) => defaultname ? color.blackColorSecondary : color.blackModalColr};
   border-color: ${({ haserror }) => haserror ? color.red : color.blackPrimarySecondary};
+
+  @media (min-width: 768px) {
+    width: 224px;
+  }
 `;
 
 export const DropdownList = styled.ul`

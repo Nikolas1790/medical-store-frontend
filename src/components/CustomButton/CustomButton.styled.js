@@ -9,15 +9,13 @@ export const CustomBtn = styled.button`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
-
   height: 44px;
-  width: ${({ width }) => width || '100%'};
+  width: ${({ width }) => width ==="133px" ? '146px' : '100%'};
   border-radius: 60px;
   color: ${color.white};
   background: ${color.greenLight};
 
   transition: all 0.25s linear;
-
   &:focus {
     outline: none;
   }
@@ -28,7 +26,6 @@ export const CustomBtn = styled.button`
   }
   
   @media (min-width: 768px) {
-    /* font-size: 16px; */
-    /* padding: ${(props) => props.prop === 'true' ? '14px 28px' : '12px 28px'}; */
+    width: ${({ width }) => width || '100%'};
   }
 `

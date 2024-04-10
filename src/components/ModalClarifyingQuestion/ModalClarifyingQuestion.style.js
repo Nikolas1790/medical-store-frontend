@@ -6,17 +6,15 @@ export const ConteinerClarifyingGuestion = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 536px;
+  width: 335px;
   min-height: 240px;
   background: ${color.white};
   border-radius: 12px;
   padding: 40px ;
 
-  /* @media (min-width: 768px) {
-    width: 500px;
-    height: 483px;
-    padding: 50px ;
-  } */
+  @media (min-width: 768px) {
+    width: 536px;
+  }
 `;
 
 export const ClosingSymbol = styled.button`

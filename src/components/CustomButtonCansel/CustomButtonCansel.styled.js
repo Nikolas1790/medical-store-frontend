@@ -11,7 +11,7 @@ export const CustomBtn = styled.button`
   line-height: 1.29;
 
   height: 44px;
-  width: ${({ width }) => width || '100%'};
+  width: ${({ width }) => width ==="133px" ? '140px' : '100%'};
   border-radius: 60px;
   color: ${color.blackColorSecondary};
   background: ${color.blackPrimarySecondary};
@@ -28,7 +28,6 @@ export const CustomBtn = styled.button`
   }
   
   @media (min-width: 768px) {
-    /* font-size: 16px; */
-    /* padding: ${(props) => props.prop === 'true' ? '14px 28px' : '12px 28px'}; */
+    width: ${({ width }) => width || '100%'};
   }
 `
