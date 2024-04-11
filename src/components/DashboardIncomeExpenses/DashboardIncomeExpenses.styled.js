@@ -51,12 +51,11 @@ export const IncomeExpensesTableConteiner = styled.div`
     align-items: center;
     font-size: 14px;
     background: ${color.white};
-    /* padding-left: 20px; */
     box-shadow: none; 
     padding: 0;
-/* height: 100%; */
-    min-height: 51px;
-/* white-space: normal; */
+    /* min-height: 51px; */
+
+/* height:51px !important; */
     @media (min-width: 768px) {  
       font-size: 16px;
     }

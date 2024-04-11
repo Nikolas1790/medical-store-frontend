@@ -9,7 +9,7 @@ export const  TableConteiner = styled.div`
 
 export const  TableBlockItem = styled.div`
   min-width: 335px;
-  height: 460px;
+  height: ${({height }) => height || '460px'};
   border: 1px solid ${color.blackPrimarySecondary};
   border-radius: 8px;
   background: rgb(255, 255, 255);

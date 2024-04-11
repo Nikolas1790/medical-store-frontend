@@ -10,39 +10,37 @@ import { CellDescription, CellSum, CellType, IncomeExpensesTableConteiner } from
 export default function DashboardIncomeExpenses() {  
   const dispatch = useDispatch();
   const { incomeExpenses } = useSelector(selectDataInf);  
-
   const [columnWidths, setColumnWidths] = useState([120, 393, 77 ]);
   const [columnHeigh, setColumnHeigh] = useState(65);
 
-    // Обновление ширин столбцов в зависимости от ширины экрана
-    useEffect(() => {
-      const handleResize = () => {
-        if (window.innerWidth < 768) {
-          setColumnHeigh(51);
-          setColumnWidths([108, 118, 81]); // Для маленьких экранов
-        } else if (window.innerWidth > 768 && window.innerWidth < 1440) {
-          setColumnHeigh(65);
-          setColumnWidths([120, 467, 77]); // Для средних экранов
-        } else {
-          setColumnWidths([120, 393, 77 ]); // Для больших экранов
-        }
-      };
-  
-      handleResize();
-  
-      window.addEventListener('resize', handleResize);
-  
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
   const data = incomeExpenses ? incomeExpenses.map(({ name, amount, type }) => [type, name, amount]) : [];
+  useEffect(() => {
+
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setColumnHeigh(82);
+        setColumnWidths([108, 118, 81]); 
+      } else if (window.innerWidth > 768 && window.innerWidth < 1440) {
+        setColumnHeigh(65);
+        setColumnWidths([120, 467, 77]); 
+      } else {
+        setColumnWidths([120, 393, 77 ]); 
+      }
+    };
+
+    handleResize();  
+    window.addEventListener('resize', handleResize);  
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // const data = incomeExpenses ? incomeExpenses.map(({ name, amount, type }) => [type, name, amount]) : [];
   
   useEffect(() => {
     dispatch(dashboardInf());
   }, [dispatch]); 
 
   const customCellRenderer = (rowIndex, columnId, data) => {
-    const cellType = data[rowIndex][0]; // Предположим, что тип операции находится в первом элементе массива для каждой строки.
+    const cellType = data[rowIndex][0];
     const cellValue = data[rowIndex]
     let style = {};
     if (columnId === 'sum') {
@@ -57,14 +55,13 @@ export default function DashboardIncomeExpenses() {
       </Cell>
     );
   };  
-  // console.log(data)
   return (
-    <TableBlockItem>
+    <TableBlockItem height="582px">
       <TableHeader>Income/Expenses</TableHeader>
       <IncomeExpensesTableConteiner>
         <Table2 
           numRows={data.length} 
-          // rowHeights={[ 51, 82, 66, 51, 92, 55   ]}
+          // rowHeights={[ 51, 82, 66, 51, 92, 55 ]}
           defaultRowHeight={columnHeigh} 
           columnWidths={columnWidths} 
           enableColumnResizing={false} 

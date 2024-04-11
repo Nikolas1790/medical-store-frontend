@@ -14,7 +14,7 @@ export const HeaderBlock = styled.div`
   justify-content: space-between;
   width: 375px;
   padding: 17px 24px; 
-  background: yellow;
+  /* background: yellow; */
   @media (min-width: 768px) {
     width: 768px;
     padding: 15px 32px; 
