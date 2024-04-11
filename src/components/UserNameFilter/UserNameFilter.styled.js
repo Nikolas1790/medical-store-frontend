@@ -3,20 +3,29 @@ import styled from 'styled-components'
 
 export const FilterConteiner = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 `
 export const FilterForm = styled.form`
   display: flex;
   align-items: center;
-  gap: 14px;
-  width: 354px;
+  gap: 8px;
+  width: 335px;
+
+  @media (min-width: 768px) {  
+    gap: 14px;
+    width: 354px;
+  }
+  @media (min-width: 1440px) {  
+    
+  }
 `;
 
 export const InputFilter = styled.input`
   display: flex;
   align-items: center;
 
-  min-width: 224px;
+  min-width: 215px;
   height: 44px;
   border: 1px solid ${color.blackPrimarySecondary};
   border-radius: 60px;
@@ -31,5 +40,9 @@ export const InputFilter = styled.input`
     &:hover,
   &:focus {
     outline: none;
+  }
+
+  @media (min-width: 768px) {  
+    min-width: 224px;
   }
 `;

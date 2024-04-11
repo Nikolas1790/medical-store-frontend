@@ -1,10 +1,43 @@
-import { AllConteinerBigTable, AllConteinersTable, TableHeader } from "common/GiobalStyles";
+import { AllConteinerBigTable, AllConteinersTable, AvatarImg, NameConteiner, TableHeader } from "common/GiobalStyles";
 import { StatucColor } from "./CustomersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
+import { useEffect, useState } from "react";
 
 export default function CustomersAll({customers, currentPage }) { 
   const data = customers ? customers.map(({ image, name, email, address, phone, register_date, photo }) => [ image, name, email, address, phone, register_date, photo ]) : [];
+
+
+  const [columnWidths, setColumnWidths] = useState([260, 299, 213, 263, 205 ]);
+  const [columnHeigh, setColumnHeigh] = useState(76);
+
+
+  // Обновление ширин столбцов в зависимости от ширины экрана
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setColumnHeigh(74);
+        setColumnWidths([94, 161, 120, 148, 119 ]); // Для маленьких экранов
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
+        setColumnWidths([195, 234, 148, 198, 145 ]); // Для средних экранов
+      } else {
+        setColumnWidths([260, 299, 213, 263, 205 ]); // Для больших экранов
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+
+
+
+
+
 
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex];
@@ -44,23 +77,23 @@ export default function CustomersAll({customers, currentPage }) {
 
     return (
       <Cell style={style}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img src={rowData[0]|| rowData[6]} alt={rowData[1]} style={{ width: '36px', height: '36px', marginRight: '10px', borderRadius: '50%' }} />
+        <NameConteiner>
+          <AvatarImg src={rowData[0]|| rowData[6]} />
           <p>{rowData[1]}</p>
-        </div>
+        </NameConteiner>
       </Cell>
     );
   };
   return (   
-    <AllConteinerBigTable>
+    <AllConteinerBigTable width='670px'>
       <TableHeader>All customers</TableHeader>
       
       <AllConteinersTable >
         <Table2  
           key={`table-${currentPage}-${data[0]}`}
           numRows={data.length} 
-          defaultRowHeight={76} 
-          columnWidths={[260, 299, 213, 263, 205 ]} 
+          defaultRowHeight={columnHeigh} 
+          columnWidths={columnWidths} 
           enableColumnResizing={false} 
           enableRowResizing={false} 
           enableRowHeader={false}

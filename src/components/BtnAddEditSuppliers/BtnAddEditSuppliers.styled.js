@@ -9,9 +9,9 @@ export const AddEditSuppliers = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${({ width }) => width || '196px'}; 
-  height: ${({ height }) => height || '44px'};
-  font-size: 14px;
+  width: ${({ width }) => width ? '69px' : '177px'}; 
+  height: ${({ height }) => height ? '26px' : '44px'};
+  font-size: 12px;
   border: 1px solid ${color.greenAmazing};
   border-radius: 60px;
 
@@ -33,5 +33,11 @@ export const AddEditSuppliers = styled.button`
     ${EditSuppliers} {   
       color: ${color.white}; /* Так текст станет белым при наведении на кнопку */
     }
+  }
+
+  @media (min-width: 768px) {  
+    width: ${({ width }) => width || '196px'}; 
+    height: ${({ height }) => height || '44px'};
+    font-size: 14px;
   }
 `

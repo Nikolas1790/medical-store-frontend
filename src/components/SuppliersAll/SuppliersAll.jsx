@@ -3,9 +3,37 @@ import { StatucColor } from "./SuppliersAll.styled";
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import color from "common/GlobalColers";
 import BtnAddEditSuppliers from "components/BtnAddEditSuppliers/BtnAddEditSuppliers";
+import { useEffect, useState } from "react";
 
 export default function SuppliersAll({ suppliers }) { 
   const data = suppliers ? suppliers.map(({ name, address, suppliers, date, amount, status, _id }) => [ name, address, suppliers, date, amount, status, _id ]) : [];
+
+
+  const [columnWidths, setColumnWidths] = useState([191, 188, 166, 215, 162, 189, 129 ]);
+  const [columnHeigh, setColumnHeigh] = useState(76);
+
+
+  // Обновление ширин столбцов в зависимости от ширины экрана
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setColumnHeigh(74);
+        setColumnWidths([94, 94, 83, 115, 88, 90, 86 ]); // Для маленьких экранов
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
+        setColumnWidths([157, 128, 108, 157, 121, 129, 102 ]); // Для средних экранов
+      } else {
+        setColumnWidths([191, 188, 166, 215, 162, 189, 129 ]); // Для больших экранов
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
 
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex] ;
@@ -41,15 +69,15 @@ export default function SuppliersAll({ suppliers }) {
   };
 
   return (   
-    <AllConteinerBigTable>
+    <AllConteinerBigTable width='678px'>
       <TableHeader>All suppliers</TableHeader>
       
       <AllConteinersTable >
         <Table2  
           key={`table-${data}`}
           numRows={data.length} 
-          defaultRowHeight={76} 
-          columnWidths={[191, 188, 166, 215, 162, 189, 129 ]} 
+          defaultRowHeight={columnHeigh} 
+          columnWidths={columnWidths} 
           enableColumnResizing={false} 
           enableRowResizing={false} 
           enableRowHeader={false}

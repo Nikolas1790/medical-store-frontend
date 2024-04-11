@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../img/sprite.svg';
-import { StatisticConteiner, StatisticItem, StatisticSectionTitle, StatisticTitleConteiner, StatisticValue } from './DashboardStatistic.styled';
+import { StatisticConteiner, StatisticItem, StatisticSectionTitle, StatisticSvg, StatisticTitleConteiner, StatisticValue } from './DashboardStatistic.styled';
 import { selectDataInf } from '../../redux/ePharmacy/selector';
 import { useEffect } from 'react';
 import { dashboardInf } from '../../redux/ePharmacy/operations';
@@ -14,6 +14,7 @@ export default function DashboardStatistic() {
     { name: "suppliers", icon: "#icon-users", value: `${data.suppliersCount}` },
     { name: "customers", icon: "#icon-users", value: `${data.customersCount}` },
   ];
+
   useEffect(() => {
     dispatch(dashboardInf());
   }, [dispatch]);
@@ -23,9 +24,9 @@ export default function DashboardStatistic() {
       {statistic.map(link => (        
         <StatisticItem key={link.name} >
           <StatisticTitleConteiner>
-            <svg width={20} height={20}>
+            <StatisticSvg >
               <use href={`${sprite}${link.icon}`} />
-            </svg>
+            </StatisticSvg>
             <StatisticSectionTitle>All {link.name}</StatisticSectionTitle>
           </StatisticTitleConteiner>
           <StatisticValue>{data.customersCount ? link.value : 0}</StatisticValue>

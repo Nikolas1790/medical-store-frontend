@@ -110,11 +110,26 @@ export const ContentBlock = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap:${({ bottom }) => bottom || '20px'};
-  padding: 75px 40px 20px 120px;
-  padding-top:  ${({ top }) => top || '75px'};
-  padding-bottom:  ${({ bottom }) => bottom || '20px'};
-  width: 1440px;
+
+  gap: 20px;
+  padding: 20px 20px 80px 20px;
+  padding-top:  ${({ top }) => top || '40px'};
+  padding-bottom:  20px;
+  width: 375px;
+
+  @media (min-width: 768px) {  
+    gap:${({ bottom }) => bottom || '20px'};
+    padding: 20px 32px 40px 32px;
+    padding-top:  ${({ top }) => top || '50px'};
+    padding-bottom:  ${({ bottom }) => bottom || '20px'};
+    width: 768px;
+  }
+
+  @media (min-width: 1440px) {  
+    padding: 75px 40px 20px 120px;
+    padding-top:  ${({ top }) => top || '75px'};
+    width: 1440px;
+  }
 `
 //////////////////////////////////////////////////////////////
 
@@ -122,13 +137,25 @@ export const FilterAddConteiner = styled.div`
   display: flex;
   justify-content: space-between; 
   align-items: center; 
+  flex-wrap: wrap;
+  gap: 18px;
+  @media (min-width: 768px) {  
+    
+  }
 `
 
 export const TableHeader = styled.h2`
-  height: 64px;
+  height: 48px;
   border-radius: 8px 8px 0px 0px;
   background: ${color.greenSupperLight};
-  padding: 20px;
+  padding: 14px;
+  font-size: 16px;
+
+  @media (min-width: 768px) {  
+    height: 64px;
+    font-size: 18px;
+    padding: 20px;
+  }
 `
 
 export const AllConteinersTable = styled.div`
@@ -149,15 +176,23 @@ export const AllConteinersTable = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    height: 58px;
+    height: 42px;
     background-color: ${color.white}; 
-    padding-left: 10px;
+    
 
-    font-size: 14px;  
+    
+    /* padding-left: 10px; */
+    font-size: 12px;  
     font-weight: 500;
     color: ${color.blackColorSecondary};
     box-shadow: none; //
     border-bottom: 1px solid ${color.blackPrimarySecondary};
+
+    @media (min-width: 768px) {  
+      padding-left: 10px;
+      /* font-size: 14px; */
+      height: 58px;
+    }
   }
 
   .bp5-table-header:not(:last-child)::after {
@@ -169,28 +204,79 @@ export const AllConteinersTable = styled.div`
     border-right: 1px solid ${color.blackPrimarySecondary}; 
   }
   
+  .bp5-table-column-name {
+    font-size: 12px;
+
+    @media (min-width: 768px) {  
+      font-size: 14px;
+    }
+  }
   .bp5-table-column-header-cell:first-child .bp5-table-column-name {
-    margin-left: -20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    font-size: 12px;
+
+    @media (min-width: 768px) {  
+      margin-left: -20px;
+      font-size: 14px;
+    }
   }
 
  .bp5-table-cell { 
     display: flex;
     align-items: center;
     background: ${color.white};
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 0px;
     box-shadow: none; //
     border-bottom: 1px solid ${color.blackPrimarySecondary};  
+
+    @media (min-width: 768px) {  
+      font-size: 16px;
+      padding-left: 20px;
+      /* height: 58px; */
+    }
   }
 `
 
 export const AllConteinerBigTable = styled.div`
-  width: 1280px;
-  height: 502px;
+  width: ${({ width }) => width || '678px'};
+  height: 460px;
   background: ${color.white};
   border: 1px solid ${color.blackPrimarySecondary};
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {  
+    width: 960px;
+    height: 502px;
+  }
+  @media (min-width: 1440px) {  
+    width: 1280px;
+  }
 `
+//////////  999999999999999999999  ////////////////
+export const NameConteiner = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+`
+
+export const AvatarImg = styled.img`
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 50%;
+  margin-right: 100%;
+  
+  @media (min-width: 768px) {  
+    width: 36px;
+    height: 36px;
+  }
+`
+
+////////////////  999999999999999  //////////////////////

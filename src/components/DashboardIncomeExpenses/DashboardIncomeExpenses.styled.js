@@ -19,16 +19,21 @@ export const IncomeExpensesTableConteiner = styled.div`
   .bp5-table-header {
     display: flex;
     align-items: center;
-    height: 58px;
+    height: 46px;
     background-color: ${color.white}; 
 
-    font-size: 14px;  
+    /* font-size: 14px;   */
     font-weight: 500;
     color: ${color.blackColorSecondary};
     box-shadow: none; 
+
+    @media (min-width: 768px) {  
+      height: 58px;
+    }
   }
   .bp5-table-column-name{
     margin-left: -10px;
+    /* font-size: 10px;; */
   }
 
   .bp5-table-header::after {
@@ -44,11 +49,17 @@ export const IncomeExpensesTableConteiner = styled.div`
     position: relative; 
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     background: ${color.white};
-    padding-left: 20px;
+    /* padding-left: 20px; */
     box-shadow: none; 
     padding: 0;
+/* height: 100%; */
+    min-height: 51px;
+/* white-space: normal; */
+    @media (min-width: 768px) {  
+      font-size: 16px;
+    }
 
   }
   .bp5-table-cell::after {
@@ -68,11 +79,20 @@ export const CellType = styled.p`
   color: ${({ type }) => getColor(type)};
   background: ${({ type }) => getBackgroundColor(type)};
   width: 80px;
-  height: 25px;
-  font-size: 14px;
+  height: 23px;
+  font-size: 12px;
   border-radius: 40px;
 
+  @media (min-width: 768px) {  
+    height: 25px;
+    font-size: 14px;
+  }
 `
+
+export const CellDescription = styled.p`
+    white-space: normal;
+    padding: 14px 0;
+`;
 
 export const CellSum = styled.p`
   position: relative;

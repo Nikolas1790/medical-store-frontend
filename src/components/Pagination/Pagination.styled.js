@@ -3,8 +3,11 @@ import styled from 'styled-components'
 
 export const PaginationConteiner = styled.div`
   display: flex;
-  justify-content: center; 
+  justify-content: start; 
   align-items: center; 
+  @media (min-width: 768px) {  
+    justify-content: center; 
+  }
 `
 
 export const PaginationButton = styled.button`

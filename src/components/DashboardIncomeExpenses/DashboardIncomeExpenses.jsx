@@ -1,15 +1,40 @@
 import { selectDataInf } from '../../redux/ePharmacy/selector';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { dashboardInf } from '../../redux/ePharmacy/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { Cell, Column, Table2 } from "@blueprintjs/table";
 import { TableHeader } from "common/GiobalStyles";
 import { TableBlockItem } from "components/Dashboard/Dashboard.styled";
-import { CellSum, CellType, IncomeExpensesTableConteiner } from "./DashboardIncomeExpenses.styled";
+import { CellDescription, CellSum, CellType, IncomeExpensesTableConteiner } from "./DashboardIncomeExpenses.styled";
 
 export default function DashboardIncomeExpenses() {  
   const dispatch = useDispatch();
   const { incomeExpenses } = useSelector(selectDataInf);  
+
+  const [columnWidths, setColumnWidths] = useState([120, 393, 77 ]);
+  const [columnHeigh, setColumnHeigh] = useState(65);
+
+    // Обновление ширин столбцов в зависимости от ширины экрана
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth < 768) {
+          setColumnHeigh(51);
+          setColumnWidths([108, 118, 81]); // Для маленьких экранов
+        } else if (window.innerWidth > 768 && window.innerWidth < 1440) {
+          setColumnHeigh(65);
+          setColumnWidths([120, 467, 77]); // Для средних экранов
+        } else {
+          setColumnWidths([120, 393, 77 ]); // Для больших экранов
+        }
+      };
+  
+      handleResize();
+  
+      window.addEventListener('resize', handleResize);
+  
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
   const data = incomeExpenses ? incomeExpenses.map(({ name, amount, type }) => [type, name, amount]) : [];
   
   useEffect(() => {
@@ -27,20 +52,21 @@ export default function DashboardIncomeExpenses() {
     return (
       <Cell style={style}>
         {columnId === 'sum' ? ( <CellSum type={cellType}>{cellValue[2]}</CellSum> ) : (
-          columnId === 'type'? <CellType type={cellType}>{cellValue[0]}</CellType> : cellValue[1]
+          columnId === 'type'? <CellType type={cellType}>{cellValue[0]}</CellType> : <CellDescription>{cellValue[1]}</CellDescription> 
         )}
       </Cell>
     );
   };  
-  
+  // console.log(data)
   return (
     <TableBlockItem>
       <TableHeader>Income/Expenses</TableHeader>
       <IncomeExpensesTableConteiner>
         <Table2 
           numRows={data.length} 
-          defaultRowHeight={65} 
-          columnWidths={[120, 393, 77 ]} 
+          // rowHeights={[ 51, 82, 66, 51, 92, 55   ]}
+          defaultRowHeight={columnHeigh} 
+          columnWidths={columnWidths} 
           enableColumnResizing={false} 
           enableRowResizing={false} 
           enableRowHeader={false}

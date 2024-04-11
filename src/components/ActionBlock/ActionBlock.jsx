@@ -1,5 +1,5 @@
 import sprite from '../../img/sprite.svg';
-import { ActionBtnProduct, ActionBtnProductDell, ActionConteiner } from './ActionBlock.styled';
+import { ActionBtnProduct, ActionBtnProductDell, ActionConteiner, EditDellBtn } from './ActionBlock.styled';
 import PortalModal from 'components/PortalModal/PortalModal';
 import { useState } from 'react';
 import ProductModals from 'components/Modals/ProductModal';
@@ -12,14 +12,14 @@ export default function ActionBlock({ item }) {
   return (        
     <ActionConteiner>
       <ActionBtnProduct >
-        <svg width={32} height={32} onClick={() => setOpenModal(true)}>
+        <EditDellBtn width={32} height={32} onClick={() => setOpenModal(true)}>
           <use href={`${sprite}#icon-btn-edit`} />
-        </svg>
+        </EditDellBtn>
       </ActionBtnProduct>
       <ActionBtnProductDell onClick={() => setOpenDellModal(true)} >
-        <svg width={32} height={32}>
+        <EditDellBtn width={32} height={32}>
           <use href={`${sprite}#icon-btn-dell`} />
-        </svg>
+        </EditDellBtn>
       </ActionBtnProductDell>
 
       <PortalModal active={openDellModal} setActive={setOpenDellModal}>

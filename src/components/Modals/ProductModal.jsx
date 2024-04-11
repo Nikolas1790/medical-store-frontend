@@ -120,7 +120,6 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 placeholder="Price"
                 haserror={formik.touched.price && formik.errors.price}
               />        
-
           </InputConteiner>
 
           <BtnConteiner>
