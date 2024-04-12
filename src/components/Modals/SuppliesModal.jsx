@@ -145,7 +145,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
           </InputConteiner>
 
           <BtnConteiner>
-            <CustomButton width="133px" label="Add"  type='submit'/>
+            <CustomButton width="133px" label={isUpdate ? 'Save' : 'Add'}  type='submit'/>
             <CustomButtonCansel width="133px" label="Cansel" onClick={closeModals} />        
           </BtnConteiner>
         </form>

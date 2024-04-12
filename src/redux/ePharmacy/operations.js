@@ -50,8 +50,10 @@ export const updateProduct = createAsyncThunk("/products/update",
   async ({ id, productData }, thunkAPI) => {
     try {
       const response = await axios.put(`/products/${id}`, productData );
+      toast.success(`${productData.name} updated successfully)`)
       return response.data;
     } catch (e) {      
+      toast.error("Oops there was an error")
       return thunkAPI.rejectWithValue(e.message);
     }
 });
@@ -91,8 +93,10 @@ export const updateSupplier = createAsyncThunk("/suppliers/update",
   async ({ id, supplierData }, thunkAPI) => {
     try {
       const response = await axios.put(`/suppliers/${id}`, supplierData );
+      toast.success(`${supplierData.name} updated successfully)`)
       return response.data;
-    } catch (e) {      
+    } catch (e) {   
+      toast.error("Oops there was an error")   
       return thunkAPI.rejectWithValue(e.message);
     }
 });

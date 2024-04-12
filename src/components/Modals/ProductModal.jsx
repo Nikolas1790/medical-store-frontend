@@ -76,7 +76,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
                 onBlur={formik.handleBlur} 
                 value={formik.values.name}
                 placeholder="Product Info"
-                haserror={formik.touched.name && formik.errors.name}
+                haserror={formik.touched.name && formik.errors.name}                
               />
               <ModalSelector
                 isDropdownOpen={isDropdownOpen}
@@ -120,7 +120,7 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
           </InputConteiner>
 
           <BtnConteiner>
-            <CustomButton width="133px" label="Add"  type='submit'/>
+            <CustomButton width="133px" label={isUpdate ? 'Save' : 'Add'}  type='submit'/>
             <CustomButtonCansel width="133px" label="Cansel" onClick={closeModals} />        
           </BtnConteiner>
         </form>
