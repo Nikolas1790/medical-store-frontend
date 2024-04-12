@@ -36,6 +36,7 @@ Welcome to the E-Pharmacy Management System, a comprehensive digital solution de
 
 8. **Adaptive Design** 
 - **Non-Mobile Responsive:**  The layout is adaptive and responsive, designed for optimal viewing on devices except mobile phones.
+
 ![suppliers-page](./src/img/readme/mob-menu.jpg)
 ![suppliers-modal-windiw](./src/img/readme/planshet-menu.jpg)
 
