@@ -10,8 +10,11 @@ export const FilterForm = styled.form`
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 335px;
+  width: 300px;
 
+  @media (min-width: 375px) {  
+    width: 335px;
+  }
   @media (min-width: 768px) {  
     gap: 14px;
     width: 354px;

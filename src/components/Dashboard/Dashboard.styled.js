@@ -8,13 +8,17 @@ export const  TableConteiner = styled.div`
 `
 
 export const  TableBlockItem = styled.div`
-  min-width: 335px;
+/* width: 100%; */
+  width: 300px;
   height: ${({height }) => height || '460px'};
   border: 1px solid ${color.blackPrimarySecondary};
   border-radius: 8px;
   background: rgb(255, 255, 255);
   overflow: hidden;
-
+  
+  @media (min-width: 375px) {  
+     min-width: 335px;
+  }
   @media (min-width: 768px) {  
     width: 704px;
     height: 512px;

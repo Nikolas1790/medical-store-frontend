@@ -115,8 +115,12 @@ export const ContentBlock = styled.div`
   padding: 20px 20px 80px 20px;
   padding-top:  ${({ top }) => top || '40px'};
   padding-bottom:  20px;
-  width: 375px;
-
+   /* width: 100%;
+  max-width: 375px;  */
+  width: 340px;
+  @media (min-width: 375px) {  
+    width: 375px;
+  }
   @media (min-width: 768px) {  
     gap:${({ bottom }) => bottom || '20px'};
     padding: 20px 32px 40px 32px;
@@ -138,7 +142,15 @@ export const FilterAddConteiner = styled.div`
   justify-content: space-between; 
   align-items: center; 
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 18px; /////////////////////////
+
+  @media (min-width: 375px) {  
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap;
+    gap: 18px;
+  }
 `
 
 export const TableHeader = styled.h2`

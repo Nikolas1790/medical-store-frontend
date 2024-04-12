@@ -12,8 +12,9 @@ export const HeaderBlock = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 375px;
+  /* max-width: 375px; */ //////////////////////////// kkkkkkkkkkkkkkkkkkk
   padding: 17px 24px; 
+  width: 375px;
   
   @media (min-width: 768px) {
     width: 768px;
@@ -52,13 +53,16 @@ export const DesctopSvgConteiner = styled.div`
 
 
 export const HeaderMainInf = styled.div`
-  width: 227px;
-  margin-left: 20px;
-  
+  max-width: 227px;
+
+  margin-left: 20px;  
   white-space: nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis; 
 
+  @media (min-width: 375px) {
+    width: 227px;
+  }
   @media (min-width: 768px) {
     margin-left: 32px;
     width: 280px;
