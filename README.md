@@ -26,7 +26,7 @@ Welcome to the E-Pharmacy Management System, a comprehensive digital solution de
 5. **All Suppliers Page** 
 - **Supplier Management:** Displays all supplier details with options to edit existing records or add new suppliers.
 ![suppliers-page](./src/img/readme/suppliers.jpg)
-
+![suppliers-modal-windiw](./src/img/readme/modal-windiw.jpg)
 6. **All Customers Page** 
 - **Customer Management:** Provides a complete list of customers with detailed information.
 ![customers-page](./src/img/readme/customers.jpg)
