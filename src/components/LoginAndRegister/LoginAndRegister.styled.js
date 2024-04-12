@@ -10,7 +10,8 @@ export const Container = styled.div`
 
 export const LoginContainer = styled.div`
   position: relative;
-  max-width: 375px; ///
+  /* width: 375px; */
+  width: 375px;
   height: 812px;
   padding: 24px 20px;
   overflow: hidden;
@@ -56,7 +57,7 @@ export const ContextContainer = styled.div`
 ///////////////////////////////////////////////////
 export const TitleContainer = styled.div`
   position: relative;
-  max-width: 335px;
+  /* width: 335px; */
   @media (min-width: 768px) {
     width: 614px;
   }
@@ -88,7 +89,7 @@ export const TitleSpan = styled.span`
 `
 
 export const FormContainer = styled.div`
-  max-width: 335px;
+  /* width: 335px; */
   @media (min-width: 768px) {
     width: 323px;
   }
