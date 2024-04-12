@@ -45,12 +45,11 @@ Welcome to the E-Pharmacy Management System, a comprehensive digital solution de
 
 
 Technical task frontend: [https://docs.google.com/spreadsheets/d/1ufIlG2HwqppnY1by3HD4l6TVGq4EoW_o8b-ubA-pQq4/edit#gid=0](https://docs.google.com/spreadsheets/d/1ufIlG2HwqppnY1by3HD4l6TVGq4EoW_o8b-ubA-pQq4/edit#gid=0)
+
 Technical task backend: [https://docs.google.com/spreadsheets/d/1ufIlG2HwqppnY1by3HD4l6TVGq4EoW_o8b-ubA-pQq4/edit#gid=808577346](https://docs.google.com/spreadsheets/d/1ufIlG2HwqppnY1by3HD4l6TVGq4EoW_o8b-ubA-pQq4/edit#gid=808577346)
 
 Layout: [https://www.figma.com/file/z1JklHHxX8kTGo3zWvlzat/Admin-dashboard?type=design&node-id=0-1&mode=design&t=MGYiWG8DvQE6pXE2-0](https://www.figma.com/file/z1JklHHxX8kTGo3zWvlzat/Admin-dashboard?type=design&node-id=0-1&mode=design&t=MGYiWG8DvQE6pXE2-0)
 
-Performance criteria
-
 For any inquiries or assistance, please contact us at [ovsyannikovnikolai1790@gmail.com](ovsyannikovnikolai1790@gmail.com).
 
-Thank you for choosing our LearnLingo Platform!
+Thank you for choosing our  E-Pharmacy Management System!
