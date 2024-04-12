@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://medical-store-beckend.onrender.com/api';
 
@@ -22,6 +23,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      toast.error('Please check the entered data again')
       return thunkAPI.rejectWithValue(error.message);
     }
   }
