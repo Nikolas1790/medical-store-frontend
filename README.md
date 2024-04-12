@@ -30,3 +30,15 @@ Welcome to the E-Pharmacy Management System, a comprehensive digital solution de
 6. **All Customers Page** 
 - **Customer Management:** Provides a complete list of customers with detailed information.
 ![customers-page](./src/img/readme/customers.jpg)
+
+7. **Global Filtering** 
+- **Enhanced Search:**  All pages include filtering capabilities that allow users to efficiently navigate and manage large sets of data.
+
+8. **Adaptive Design** 
+- **Non-Mobile Responsive:**  The layout is adaptive and responsive, designed for optimal viewing on devices except mobile phones.
+![suppliers-page](./src/img/readme/mob-menu.jpg)
+![suppliers-modal-windiw](./src/img/readme/planshet-menu.jpg)
+
+## Technology Stack
+- **Frontend:** JavaScript, React, Styled-component, React Router, Redux Toolkit, Axios, Formik, Yup, React Toastify, React Datepicker...
+- **Backend:** Node.js, Express, MongoDB with Mongoose, Joi, CORS, Nodemon, Jsonwebtoken (JWT), Morgan...
