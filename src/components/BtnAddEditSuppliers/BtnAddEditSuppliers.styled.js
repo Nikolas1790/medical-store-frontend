@@ -31,7 +31,7 @@ export const AddEditSuppliers = styled.button`
     border: none;
 
     ${EditSuppliers} {   
-      color: ${color.white}; /* Так текст станет белым при наведении на кнопку */
+      color: ${color.white}; 
     }
   }
 

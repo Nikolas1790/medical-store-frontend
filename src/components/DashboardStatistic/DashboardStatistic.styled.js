@@ -47,8 +47,6 @@ export const StatisticSvg  = styled.svg`
   }
 `
 
-
-
 export const StatisticSectionTitle = styled.h4`
   font-size: 12px;
   font-weight: 400;

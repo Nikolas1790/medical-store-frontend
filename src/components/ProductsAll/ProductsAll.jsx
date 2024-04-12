@@ -12,45 +12,35 @@ export default function ProductsAll({ products }) {
     price, _id 
   ]) : [];
 
-
   const [columnWidths, setColumnWidths] = useState([276, 230, 199, 226, 163, 146 ]);
   const [columnHeigh, setColumnHeigh] = useState(76);
-
-
-  // Обновление ширин столбцов в зависимости от ширины экрана
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setColumnHeigh(74);
-        setColumnWidths([112, 74, 57, 78, 69, 89 ]); // Для маленьких экранов
+        setColumnWidths([112, 74, 57, 78, 69, 89 ]); 
       } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-        setColumnWidths([240, 150, 119, 150, 140, 121 ]); // Для средних экранов
+        setColumnWidths([240, 150, 119, 150, 140, 121 ]); 
       } else {
-        setColumnWidths([276, 230, 199, 226, 163, 146 ]); // Для больших экранов
+        setColumnWidths([276, 230, 199, 226, 163, 146 ]); 
       }
     };
 
     handleResize();
-
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-
-
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex];
-    let style = {};
-    
+    let style = {};    
     if ( columnId !== 'actions') {
       style.borderRight = `1px solid ${color.blackPrimarySecondary}`;
     }  
-
     if (columnId === 'name') {
       style.paddingLeft = '0px';
     }
-
     return (
       <Cell style={style}>
         {columnId === 'status' ? <StatucColor type={content}>{content}</StatucColor> : (
@@ -61,8 +51,7 @@ export default function ProductsAll({ products }) {
 
   return (   
     <AllConteinerBigTable width='511px'>
-      <TableHeader>All products</TableHeader>
-      
+      <TableHeader>All products</TableHeader>      
       <AllConteinersTable >
         <Table2  
           key={`table-${data}`}

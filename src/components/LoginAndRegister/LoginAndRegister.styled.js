@@ -6,13 +6,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center ;
-  /* flex-direction: column; */
-  @media (min-width: 768px) {
-
-  }
-  @media (min-width: 1440px) {
-
-  }
 `
 
 export const LoginContainer = styled.div`
@@ -21,7 +14,7 @@ export const LoginContainer = styled.div`
   height: 812px;
   padding: 24px 20px;
   overflow: hidden;
-/* background: black; */
+
   @media (min-width: 768px) {
     width: 768px;
     height: 1024px;
@@ -42,9 +35,6 @@ export const ElementsSvg = styled.svg`
   @media (min-width: 768px) {
     right: -180px;
     bottom: -88px;
-  }
-  @media (min-width: 1440px) {
-
   }
 `
 export const ContextContainer = styled.div`
@@ -70,9 +60,6 @@ export const TitleContainer = styled.div`
   @media (min-width: 768px) {
     width: 614px;
   }
-  @media (min-width: 1440px) {
-
-  }
 `
 export const WhitePill = styled.img`
   position: absolute;
@@ -85,9 +72,6 @@ export const WhitePill = styled.img`
     width: 179px;
     height: 175px;
   }
-  @media (min-width: 1440px) {
-
-  }
 `
 export const Title = styled.h2`
   font-size: 28px;
@@ -98,21 +82,18 @@ export const Title = styled.h2`
     font-weight: 600;
     line-height: 1.1;
   }
-  @media (min-width: 1440px) {
-
-  }
 `
 export const TitleSpan = styled.span`
   color:${color.greenLight};
 `
-/////////////////////////////////////////////////////////////////////////////
+
 export const FormContainer = styled.div`
   width: 335px;
   @media (min-width: 768px) {
     width: 323px;
   }
 `
-/////////////////////////////////////////////////////////////////////////////
+
 export const FormFields = styled.div`
   display: flex;
   flex-direction: column;
@@ -134,14 +115,12 @@ export const FormFieldConteiner = styled.div`
 
 export const FormField = styled(Field)`
   width: 100%;
-  /* max-width: 335px; */
   height: 44px;
   border: 1px solid	${color.blackPrimarySecondary};
   border-radius: 60px;
   padding: 13px 18px;
   outline: none;
   background: ${color.white};
-
 `;
 
 export const EyeSvg = styled.svg`
@@ -151,9 +130,4 @@ export const EyeSvg = styled.svg`
   cursor: pointer;
   stroke: ${color.blackPrimary};
   fill: none;
-
-  @media (min-width: 768px) {
-    /* top: 13px; */
-    /* right: 18px; */
-  }
 `;

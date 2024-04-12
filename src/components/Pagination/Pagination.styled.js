@@ -48,9 +48,5 @@ export const PaginationSvg = styled.svg`
   &:focus,
   &:hover {
     stroke: ${color.blackModalColr};
-  }
-  /* @media (min-width: 768px) {
-    width: 20px;
-    height: 20px;
-  } */
+  };
 `

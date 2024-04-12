@@ -5,8 +5,7 @@ import { useState } from "react";
 import SuppliesModals from "components/Modals/SuppliesModal";
 
 export default function BtnAddEditSuppliers({width, height, name, isUpdate, item }){
-  const [openModal, setOpenModal] = useState(false);
-  
+  const [openModal, setOpenModal] = useState(false);  
   return (
     <div>
       <AddEditSuppliers width={width} height={height} name={name} onClick={() => setOpenModal(true)}>

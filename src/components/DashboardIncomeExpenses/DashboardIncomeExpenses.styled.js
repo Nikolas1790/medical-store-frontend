@@ -22,7 +22,6 @@ export const IncomeExpensesTableConteiner = styled.div`
     height: 46px;
     background-color: ${color.white}; 
 
-    /* font-size: 14px;   */
     font-weight: 500;
     color: ${color.blackColorSecondary};
     box-shadow: none; 
@@ -33,7 +32,6 @@ export const IncomeExpensesTableConteiner = styled.div`
   }
   .bp5-table-column-name{
     margin-left: -10px;
-    /* font-size: 10px;; */
   }
 
   .bp5-table-header::after {
@@ -41,7 +39,7 @@ export const IncomeExpensesTableConteiner = styled.div`
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0; /* Размещает линию в нижней части ячейки */
+    bottom: 0; 
     border-bottom: 1px solid ${color.blackPrimarySecondary}; 
   }
 
@@ -53,20 +51,18 @@ export const IncomeExpensesTableConteiner = styled.div`
     background: ${color.white};
     box-shadow: none; 
     padding: 0;
-    /* min-height: 51px; */
 
-/* height:51px !important; */
     @media (min-width: 768px) {  
       font-size: 16px;
     }
-
   }
+  
   .bp5-table-cell::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0; /* Размещает линию в нижней части ячейки */
+    bottom: 0; 
     border-bottom: 1px solid ${color.blackPrimarySecondary}; 
   }
 `

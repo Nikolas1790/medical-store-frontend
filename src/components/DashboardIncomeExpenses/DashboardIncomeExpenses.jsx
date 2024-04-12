@@ -14,8 +14,8 @@ export default function DashboardIncomeExpenses() {
   const [columnHeigh, setColumnHeigh] = useState(65);
 
   const data = incomeExpenses ? incomeExpenses.map(({ name, amount, type }) => [type, name, amount]) : [];
-  useEffect(() => {
 
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setColumnHeigh(82);
@@ -32,8 +32,6 @@ export default function DashboardIncomeExpenses() {
     window.addEventListener('resize', handleResize);  
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  // const data = incomeExpenses ? incomeExpenses.map(({ name, amount, type }) => [type, name, amount]) : [];
   
   useEffect(() => {
     dispatch(dashboardInf());
@@ -55,13 +53,13 @@ export default function DashboardIncomeExpenses() {
       </Cell>
     );
   };  
+
   return (
     <TableBlockItem height="582px">
       <TableHeader>Income/Expenses</TableHeader>
       <IncomeExpensesTableConteiner>
         <Table2 
           numRows={data.length} 
-          // rowHeights={[ 51, 82, 66, 51, 92, 55 ]}
           defaultRowHeight={columnHeigh} 
           columnWidths={columnWidths} 
           enableColumnResizing={false} 

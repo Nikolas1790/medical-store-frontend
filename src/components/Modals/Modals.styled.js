@@ -75,6 +75,7 @@ export const SvgX = styled.svg`
 export const Title = styled.h2`
   font-size: 20px;
   font-weight: 600;
+
   @media (min-width: 768px) {
     font-size: 24px;
   }
@@ -84,6 +85,7 @@ export const InputConteiner = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
+
   @media (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -163,6 +165,7 @@ export const StyledDatePicker = styled(DatePicker)`
   outline: none;
   color: ${color.blackModalColr};
   border-color: ${({ haserror }) => haserror ? color.red : color.blackPrimarySecondary};
+
   @media (min-width: 768px) {
     width: 224px;
   }
@@ -223,7 +226,6 @@ export const DropdownList = styled.ul`
   max-height: 140px; 
   padding: 13px 18px;
   margin: 0;
-
   width: 100%;
   border-radius: 15px;
 `;
@@ -241,7 +243,7 @@ export const DropdownItem = styled.li`
   }
 `;
 
-/////////////////////////////////////////////////// 222
+
 export const BtnConteiner = styled.div`
   display: flex;
   gap: 8px;

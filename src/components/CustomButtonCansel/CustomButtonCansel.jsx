@@ -7,4 +7,3 @@ export default function CustomButtonCansel({ className, label, onClick, icon, wi
     </CustomBtn>
   );
 }
-

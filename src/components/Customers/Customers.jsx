@@ -21,7 +21,7 @@ export default function Customers() {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-    // Предполагается, что ваш API возвращает общее количество доступных элементов
+
   const totalCustomers = customers.total || 0;
   const totalPages = Math.ceil(totalCustomers / limitPerPage);
 

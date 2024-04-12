@@ -38,7 +38,6 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
     price: '',
   };
 
-    // Инициализация Formik
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema,
@@ -53,13 +52,11 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    // Обрезать пробелы если значение является строкой
     const trimmedValue = typeof value === 'string' ? value.trim() : value;
-    // Установить значение поля в Formik
     formik.setFieldValue(name, trimmedValue);
-    // Также устанавливаем touched для поля, чтобы валидация срабатывала сразу
     formik.setFieldTouched(name, true);
   };
+  
   return (
     <Conteiner >
       <ClosingSymbol onClick={closeModals}>

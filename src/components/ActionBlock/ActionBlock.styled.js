@@ -5,9 +5,7 @@ export const ActionConteiner = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
-
 `
-
 export const ActionBtnProduct = styled.button`
   position: absolute;
   left: 14px;
@@ -40,8 +38,6 @@ export const EditDellBtn = styled.svg`
     height: 32px;
   }
 `
-
-
 
 export const ActionBtnProductDell = styled.button`
   position: absolute;

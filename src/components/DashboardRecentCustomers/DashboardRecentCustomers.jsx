@@ -8,31 +8,26 @@ import { AllConteinersTable, TableHeader } from "common/GiobalStyles";
 import color from "common/GlobalColers";
 import { AvatarImg, NameConteiner } from 'common/GiobalStyles';
 
-
 export default function DashboardRecentCustomers() {  
   const dispatch = useDispatch();
   const { recentCustomers } = useSelector(selectDataInf);  
-
   const [columnWidths, setColumnWidths] = useState([203, 269, 118]);
   const [columnHeigh, setColumnHeigh] = useState(78);
 
-  // Обновление ширин столбцов в зависимости от ширины экрана
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setColumnHeigh(74);
-        setColumnWidths([92, 151, 64]); // Для маленьких экранов
+        setColumnWidths([92, 151, 64]); 
       } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-        setColumnWidths([235, 279, 150]); // Для средних экранов
+        setColumnWidths([235, 279, 150]);
       } else {
-        setColumnWidths([203, 269, 118]); // Для больших экранов
+        setColumnWidths([203, 269, 118]);
       }
     };
 
     handleResize();
-
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -58,15 +53,12 @@ export default function DashboardRecentCustomers() {
   const customCellName = (rowIndex, columnId, data) => {
     let style = {};
     const rowData = data[rowIndex];
-
     if (columnId === 'name') {
       style.borderRight = `1px solid ${color.blackPrimarySecondary}`;
-    }
-  
+    }  
     if (columnId === 'name') {
       style.paddingLeft = '0px';
     }
-
     return (
       <Cell style={style}>
         <NameConteiner>

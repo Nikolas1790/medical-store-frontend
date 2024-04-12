@@ -8,42 +8,32 @@ import { useEffect, useState } from "react";
 export default function SuppliersAll({ suppliers }) { 
   const data = suppliers ? suppliers.map(({ name, address, suppliers, date, amount, status, _id }) => [ name, address, suppliers, date, amount, status, _id ]) : [];
 
-
   const [columnWidths, setColumnWidths] = useState([191, 188, 166, 215, 162, 189, 129 ]);
   const [columnHeigh, setColumnHeigh] = useState(76);
-
-
-  // Обновление ширин столбцов в зависимости от ширины экрана
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setColumnHeigh(74);
-        setColumnWidths([94, 94, 83, 115, 88, 90, 86 ]); // Для маленьких экранов
+        setColumnWidths([94, 94, 83, 115, 88, 90, 86 ]); 
       } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-        setColumnWidths([157, 128, 108, 157, 121, 129, 102 ]); // Для средних экранов
+        setColumnWidths([157, 128, 108, 157, 121, 129, 102 ]);
       } else {
-        setColumnWidths([191, 188, 166, 215, 162, 189, 129 ]); // Для больших экранов
+        setColumnWidths([191, 188, 166, 215, 162, 189, 129 ]); 
       }
     };
 
     handleResize();
-
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-
 
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex] ;
     let style = {};
-  
-
     if ( columnId !== 'action') {
       style.borderRight = `1px solid ${color.blackPrimarySecondary}`;
     }  
-
     if (columnId === 'date') {
       const date = new Date(content);
       content = date.toLocaleDateString('en-US', {
@@ -52,7 +42,6 @@ export default function SuppliersAll({ suppliers }) {
         day: 'numeric',
       });
     }
-
     if (columnId === 'ammount') {
       content = content.replace(/^\D*/, '').trim();
     }

@@ -1,7 +1,6 @@
 import { getBackgroundStatusColor, getStatusColor } from 'components/Utils/utils'
 import styled from 'styled-components'
 
-
 export const StatucColor = styled.p`
   display: flex;
   align-items: center;
@@ -17,9 +16,8 @@ export const StatucColor = styled.p`
     width: 92px;
     height: 25px;
     font-size: 14px;
-  }
-
+  };
   @media (min-width: 1440px) {  
     width: 89px;
-  }
+  };
 `

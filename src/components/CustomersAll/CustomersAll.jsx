@@ -7,12 +7,9 @@ import { useEffect, useState } from "react";
 export default function CustomersAll({customers, currentPage }) { 
   const data = customers ? customers.map(({ image, name, email, address, phone, register_date, photo }) => [ image, name, email, address, phone, register_date, photo ]) : [];
 
-
   const [columnWidths, setColumnWidths] = useState([260, 299, 213, 263, 205 ]);
   const [columnHeigh, setColumnHeigh] = useState(76);
 
-
-  // Обновление ширин столбцов в зависимости от ширины экрана
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -26,18 +23,9 @@ export default function CustomersAll({customers, currentPage }) {
     };
 
     handleResize();
-
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-
-
-
-
-
-
 
   const customCellRenderer = (rowIndex, columnId, data) => {
     let content = data[rowIndex];

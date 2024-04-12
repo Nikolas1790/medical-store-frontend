@@ -89,11 +89,11 @@ const pharmacySlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-    .addCase(deleteProduct.fulfilled, (state, action) => {
-      state.loading = false;
-      state.productsData.products = state.productsData.products.filter(product => product.id !== action.payload);
-      state.productsData.total = state.productsData.total - 1;
-    })
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        state.productsData.products = state.productsData.products.filter(product => product.id !== action.payload);
+        state.productsData.total = state.productsData.total - 1;
+      })
       .addCase(deleteProduct.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;

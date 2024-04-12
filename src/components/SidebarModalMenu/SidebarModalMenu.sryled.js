@@ -29,6 +29,7 @@ export const BtnClose = styled.button`
   background: transparent;
   stroke: ${color.blackPrimary};
   transition: transform 0.25s linear; 
+  
   &:hover,
   &:focus {
     transform: scale(1.1);
@@ -36,6 +37,6 @@ export const BtnClose = styled.button`
 
   @media (min-width: 768px) {
     top: 20px;
-  right: 14px; 
+    right: 14px; 
   }
 `

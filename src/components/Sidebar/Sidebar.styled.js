@@ -9,8 +9,7 @@ export const SidebarConteiner = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  
+  gap: 14px;  
 
   @media (min-width: 1440px) {
     position: absolute;
@@ -46,9 +45,5 @@ export const PageNav = styled(NavLink)`
     fill: ${color.greenLight};
     stroke: ${color.greenLight};
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-
-    &:hover {
-      /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);  */
-    }
   }
 `; 

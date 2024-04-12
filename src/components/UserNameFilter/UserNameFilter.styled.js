@@ -16,9 +16,6 @@ export const FilterForm = styled.form`
     gap: 14px;
     width: 354px;
   }
-  @media (min-width: 1440px) {  
-    
-  }
 `;
 
 export const InputFilter = styled.input`
@@ -34,10 +31,10 @@ export const InputFilter = styled.input`
   padding: 13px 18px;
 
   &::placeholder {
-    font-size: 12px; // Пример изменения размера текста плейсхолдера
+    font-size: 12px; 
     color: ${color.blackColorSecondary};
   }
-    &:hover,
+  &:hover,
   &:focus {
     outline: none;
   }

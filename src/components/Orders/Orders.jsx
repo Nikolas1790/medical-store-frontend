@@ -21,7 +21,7 @@ export default function Orders() {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-    // Предполагается, что ваш API возвращает общее количество доступных элементов
+
   const totalOrders = orders.total || 0;
   const totalPages = Math.ceil(totalOrders / limitPerPage);
 

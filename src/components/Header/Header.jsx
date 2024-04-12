@@ -16,7 +16,7 @@ export default function Header() {
   const {email} = useSelector(selectUser); 
   const location = useLocation(); 
   const pageName = getPageName(location.pathname);
-// console.log(isSidebarOpen)
+
   return (
     <HeaderContainer>
       <HeaderBlock>
