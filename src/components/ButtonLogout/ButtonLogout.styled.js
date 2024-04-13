@@ -13,7 +13,6 @@ export const BtnLogout = styled.button`
   &:hover {
     fill: ${color.greenDarker};
     stroke: ${color.white};
-    scale: 1.5;
   }
   @media (min-width: 1440px) {
     display: block;

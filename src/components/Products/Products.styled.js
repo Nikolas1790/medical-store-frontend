@@ -12,7 +12,6 @@ export const AddProductConteiner = styled.button`
 
   &:hover,
   &:focus {
-    scale: 1.03;
     fill: ${color.greenDarker};    
     color: ${color.greenLight};
     border: none;
