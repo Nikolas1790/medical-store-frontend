@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/medical-store-frontend/static/css/main.d1dfecc3.css",
-    "main.js": "/medical-store-frontend/static/js/main.a91ee495.js",
+    "main.js": "/medical-store-frontend/static/js/main.c84d6659.js",
     "static/js/822.62b650fa.chunk.js": "/medical-store-frontend/static/js/822.62b650fa.chunk.js",
     "static/js/224.6b50a8bc.chunk.js": "/medical-store-frontend/static/js/224.6b50a8bc.chunk.js",
     "static/js/746.f4f8cefa.chunk.js": "/medical-store-frontend/static/js/746.f4f8cefa.chunk.js",
     "static/js/122.adba880f.chunk.js": "/medical-store-frontend/static/js/122.adba880f.chunk.js",
-    "static/js/960.5cdd0266.chunk.js": "/medical-store-frontend/static/js/960.5cdd0266.chunk.js",
+    "static/js/960.338fa748.chunk.js": "/medical-store-frontend/static/js/960.338fa748.chunk.js",
     "static/js/695.7347c995.chunk.js": "/medical-store-frontend/static/js/695.7347c995.chunk.js",
     "static/js/196.171b7e1b.chunk.js": "/medical-store-frontend/static/js/196.171b7e1b.chunk.js",
     "blueprint-icons-all-paths-loader.js": "/medical-store-frontend/static/js/blueprint-icons-all-paths-loader.15fab5b3.chunk.js",
@@ -28,12 +28,12 @@
     "static/media/sprite.svg": "/medical-store-frontend/static/media/sprite.af2de723d0b82f10efd60d85a0349b1a.svg",
     "index.html": "/medical-store-frontend/index.html",
     "main.d1dfecc3.css.map": "/medical-store-frontend/static/css/main.d1dfecc3.css.map",
-    "main.a91ee495.js.map": "/medical-store-frontend/static/js/main.a91ee495.js.map",
+    "main.c84d6659.js.map": "/medical-store-frontend/static/js/main.c84d6659.js.map",
     "822.62b650fa.chunk.js.map": "/medical-store-frontend/static/js/822.62b650fa.chunk.js.map",
     "224.6b50a8bc.chunk.js.map": "/medical-store-frontend/static/js/224.6b50a8bc.chunk.js.map",
     "746.f4f8cefa.chunk.js.map": "/medical-store-frontend/static/js/746.f4f8cefa.chunk.js.map",
     "122.adba880f.chunk.js.map": "/medical-store-frontend/static/js/122.adba880f.chunk.js.map",
-    "960.5cdd0266.chunk.js.map": "/medical-store-frontend/static/js/960.5cdd0266.chunk.js.map",
+    "960.338fa748.chunk.js.map": "/medical-store-frontend/static/js/960.338fa748.chunk.js.map",
     "695.7347c995.chunk.js.map": "/medical-store-frontend/static/js/695.7347c995.chunk.js.map",
     "196.171b7e1b.chunk.js.map": "/medical-store-frontend/static/js/196.171b7e1b.chunk.js.map",
     "blueprint-icons-all-paths-loader.15fab5b3.chunk.js.map": "/medical-store-frontend/static/js/blueprint-icons-all-paths-loader.15fab5b3.chunk.js.map",
@@ -48,6 +48,6 @@
   },
   "entrypoints": [
     "static/css/main.d1dfecc3.css",
-    "static/js/main.a91ee495.js"
+    "static/js/main.c84d6659.js"
   ]
 }
