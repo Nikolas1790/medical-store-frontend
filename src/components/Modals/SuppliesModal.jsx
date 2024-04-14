@@ -5,7 +5,7 @@ import { BtnConteiner, ClosingSymbol, Conteiner, DatePickerContainer, DatePicker
 import sprite from '../../img/sprite.svg';
 import CustomButton from "components/CustomButton/CustomButton";
 import CustomButtonCansel from "components/CustomButtonCansel/CustomButtonCansel";
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AVAILABLE_STATUS } from 'components/Utils/utils';
 import { useDispatch } from 'react-redux';
 import { addSupplier, updateSupplier } from '../../redux/ePharmacy/operations';
@@ -26,22 +26,25 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
   const dispatch = useDispatch();
   const id = existingSuppliers?.[6];
   const datePickerRef = useRef();
-  
-  const initialValues = isUpdate ? {
-    name: existingSuppliers?.[0],
-    suppliers: existingSuppliers?.[2],
-    amount: existingSuppliers?.[4].replace(/^\D*/, '').trim(), 
-    address: existingSuppliers?.[1],
-    date: existingSuppliers?.[3],
-    status: existingSuppliers?.[5],
-  } : {
-    name: '',
-    suppliers: '',
-    amount: '',
-    address: '',
-    date: '',
-    status: '',
-  };
+  const modalContentRef = useRef(null); 
+
+  const initialValues = useMemo(() => {
+    return isUpdate ? {
+      name: existingSuppliers?.[0],
+      suppliers: existingSuppliers?.[2],
+      amount: existingSuppliers?.[4].replace(/^\D*/, '').trim(), 
+      address: existingSuppliers?.[1],
+      date: existingSuppliers?.[3],
+      status: existingSuppliers?.[5],
+    } : {
+      name: '',
+      suppliers: '',
+      amount: '',
+      address: '',
+      date: '',
+      status: '',
+    };
+  }, [isUpdate, existingSuppliers]);
 
   const formik = useFormik({
     initialValues: initialValues,
@@ -52,6 +55,39 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
       closeModals()
     },
   });  
+
+
+  const handleCloseModal = useCallback(() => {
+    // console.log("Before reset", {values: formik.values, touched: formik.touched, errors: formik.errors});
+    setTimeout(() => {
+      formik.resetForm({
+        values: initialValues,
+        touched: {},
+        errors: {}
+      });
+      setSelectedLevels(""); 
+    }, 0); 
+    closeModals();
+  }, [formik, closeModals, initialValues]);
+
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        handleCloseModal();
+      }
+    };
+    const handleClickOutside = (event) => {
+      if (modalContentRef.current && !modalContentRef.current.contains(event.target)) {
+        handleCloseModal();
+      }
+    };
+    document.addEventListener('keydown', handleEscapeKey);
+    document.addEventListener('mousedown', handleClickOutside);  
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [formik, handleCloseModal ]);
   
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const handleCalendarClick = () => {
@@ -62,12 +98,23 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     const { name, value } = e.target;
     const trimmedValue = typeof value === 'string' ? value.trim() : value;
     formik.setFieldValue(name, trimmedValue);
-    formik.setFieldTouched(name, true);
+    // formik.setFieldTouched(name, true);
+  };
+
+  const handleNumberChange = (e) => {
+    const { name, value } = e.target;
+    const cleanedValue = value.replace(/[^0-9.]/g, '');
+    formik.setFieldValue(name, cleanedValue);
   };
   
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    formik.setFieldTouched(name, true);
+  };
+
   return (
-    <Conteiner height='542px' >
-      <ClosingSymbol onClick={closeModals}>
+    <Conteiner height='542px' ref={modalContentRef}>
+      <ClosingSymbol onClick={handleCloseModal}>
         <svg width={26} height={26}>
           <use href={`${sprite}#icon-x`} />
         </svg>   
@@ -81,7 +128,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 name="name"
                 type="text"
                 onChange={handleInputChange}
-                onBlur={formik.handleBlur} 
+                onBlur={handleBlur} 
                 value={formik.values.name}
                 placeholder="Suppliers Info"
                 haserror={formik.touched.name && formik.errors.name}
@@ -90,7 +137,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 name="address"
                 type="text"
                 onChange={handleInputChange}
-                onBlur={formik.handleBlur} 
+                onBlur={handleBlur} 
                 value={formik.values.address}
                 placeholder="Address"
                 haserror={formik.touched.address && formik.errors.address}
@@ -99,7 +146,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
                 name="suppliers"
                 type="text"
                 onChange={handleInputChange}
-                onBlur={formik.handleBlur} 
+                onBlur={handleBlur} 
                 value={formik.values.suppliers}
                 placeholder="Company"
                 haserror={formik.touched.suppliers && formik.errors.suppliers}
@@ -123,8 +170,8 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
               <Input
                 name="amount"
                 type="text"
-                onChange={handleInputChange}
-                onBlur={formik.handleBlur} 
+                onChange={handleNumberChange}
+                onBlur={handleBlur} 
                 value={formik.values.amount}
                 placeholder="Ammount"
                 haserror={formik.touched.amount && formik.errors.amount}
@@ -146,7 +193,7 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
 
           <BtnConteiner>
             <CustomButton width="133px" label={isUpdate ? 'Save' : 'Add'}  type='submit'/>
-            <CustomButtonCansel width="133px" label="Cansel" onClick={closeModals} />        
+            <CustomButtonCansel width="133px" label="Cansel" onClick={handleCloseModal} />        
           </BtnConteiner>
         </form>
       </div>
