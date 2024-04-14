@@ -1,7 +1,6 @@
 import Logo from "components/Logo/Logo";
 import * as Yup from 'yup';
 import { Container, ContextContainer, ElementsSvg, EyeSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, Title, TitleContainer, TitleSpan, WhitePill } from "./LoginAndRegister.styled";
-import whitePill from "../../img/whiteRoundPill/white-round-pill.png"
 import sprite from '../../img/sprite.svg';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -10,6 +9,8 @@ import { logIn } from "../../redux/auth/operationsAuth";
 import { useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import CustomButton from "components/CustomButton/CustomButton";
+import whiteRoundPill from '../../img/whiteRoundPill/white-round-pill.png';
+import whiteRoundPill2x from '../../img/whiteRoundPill/white-round-pill@2x.png';
 
 const initialValues = {
   email: '',
@@ -48,7 +49,10 @@ export default function Login() {
         <Logo />
         <ContextContainer>
           <TitleContainer>
-            <WhitePill src={whitePill} alt="tablet" />
+          <picture>
+            <source srcSet={`${whiteRoundPill2x} 2x`}  media="(min-resolution: 192dpi)"  />
+            <WhitePill src={whiteRoundPill} alt="logo" />
+          </picture> 
             <Title>Your medication, delivered Say goodbye to all <TitleSpan>your healthcare</TitleSpan> worries with us</Title>
           </TitleContainer>
 
