@@ -11,6 +11,7 @@ import Loader from "./Loader/Loader";
 import { refreshUser } from "../redux/auth/operationsAuth";
 import { selectToken } from "../redux/auth/selectorAuth";
 
+const Register = lazy(() => import("../pages/RegisterPage"));
 const Login = lazy(() => import("../pages/LoginPage"));
 const Dashboard = lazy(() => import("../pages/DashboardPage"));
 const Orders = lazy(() => import("../pages/OrdersPage"));
@@ -37,6 +38,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate replace to="/login" />} />
+          <Route path="/register" element={<RestrictedRoute redirectTo='/dashboard' component={<Register/>} />} />
           <Route path="/login" element={<RestrictedRoute redirectTo="/dashboard" component={<Login />} />} />
           <Route path="/dashboard" element={<PrivateRoute redirectTo="/dashboard" component={<Dashboard />} />} />
           <Route path="/orders" element={<PrivateRoute redirectTo="/orders" component={<Orders />} />} />
