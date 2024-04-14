@@ -49,7 +49,7 @@ export default function UserNameFilter({dataFactory, plholder, setFilterName, se
         <CustomButton label="Filter" type="submit" icon={true} />
       </FilterForm>
       {isRestButtonVisible && (
-        <CustomButton label="Rest" onClick={() => handleReset()} width="116px"/>
+        <CustomButton label="Reset" onClick={() => handleReset()} width="116px"/>
       )}
     </FilterConteiner>
   );
