@@ -10,11 +10,9 @@ export const Container = styled.div`
 
 export const LoginContainer = styled.div`
   position: relative;
-  /* width: 375px; */
   width: 375px;
   height: 812px;
   padding: 24px 20px;
-  overflow: hidden;
 
   @media (min-width: 768px) {
     width: 768px;

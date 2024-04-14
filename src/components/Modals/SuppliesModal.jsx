@@ -56,7 +56,6 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     },
   });  
 
-
   const handleCloseModal = useCallback(() => {
     // console.log("Before reset", {values: formik.values, touched: formik.touched, errors: formik.errors});
     setTimeout(() => {
