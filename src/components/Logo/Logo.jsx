@@ -10,7 +10,7 @@ import logoPrivate2x from '../../img/logo/logo-private@2x.png';
 
 export default function Logo() {
   const location = useLocation();
-  const page = location.pathname === '/login';
+  const page = location.pathname === '/login' || '/register';
   const isToken = useSelector(selectToken);
   const redirectPath = isToken ? '/dashboard' : '/login';
   
