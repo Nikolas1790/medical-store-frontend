@@ -6,20 +6,20 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operationsAuth';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { Container, ContextContainer, ElementsSvg, EyeSvg, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, Title, TitleContainer, TitleSpan, WhitePill } from './LoginAndRegister.styled';
+import { Container, ContextContainer, ElementsSvg, EyeSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, Title, TitleContainer, TitleSpan, WhitePill } from './LoginAndRegister.styled';
 import Logo from 'components/Logo/Logo';
 import whiteRoundPill from '../../img/whiteRoundPill/white-round-pill.png';
 import whiteRoundPill2x from '../../img/whiteRoundPill/white-round-pill@2x.png';
 import CustomButton from 'components/CustomButton/CustomButton';
 
 const initialValues = {
-  name: '',
+  userName: '',
   email: '',
   password: '',
 };
   
 const schema = Yup.object({
-  name: Yup.string().required('Required').min(2, "The name must have at least 2 letters"),
+  userName: Yup.string().required('Required').min(2, "The name must have at least 2 letters"),
   email: Yup.string().matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Invalid email address').required('Required'),
   password: Yup.string().required('Required').min(7, "Password must be at least 7 characters"),
 });
@@ -41,7 +41,7 @@ export default function Register() {
   const handleSubmit = async (values) => {
     try {
       await dispatch(register(values)).unwrap();
-      navigate('/recommended');
+      navigate('/dashboard');
     } catch (error) {
       if (error === "Request failed with status code 409") {
         toast.error("User with this email already exists.");
@@ -66,7 +66,7 @@ export default function Register() {
           </picture> 
             <Title>Your medication, delivered Say goodbye to all <TitleSpan>your healthcare</TitleSpan> worries with us</Title>
           </TitleContainer>
-
+        <FormContainer>
         <Formik  initialValues = {initialValues} validationSchema={schema} onSubmit={handleSubmit} >
           {({ errors, touched }) => (
             <Form>
@@ -75,15 +75,15 @@ export default function Register() {
 
                   <FormFieldConteiner>
                     <FormField
-                      id="name" 
-                      name="name" 
-                      type="name" 
+                      id="userName" 
+                      name="userName" 
+                      type="userName" 
                       placeholder="Nik Ovson" 
-                      error={errors.name && touched.name ? "true" : "false" } 
+                      error={errors.userName && touched.userName ? "true" : "false" } 
                       paddingleft="65px"
                       style={{
-                        borderColor: touched.name && errors.name ? "red" : 
-                                     touched.name && !errors.name ? "green" : "defaultColor",
+                        borderColor: touched.userName && errors.userName ? "red" : 
+                                     touched.userName && !errors.userName ? "green" : "defaultColor",
                       }}
                     />
                       {/* {touched.name && (
@@ -191,6 +191,7 @@ export default function Register() {
             </Form>
           )}
         </Formik>
+        </FormContainer>
         </ContextContainer>
       </LoginContainer>
     </Container>

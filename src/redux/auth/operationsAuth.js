@@ -15,15 +15,16 @@ const clearAuthHeader = () => {
 };
 
 export const register = createAsyncThunk(
-  '/users/register',
+  '/user/register',
   async (credentials, thunkAPI) => {
-    
+    // console.log("Отправляемые данные:", JSON.stringify(credentials));
     try {
-      const res = await axios.post('/users/register', credentials);      
+      const res = await axios.post('/user/register', credentials);      
       // After successful registration, add the token to the HTTP header      
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      // console.error('Ошибка регистрации:', error.response ? error.response.data : error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -33,6 +34,7 @@ export const logIn = createAsyncThunk(
   '/user/login',
   async (credentials, thunkAPI) => {
     try {
+      // console.log(credentials)
       const res = await axios.post('/user/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
