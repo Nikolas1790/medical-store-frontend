@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operationsAuth';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { Container, ContextContainer, ElementsSvg, EyeSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, Title, TitleContainer, TitleSpan, WhitePill } from './LoginAndRegister.styled';
+import { Container, ContextContainer, ElementsSvg, EyeSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, TableContentsNavLink, Title, TitleContainer, TitleSpan, WhitePill } from './LoginAndRegister.styled';
 import Logo from 'components/Logo/Logo';
 import whiteRoundPill from '../../img/whiteRoundPill/white-round-pill.png';
 import whiteRoundPill2x from '../../img/whiteRoundPill/white-round-pill@2x.png';
@@ -23,10 +23,6 @@ const schema = Yup.object({
   email: Yup.string().matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Invalid email address').required('Required'),
   password: Yup.string().required('Required').min(7, "Password must be at least 7 characters"),
 });
-
-
-
-
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -191,6 +187,9 @@ export default function Register() {
             </Form>
           )}
         </Formik>
+
+
+        <TableContentsNavLink to="/login" >Login</TableContentsNavLink>
         </FormContainer>
         </ContextContainer>
       </LoginContainer>

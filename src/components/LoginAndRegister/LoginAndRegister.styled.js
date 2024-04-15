@@ -1,6 +1,7 @@
 import color from 'common/GlobalColers'
 import styled from 'styled-components'
 import { Field } from 'formik';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -25,6 +26,36 @@ export const LoginContainer = styled.div`
     padding: 28px  100px;
   }
 `
+export const TableContents = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`
+export const TableContentsNavLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 12px; 
+  letter-spacing: -0.2px;
+  color: ${color.blackModalColr}; 
+  transition: color 0.3s linear; 
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: ${color.greenDarker};
+    outline: none;
+ }
+ &:active {
+    color: black;
+  }
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+`
+
 export const ElementsSvg = styled.svg`
   position: absolute;
   right: -180px;

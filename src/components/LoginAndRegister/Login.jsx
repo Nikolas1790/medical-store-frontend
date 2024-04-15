@@ -1,6 +1,6 @@
 import Logo from "components/Logo/Logo";
 import * as Yup from 'yup';
-import { Container, ContextContainer, ElementsSvg, EyeSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, Title, TitleContainer, TitleSpan, WhitePill } from "./LoginAndRegister.styled";
+import { Container, ContextContainer, ElementsSvg, EyeSvg, FormContainer, FormConteiner, FormField, FormFieldConteiner, FormFields, LoginContainer, TableContentsNavLink, Title, TitleContainer, TitleSpan, WhitePill } from "./LoginAndRegister.styled";
 import sprite from '../../img/sprite.svg';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -43,10 +43,9 @@ export default function Login() {
   return (
     <Container>
       <LoginContainer>
-        <ElementsSvg >
-          <use href={`${sprite}#icon-elements`} />
-        </ElementsSvg>
-        <Logo />
+          <Logo />
+
+        
         <ContextContainer>
           <TitleContainer>
           <picture>
@@ -111,8 +110,14 @@ export default function Login() {
                 </Form>
               )}
             </Formik>
+
+            <TableContentsNavLink to="/register" >Register</TableContentsNavLink>
+
           </FormContainer>
         </ContextContainer>
+        <ElementsSvg >
+          <use href={`${sprite}#icon-elements`} />
+        </ElementsSvg>
       </LoginContainer>
     </Container>
   );
