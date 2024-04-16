@@ -34,8 +34,7 @@ export const StatisticTitleConteiner = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 28px;  
-  
+  margin-bottom: 28px;    
 `
 export const StatisticSvg  = styled.svg`
   width: 18px;

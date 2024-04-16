@@ -5,6 +5,7 @@ export const PaginationConteiner = styled.div`
   display: flex;
   justify-content: start; 
   align-items: center; 
+
   @media (min-width: 768px) {  
     justify-content: center; 
   }
@@ -37,7 +38,6 @@ export const PaginationButton = styled.button`
     box-shadow: none;
   }
 `;
-
 
 export const PaginationSvg = styled.svg`
   width: 16px;

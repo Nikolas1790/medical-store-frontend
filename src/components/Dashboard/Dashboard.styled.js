@@ -8,7 +8,6 @@ export const  TableConteiner = styled.div`
 `
 
 export const  TableBlockItem = styled.div`
-/* width: 100%; */
   width: 300px;
   height: ${({height }) => height || '460px'};
   border: 1px solid ${color.blackPrimarySecondary};

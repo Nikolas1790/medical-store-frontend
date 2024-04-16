@@ -52,7 +52,6 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
   });  
 
   const handleCloseModal = useCallback(() => {
-    // console.log("Before reset", {values: formik.values, touched: formik.touched, errors: formik.errors});
     setTimeout(() => {
       formik.resetForm({
         values: initialValues,
@@ -82,7 +81,6 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [formik, handleCloseModal ]);
-
       
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
@@ -116,54 +114,54 @@ export default function ProductModals({ closeModals, isUpdate, existingProduct }
       <div>
         <form onSubmit={formik.handleSubmit}>
           <InputConteiner>
-              <Input
-                name="name"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                value={formik.values.name}
-                placeholder="Product Info"
-                haserror={formik.touched.name && formik.errors.name ? 'true' : undefined}         
-              />
-              <ModalSelector
-                isDropdownOpen={isDropdownOpen}
-                toggleDropdown={toggleDropdown}
-                selectedCategory={selectedLevels}
-                setSelectedCategory={setSelectedLevels}
-                formik={formik}
-                categories={AVAILABLE_CATEGORIES}
-                hasError={formik.touched.category && formik.errors.category}
-                reservName={ existingProduct?.[1] }
-                fieldName="category"
-                setIsDropdownOpen={setIsDropdownOpen}
-              />              
-              <Input
-                name="suppliers"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                value={formik.values.suppliers}
-                placeholder="Suppliers"
-                haserror={formik.touched.suppliers && formik.errors.suppliers}
-              />
-              <Input
-                name="stock"
-                type="text"
-                onChange={handleNumberChange}
-                onBlur={handleBlur}
-                value={formik.values.stock}
-                placeholder="Stock"
-                haserror={formik.touched.stock && formik.errors.stock}
-              />
-              <Input
-                name="price"
-                type="text"
-                onChange={handleNumberChange}
-                onBlur={handleBlur}
-                value={formik.values.price}
-                placeholder="Price"
-                haserror={formik.touched.price && formik.errors.price}
-              />        
+            <Input
+              name="name"
+              type="text"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              value={formik.values.name}
+              placeholder="Product Info"
+              haserror={formik.touched.name && formik.errors.name ? 'true' : undefined}         
+            />
+            <ModalSelector
+              isDropdownOpen={isDropdownOpen}
+              toggleDropdown={toggleDropdown}
+              selectedCategory={selectedLevels}
+              setSelectedCategory={setSelectedLevels}
+              formik={formik}
+              categories={AVAILABLE_CATEGORIES}
+              hasError={formik.touched.category && formik.errors.category}
+              reservName={ existingProduct?.[1] }
+              fieldName="category"
+              setIsDropdownOpen={setIsDropdownOpen}
+            />              
+            <Input
+              name="suppliers"
+              type="text"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              value={formik.values.suppliers}
+              placeholder="Suppliers"
+              haserror={formik.touched.suppliers && formik.errors.suppliers}
+            />
+            <Input
+              name="stock"
+              type="text"
+              onChange={handleNumberChange}
+              onBlur={handleBlur}
+              value={formik.values.stock}
+              placeholder="Stock"
+              haserror={formik.touched.stock && formik.errors.stock}
+            />
+            <Input
+              name="price"
+              type="text"
+              onChange={handleNumberChange}
+              onBlur={handleBlur}
+              value={formik.values.price}
+              placeholder="Price"
+              haserror={formik.touched.price && formik.errors.price}
+            />        
           </InputConteiner>
 
           <BtnConteiner>

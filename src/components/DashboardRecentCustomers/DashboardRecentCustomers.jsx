@@ -49,7 +49,6 @@ export default function DashboardRecentCustomers() {
     );
   };
 
-
   const customCellName = (rowIndex, columnId, data) => {
     let style = {};
     const rowData = data[rowIndex];

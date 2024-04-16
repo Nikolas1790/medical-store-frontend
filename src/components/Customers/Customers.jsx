@@ -31,8 +31,8 @@ export default function Customers() {
         <UserNameFilter dataFactory={customersInf} setFilterName={setFilterName} setCurrentPage={setCurrentPage} />
 
         <div>
-        <CustomersAll customers={customers.customers} currentPage={currentPage} />
-        <Pagination
+          <CustomersAll customers={customers.customers} currentPage={currentPage} />
+          <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}

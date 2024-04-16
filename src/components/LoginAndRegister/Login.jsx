@@ -43,15 +43,14 @@ export default function Login() {
   return (
     <Container>
       <LoginContainer>
-          <Logo />
-
+        <Logo />
         
         <ContextContainer>
           <TitleContainer>
-          <picture>
-            <source srcSet={`${whiteRoundPill2x} 2x`}  media="(min-resolution: 192dpi)"  />
-            <WhitePill src={whiteRoundPill} alt="logo" />
-          </picture> 
+            <picture>
+              <source srcSet={`${whiteRoundPill2x} 2x`}  media="(min-resolution: 192dpi)"  />
+              <WhitePill src={whiteRoundPill} alt="logo" />
+            </picture> 
             <Title>Your medication, delivered Say goodbye to all <TitleSpan>your healthcare</TitleSpan> worries with us</Title>
           </TitleContainer>
 
@@ -112,7 +111,6 @@ export default function Login() {
             </Formik>
 
             <TableContentsNavLink to="/register" >Register</TableContentsNavLink>
-
           </FormContainer>
         </ContextContainer>
         <ElementsSvg >

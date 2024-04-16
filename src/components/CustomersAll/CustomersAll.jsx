@@ -51,7 +51,6 @@ export default function CustomersAll({customers, currentPage }) {
     );
   };
 
-
   const customCellName = (rowIndex, columnId, data) => {
     let style = {};
     const rowData = data[rowIndex];
@@ -72,6 +71,7 @@ export default function CustomersAll({customers, currentPage }) {
       </Cell>
     );
   };
+  
   return (   
     <AllConteinerBigTable width='670px'>
       <TableHeader>All customers</TableHeader>

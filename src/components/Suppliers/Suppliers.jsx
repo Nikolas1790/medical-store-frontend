@@ -36,8 +36,8 @@ export default function Suppliers() {
         </FilterAddConteiner>
 
         <div>
-        <SuppliersAll suppliers={suppliers.suppliers} />
-        <Pagination
+          <SuppliersAll suppliers={suppliers.suppliers} />
+          <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}

@@ -12,7 +12,6 @@ export const HeaderBlock = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  /* max-width: 375px; */ //////////////////////////// kkkkkkkkkkkkkkkkkkk
   padding: 17px 24px; 
   width: 375px;
   
@@ -51,10 +50,8 @@ export const DesctopSvgConteiner = styled.div`
   }
 `; 
 
-
 export const HeaderMainInf = styled.div`
   max-width: 227px;
-
   margin-left: 20px;  
   white-space: nowrap; 
   overflow: hidden; 
@@ -98,11 +95,11 @@ export const Divider = styled.div`
   margin: 0 8px; 
   
   &::before {
-      content: '';
-      position: absolute;
-      top: 0;        
-      height: 100%;
-      width: 1px;
-      background-color: ${color.blackPrimarySecondary}; 
+    content: '';
+    position: absolute;
+    top: 0;        
+    height: 100%;
+    width: 1px;
+    background-color: ${color.blackPrimarySecondary}; 
   }
 `;

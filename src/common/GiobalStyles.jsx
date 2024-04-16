@@ -115,8 +115,6 @@ export const ContentBlock = styled.div`
   padding: 20px 20px 80px 20px;
   padding-top:  ${({ top }) => top || '40px'};
   padding-bottom:  20px;
-   /* width: 100%;
-  max-width: 375px;  */
   width: 340px;
   @media (min-width: 375px) {  
     width: 375px;
@@ -236,7 +234,7 @@ export const AllConteinersTable = styled.div`
     font-weight: 500;
     padding-left: 10px;
     padding-right: 0px;
-    box-shadow: none; //
+    box-shadow: none; 
     border-bottom: 1px solid ${color.blackPrimarySecondary};  
 
     @media (min-width: 768px) {  

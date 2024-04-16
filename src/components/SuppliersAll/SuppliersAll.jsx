@@ -59,8 +59,7 @@ export default function SuppliersAll({ suppliers }) {
 
   return (   
     <AllConteinerBigTable width='678px'>
-      <TableHeader>All suppliers</TableHeader>
-      
+      <TableHeader>All suppliers</TableHeader>      
       <AllConteinersTable >
         <Table2  
           key={`table-${data}`}

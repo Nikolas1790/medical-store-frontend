@@ -86,7 +86,7 @@ export const ContextContainer = styled.div`
 ///////////////////////////////////////////////////
 export const TitleContainer = styled.div`
   position: relative;
-  /* width: 335px; */
+
   @media (min-width: 768px) {
     width: 614px;
   }
@@ -97,6 +97,7 @@ export const WhitePill = styled.img`
   right: 20px;
   width: 95px;
   height: 93px;
+
   @media (min-width: 768px) {
     top: -104px;
     width: 179px;
@@ -107,6 +108,7 @@ export const Title = styled.h2`
   font-size: 28px;
   font-weight: 600;
   line-height: 1.2;
+
   @media (min-width: 768px) {
     font-size: 54px;
     font-weight: 600;
@@ -118,7 +120,6 @@ export const TitleSpan = styled.span`
 `
 
 export const FormContainer = styled.div`
-  /* width: 335px; */
   @media (min-width: 768px) {
     width: 323px;
   }
@@ -140,7 +141,6 @@ export const FormFieldConteiner = styled.div`
   position:relative;
   width: 100%;
   height:44px;
-
 `;
 
 export const FormField = styled(Field)`

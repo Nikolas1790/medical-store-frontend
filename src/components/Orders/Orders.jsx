@@ -29,7 +29,6 @@ export default function Orders() {
     <ContentContainer>
       <ContentBlock>
         <UserNameFilter  dataFactory={ordersInf} setFilterName={setFilterName} setCurrentPage={setCurrentPage} />
-
         <div>
           <OrdersAll orders={orders.orders} currentPage={currentPage} />
           <Pagination

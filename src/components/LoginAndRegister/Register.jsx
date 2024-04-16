@@ -56,87 +56,61 @@ export default function Register() {
         <Logo />
         <ContextContainer>
           <TitleContainer>
-          <picture>
-            <source srcSet={`${whiteRoundPill2x} 2x`}  media="(min-resolution: 192dpi)"  />
-            <WhitePill src={whiteRoundPill} alt="logo" />
-          </picture> 
+            <picture>
+              <source srcSet={`${whiteRoundPill2x} 2x`}  media="(min-resolution: 192dpi)"  />
+              <WhitePill src={whiteRoundPill} alt="logo" />
+            </picture> 
             <Title>Your medication, delivered Say goodbye to all <TitleSpan>your healthcare</TitleSpan> worries with us</Title>
           </TitleContainer>
-        <FormContainer>
-        <Formik  initialValues = {initialValues} validationSchema={schema} onSubmit={handleSubmit} >
-          {({ errors, touched }) => (
-            <Form>
-              <FormFields>  
-                <FormConteiner>  
-
-                  <FormFieldConteiner>
-                    <FormField
-                      id="userName" 
-                      name="userName" 
-                      type="userName" 
-                      placeholder="Nik Ovson" 
-                      error={errors.userName && touched.userName ? "true" : "false" } 
-                      paddingleft="65px"
-                      style={{
-                        borderColor: touched.userName && errors.userName ? "red" : 
-                                     touched.userName && !errors.userName ? "green" : "defaultColor",
-                      }}
-                    />
-                      {/* {touched.name && (
-                        errors.name ? (
-                          <TopRightSvg width={20} height={20}>
-                            <use href={`${sprite}#icon-pajamas_error`} />
-                          </TopRightSvg>
-                        ) : (
-                          <TopRightSvg width={20} height={20}>
-                            <use href={`${sprite}#icon-check-ok`} />
-                          </TopRightSvg>
-                        )
-                      )}
-                     {touched.name && !errors.name && <SecureMessage>Name is secure</SecureMessage>}
-                    <ErrorMessageStyled name="name" component='div' /> */}
-                  </FormFieldConteiner>
-                    
-                  <FormFieldConteiner>
-                    <FormField 
-                      id="email" 
-                      name="email" 
-                      type="email" 
-                      placeholder="nik@google.com" 
-                      error={errors.email && touched.email ? "true" : "false" } 
-                      paddingleft="53px"
-                      style={{
-                        borderColor: touched.email && errors.email ? "red" : 
-                                     touched.email && !errors.email ? "green" : "defaultColor",
-                      }}
-                    />
-                      {/* {touched.email && (
-                        errors.email ? (
-                          <TopRightSvg width={20} height={20}>
-                            <use href={`${sprite}#icon-pajamas_error`} />
-                          </TopRightSvg>
-                        ) : (
-                          <TopRightSvg width={20} height={20}>
-                            <use href={`${sprite}#icon-check-ok`} />
-                          </TopRightSvg>
-                        )
-                      )}
-                     {touched.email && !errors.email && <SecureMessage>Email is secure</SecureMessage>}
-                    <ErrorMessageStyled name="email" component='div' /> */}
-                  </FormFieldConteiner>
-          
-                  <FormFieldConteiner>
-                    <FormField 
-                      id="password" 
-                      name="password" 
-                      type={showPassword ? "text" : "password"} 
-                      placeholder="********" 
-                      paddingleft="86px"
-                      style={{
-                        borderColor: touched.password && errors.password ? "red" : 
-                                     touched.password && !errors.password ? "green" : "defaultColor",
-                      }}
-                    />
+          <FormContainer>
+            <Formik  initialValues = {initialValues} validationSchema={schema} onSubmit={handleSubmit} >
+              {({ errors, touched }) => (
+                <Form>
+                  <FormFields>  
+                    <FormConteiner>  
+              
+                      <FormFieldConteiner>
+                        <FormField
+                          id="userName" 
+                          name="userName" 
+                          type="userName" 
+                          placeholder="Nik Ovson" 
+                          error={errors.userName && touched.userName ? "true" : "false" } 
+                          paddingleft="65px"
+                          style={{
+                            borderColor: touched.userName && errors.userName ? "red" : 
+                                         touched.userName && !errors.userName ? "green" : "defaultColor",
+                          }}
+                        />
+                      </FormFieldConteiner>
+                        
+                      <FormFieldConteiner>
+                        <FormField 
+                          id="email" 
+                          name="email" 
+                          type="email" 
+                          placeholder="nik@google.com" 
+                          error={errors.email && touched.email ? "true" : "false" } 
+                          paddingleft="53px"
+                          style={{
+                            borderColor: touched.email && errors.email ? "red" : 
+                                         touched.email && !errors.email ? "green" : "defaultColor",
+                          }}
+                        />
+                      </FormFieldConteiner>
+                        
+                      <FormFieldConteiner>
+                        <FormField 
+                          id="password" 
+                          name="password" 
+                          type={showPassword ? "text" : "password"} 
+                          placeholder="********" 
+                          paddingleft="86px"
+                          style={{
+                            borderColor: touched.password && errors.password ? "red" : 
+                                         touched.password && !errors.password ? "green" : "defaultColor",
+                          }}
+                        />
                         {showPassword ? (
                           <EyeSvg width={18} height={18} onMouseDown={(e) => {
                             e.preventDefault(); 
@@ -152,45 +126,16 @@ export default function Register() {
                             <use href={`${sprite}#icon-eye-off`} />
                           </EyeSvg>
                         )}
-                    {/* {errors.password && touched.password ? (
-                      <TopRightSvg width={20} height={20}>
-                        <use href={`${sprite}#icon-pajamas_error`} />
-                      </TopRightSvg>
-                    ) : !errors.password && touched.password ? (
-                      <TopRightSvg width={20} height={20}>
-                        <use href={`${sprite}#icon-check-ok`} />
-                      </TopRightSvg>
-                    ) : showPassword ? (
-                      <TopRightSvg width={20} height={20} onMouseDown={(e) => {
-                        e.preventDefault();
-                        togglePasswordVisibility();
-                      }}>
-                        <use href={`${sprite}#icon-eye`} />
-                      </TopRightSvg>
-                    ) : (
-                      <TopRightSvg width={20} height={20} onMouseDown={(e) => {
-                        e.preventDefault(); 
-                        togglePasswordVisibility();
-                      }}>
-                        <use href={`${sprite}#icon-eye-off`} />
-                      </TopRightSvg>
-                    )}
-
-                     {touched.password && !errors.password && <SecureMessage>Password is secure</SecureMessage>}
-                    <ErrorMessageStyled name="password" component='div'/> */}
-
-                  </FormFieldConteiner>
-
-                </FormConteiner>     
-                <CustomButton label="Register" />
-              </FormFields>                    
-            </Form>
-          )}
-        </Formik>
-
-
-        <TableContentsNavLink to="/login" >Login</TableContentsNavLink>
-        </FormContainer>
+                      </FormFieldConteiner>
+                            
+                    </FormConteiner>     
+                    <CustomButton label="Register" />
+                  </FormFields>                    
+                </Form>
+              )}
+            </Formik>
+            <TableContentsNavLink to="/login" >Login</TableContentsNavLink>
+          </FormContainer>
         </ContextContainer>
       </LoginContainer>
     </Container>

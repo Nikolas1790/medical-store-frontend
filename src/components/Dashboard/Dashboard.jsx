@@ -14,7 +14,6 @@ export default function Dashboard() {
           <DashboardRecentCustomers />
           <DashboardIncomeExpenses />
         </TableConteiner>
-
       </ContentBlock>
     </ContentContainer>
   );

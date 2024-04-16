@@ -157,7 +157,6 @@ const pharmacySlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-
   },
 });
 export const { resetStatusOperation } = pharmacySlice.actions;

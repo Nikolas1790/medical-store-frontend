@@ -57,7 +57,6 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
   });  
 
   const handleCloseModal = useCallback(() => {
-    // console.log("Before reset", {values: formik.values, touched: formik.touched, errors: formik.errors});
     setTimeout(() => {
       formik.resetForm({
         values: initialValues,
@@ -97,7 +96,6 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
     const { name, value } = e.target;
     const trimmedValue = typeof value === 'string' ? value.trim() : value;
     formik.setFieldValue(name, trimmedValue);
-    // formik.setFieldTouched(name, true);
   };
 
   const handleNumberChange = (e) => {
@@ -123,71 +121,71 @@ export default function SuppliesModals({ closeModals, isUpdate, existingSupplier
       <div>
         <form onSubmit={formik.handleSubmit}>
           <InputConteiner>
-              <Input
-                name="name"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={handleBlur} 
-                value={formik.values.name}
-                placeholder="Suppliers Info"
-                haserror={formik.touched.name && formik.errors.name}
+            <Input
+              name="name"
+              type="text"
+              onChange={handleInputChange}
+              onBlur={handleBlur} 
+              value={formik.values.name}
+              placeholder="Suppliers Info"
+              haserror={formik.touched.name && formik.errors.name}
+            />
+            <Input
+              name="address"
+              type="text"
+              onChange={handleInputChange}
+              onBlur={handleBlur} 
+              value={formik.values.address}
+              placeholder="Address"
+              haserror={formik.touched.address && formik.errors.address}
+            />
+            <Input
+              name="suppliers"
+              type="text"
+              onChange={handleInputChange}
+              onBlur={handleBlur} 
+              value={formik.values.suppliers}
+              placeholder="Company"
+              haserror={formik.touched.suppliers && formik.errors.suppliers}
+            />
+            <DatePickerContainer>
+              <StyledDatePicker
+                ref={datePickerRef}
+                selected={formik.values.date}
+                onChange={(date) => formik.setFieldValue('date', date)}
+                dateFormat="MMMM d, yyyy"
+                placeholderText="Delivery date"
+                haserror={formik.touched.date && formik.errors.date}
+                name="date"
+                type="date"
+                onBlur={formik.handleBlur} 
               />
-              <Input
-                name="address"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={handleBlur} 
-                value={formik.values.address}
-                placeholder="Address"
-                haserror={formik.touched.address && formik.errors.address}
-              />
-              <Input
-                name="suppliers"
-                type="text"
-                onChange={handleInputChange}
-                onBlur={handleBlur} 
-                value={formik.values.suppliers}
-                placeholder="Company"
-                haserror={formik.touched.suppliers && formik.errors.suppliers}
-              />
-              <DatePickerContainer>
-                <StyledDatePicker
-                  ref={datePickerRef}
-                  selected={formik.values.date}
-                  onChange={(date) => formik.setFieldValue('date', date)}
-                  dateFormat="MMMM d, yyyy"
-                  placeholderText="Delivery date"
-                  haserror={formik.touched.date && formik.errors.date}
-                  name="date"
-                  type="date"
-                  onBlur={formik.handleBlur} 
-                />
-                <DatePickerSvg onClick={handleCalendarClick} width={16} height={16} >
-                  <use href={`${sprite}#icon-calendar`} />
-                </DatePickerSvg>
-              </DatePickerContainer>
-              <Input
-                name="amount"
-                type="text"
-                onChange={handleNumberChange}
-                onBlur={handleBlur} 
-                value={formik.values.amount}
-                placeholder="Ammount"
-                haserror={formik.touched.amount && formik.errors.amount}
-              /> 
-              <ModalSelector
-                isDropdownOpen={isDropdownOpen}
-                setIsDropdownOpen={setIsDropdownOpen}
-                toggleDropdown={toggleDropdown}
-                selectedCategory={selectedLevels}
-                setSelectedCategory={setSelectedLevels}
-                formik={formik}
-                categories={AVAILABLE_STATUS}
-                hasError={formik.touched.status && formik.errors.status}
-                reservName={ existingSuppliers?.[5] }
-                def="supplies"
-                fieldName="status"
-              />            
+              <DatePickerSvg onClick={handleCalendarClick} width={16} height={16} >
+                <use href={`${sprite}#icon-calendar`} />
+              </DatePickerSvg>
+            </DatePickerContainer>
+            <Input
+              name="amount"
+              type="text"
+              onChange={handleNumberChange}
+              onBlur={handleBlur} 
+              value={formik.values.amount}
+              placeholder="Ammount"
+              haserror={formik.touched.amount && formik.errors.amount}
+            /> 
+            <ModalSelector
+              isDropdownOpen={isDropdownOpen}
+              setIsDropdownOpen={setIsDropdownOpen}
+              toggleDropdown={toggleDropdown}
+              selectedCategory={selectedLevels}
+              setSelectedCategory={setSelectedLevels}
+              formik={formik}
+              categories={AVAILABLE_STATUS}
+              hasError={formik.touched.status && formik.errors.status}
+              reservName={ existingSuppliers?.[5] }
+              def="supplies"
+              fieldName="status"
+            />            
           </InputConteiner>
 
           <BtnConteiner>
