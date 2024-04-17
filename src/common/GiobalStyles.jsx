@@ -99,7 +99,7 @@ html {
 }
 `;
 
-////////////////////// Main conteiner
+// Main conteiner
 export const  ContentContainer = styled.header`
   display: flex;
   align-items: center;
@@ -133,14 +133,13 @@ export const ContentBlock = styled.div`
     width: 1440px;
   }
 `
-//////////////////////////////////////////////////////////////
 
 export const FilterAddConteiner = styled.div`
   display: flex;
   justify-content: space-between; 
   align-items: center; 
   flex-wrap: wrap;
-  gap: 18px; /////////////////////////
+  gap: 18px; 
 
   @media (min-width: 375px) {  
     display: flex;
@@ -164,7 +163,6 @@ export const TableHeader = styled.h2`
     padding: 20px;
   }
 `
-
 export const AllConteinersTable = styled.div`
   display: flex;
   align-items: center;
