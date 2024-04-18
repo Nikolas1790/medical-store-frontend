@@ -18,7 +18,7 @@ const initialValues = {
 };
   
 const schema = Yup.object({
-  email: Yup.string().matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Invalid email address').required('Required'),
+  email: Yup.string().matches(/^\w+([.-]?\w+)*@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Invalid email address').required('Required'),
   password: Yup.string().required('Required').min(7, "Password must be at least 7 characters"),
 });
 
